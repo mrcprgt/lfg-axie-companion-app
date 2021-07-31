@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/person"
+        android:title="Stats"
+        android:icon="@drawable/ic_baseline_person_24"
+        />
+    <item
+        android:id="@+id/home"
+        android:title="SLP Tracker"
+        android:icon="@drawable/ic_baseline_assessment_24"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="PvP Buddy"
+        android:icon="@drawable/ic_baseline_construction_24"
+        />
+</menu>
