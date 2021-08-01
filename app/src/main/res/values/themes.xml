@@ -55,4 +55,22 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <style name="LFGProgressBar">
+        <item name="color">@color/colorPrimary</item>
+    </style>
+
+    <style name="LFG.AlertDialog.Wrap" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="cornerFamily">rounded</item>
+        <item name="dialogCornerRadius">8dp</item>
+        <item name="textAppearanceButton">@style/LFGCardText</item>
+        <item name="android:theme">@style/Theme.LFGAxieCompanionApp</item>
+    </style>
+
+    <style name="LFG.AlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="cornerFamily">rounded</item>
+        <item name="dialogCornerRadius">8dp</item>
+        <item name="textAppearanceButton">@style/LFGCardText</item>
+        <item name="android:theme">@style/Theme.LFGAxieCompanionApp</item>
+    </style>
+
 </resources>

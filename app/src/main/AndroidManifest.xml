@@ -3,6 +3,7 @@
     package="com.mrcprgt.lfgaxiecompanionapp">
 
     <application
+        android:name=".LFGApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LFGAxieCompanionApp.NoActionBar">
         <activity
-            android:name=".LoginActivity"
+            android:name=".app.presentation.login.LoginActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
