@@ -1,91 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivIcon"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/logo"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputRonin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        style="@style/LFGTextField"
-        android:layout_marginEnd="36dp"
-        android:hint="Ronin Address"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivIcon">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputRonin"
+            style="@style/LFGTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="36dp"
+            android:hint="Ronin Address(0x...)"
+            app:counterEnabled="true"
+            app:counterMaxLength="42"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivIcon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/LFGCardText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="42"
+                android:maxLines="2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llShares"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="36dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputRonin">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputManagerShare"
+                style="@style/LFGTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:hint="Manager Share"
+                app:counterMaxLength="42"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputRonin">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/LFGCardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputScholarShare"
+                style="@style/LFGTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:hint="Scholar Share">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/LFGCardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             />
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llShares" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputManagerShare"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        style="@style/LFGTextField"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:hint="Manager Share"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@id/inputRonin">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputScholarShare"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
-        android:hint="Scholar Share"
-        app:layout_constraintEnd_toEndOf="parent"
-        style="@style/LFGTextField"
-
-        app:layout_constraintTop_toBottomOf="@id/inputRonin">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
