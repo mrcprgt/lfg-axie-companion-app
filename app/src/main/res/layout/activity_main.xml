@@ -8,24 +8,76 @@
     tools:context=".app.presentation.login.LoginActivity">
 
     <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tabBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabBottom"
         android:layout_width="match_parent"
-        android:background="@color/colorSecondary"
-        android:elevation="8dp"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tableField2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIconTint="@color/white"
+        app:tabGravity="fill"
+        app:tabTextAppearance="@style/LFGTabText">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:text="Stats" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:icon="@drawable/icon_slp___copy"
+            android:text="SLP" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:icon="@drawable/ic_baseline_construction_24"
+            android:text="PvP" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:icon="@drawable/ic_baseline_show_chart_24"
+            android:text="Gains" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:icon="@drawable/ic_baseline_assessment_24"
+            android:text="Info" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:icon="@drawable/buff_attack_up"
+            android:text="Buffs" />
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/bottomNav"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:background="@color/colorSecondary"-->
+    <!--        android:elevation="8dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:menu="@menu/bottom_nav"-->
+    <!--        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

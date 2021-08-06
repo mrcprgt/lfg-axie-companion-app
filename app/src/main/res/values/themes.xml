@@ -73,4 +73,10 @@
         <item name="android:theme">@style/Theme.LFGAxieCompanionApp</item>
     </style>
 
+    <style name="LFGTabText">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="android:textSize">12dp</item>
+    </style>
 </resources>

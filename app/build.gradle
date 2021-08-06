@@ -94,4 +94,13 @@ dependencies {
     //FlexiAdapter
     implementation('eu.davidea:flexible-adapter:5.1.0')
     implementation('eu.davidea:flexible-adapter-ui:1.0.0')
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+
+    def nav_version = "2.3.5"
+
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }

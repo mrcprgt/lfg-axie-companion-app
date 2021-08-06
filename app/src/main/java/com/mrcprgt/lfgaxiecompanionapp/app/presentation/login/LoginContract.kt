@@ -7,9 +7,13 @@ interface LoginContract {
     interface View : BaseView {
         fun closeApp()
         fun navigateToHome()
+
+        fun showErrorRonin(message: String)
+        fun showErrorManagerShare(message: String)
+        fun showErrorScholarShare(message: String)
     }
 
     interface Presenter : BasePresenter<View> {
-        fun onLoginClicked(ronin: String, managerShare: Int, scholarShare: Int)
+        fun onLoginClicked(ronin: String, managerShare: Int?, scholarShare: Int?)
     }
 }

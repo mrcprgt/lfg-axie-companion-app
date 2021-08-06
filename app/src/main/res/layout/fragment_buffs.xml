@@ -33,6 +33,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:shrinkColumns="2"
+            android:nestedScrollingEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Increases the next \nAttack by 20%."
+                    android:text="Increases the next Attack by 20%."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -89,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Increases Morale by 20%\nfor the next round."
+                    android:text="Increases Morale by 20% for the next round."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -117,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Increases Speed by 20%\nfor the next round."
+                    android:text="Increases Speed by 20% for the next round."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -142,10 +144,10 @@
                     android:text="Aroma" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Target priority changes to affected Axie\nfor the next round."
+                    android:text="Target priority changes to affected Axie for the next round."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -173,7 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Decreases the next Attack by 20%\nStackable."
+                    android:text="Decreases the next Attack by 20% Stackable."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -257,7 +259,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Shield takes double the damage for\nthe next incoming attack."
+                    android:text="Shield takes double the damage for the next incoming attack."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -284,7 +286,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Affected Axie can't land critcal hits\nfor the next round."
+                    android:text="Affected Axie can't land critcal hits for the next round."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -311,7 +313,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Next hit against affected Axie is\ncritical."
+                    android:text="Next hit against affected Axie is critical."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -339,7 +341,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Decreases Morale by 20% for the next\nround. Stackable."
+                    android:text="Decreases Morale by 20% for the next round. Stackable."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -367,7 +369,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Until removal, affected Axie loses 2 HP\nfor every action. Stackable."
+                    android:text="Until removal, affected Axie loses 2 HP for every action. Stackable."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -395,7 +397,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Next incoming attack ignores\nshields."
+                    android:text="Next incoming attack ignores shields."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -422,7 +424,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Decreases speed by 20% for\nthe next round. Stackable."
+                    android:text="Decreases speed by 20% for the next round. Stackable."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -449,7 +451,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Affected Axie loses target priority\nfor the next round."
+                    android:text="Affected Axie loses target priority for the next round."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>
@@ -476,7 +478,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Next attack misses\nor Next incoming attack\nignores shields."
+                    android:text="Next attack misses or Next incoming attack ignores shields."
                     android:textColor="@color/white"
                     android:textSize="12dp" />
             </TableRow>

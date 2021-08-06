@@ -3,16 +3,12 @@ package com.mrcprgt.lfgaxiecompanionapp.tools.mvp.base
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.SimpleLoadingDialog
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.SimpleLoadingMessageDialog
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.showDialogAllowingStateLoss
 import dagger.android.support.DaggerDialogFragment
 
-/**
- * Created by edwinmartinez on July 01, 2019
- */
 abstract class BaseDialogFragment : DaggerDialogFragment() {
 
     private var simpleLoadingDialog : SimpleLoadingDialog? = null
