@@ -11,6 +11,8 @@ interface LoginContract {
         fun showErrorRonin(message: String)
         fun showErrorManagerShare(message: String)
         fun showErrorScholarShare(message: String)
+
+        fun clearErrors()
     }
 
     interface Presenter : BasePresenter<View> {

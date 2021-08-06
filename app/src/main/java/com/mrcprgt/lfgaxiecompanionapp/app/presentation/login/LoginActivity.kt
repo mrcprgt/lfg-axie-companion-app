@@ -46,10 +46,23 @@ class LoginActivity : LFGActivity(), LoginContract.View {
     }
 
     override fun showErrorManagerShare(message: String) {
-        binding.inputManagerShare.isErrorEnabled = false
+        binding.inputManagerShare.isErrorEnabled = true
+        binding.inputManagerShare.error = message
+
     }
 
     override fun showErrorScholarShare(message: String) {
+        binding.inputScholarShare.isErrorEnabled = true
+        binding.inputScholarShare.error = message
+    }
+
+    override fun clearErrors() {
         binding.inputScholarShare.isErrorEnabled = false
+        binding.inputScholarShare.error = ""
+        binding.inputRonin.isErrorEnabled = false
+        binding.inputRonin.error = ""
+        binding.inputManagerShare.isErrorEnabled = false
+        binding.inputManagerShare.error = ""
+
     }
 }

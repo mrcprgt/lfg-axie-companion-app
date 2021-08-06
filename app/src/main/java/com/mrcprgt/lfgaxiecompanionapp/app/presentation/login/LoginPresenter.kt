@@ -28,9 +28,9 @@ class LoginPresenter @Inject constructor(
 
     override fun onLoginClicked(ronin: String, managerShare: Int?, scholarShare: Int?) {
         scopeProvider.provide().launch {
+            view?.clearErrors()
             validateRonin(ronin)
-            validateScholarShare(scholarShare)
-            validateManagerShare(managerShare)
+            validateShares(managerShare,scholarShare)
 
             if (validManagerShare && validScholarShare && validRonin) {
                 view?.showProgressDialog("Please wait", "Saving credentials")
@@ -48,7 +48,7 @@ class LoginPresenter @Inject constructor(
             ronin.isNullOrBlank() -> {
                 view?.showErrorRonin("Please enter a ronin address.")
             }
-            ronin.length < 42 -> {
+            ronin.length > 42 -> {
                 view?.showErrorRonin("Too long for a ronin address.")
             }
             ronin.length < 42 -> {
@@ -60,19 +60,25 @@ class LoginPresenter @Inject constructor(
         }
     }
 
-    private fun validateScholarShare(scholarShare: Int?) {
-        if (scholarShare == null) {
-            view?.showErrorScholarShare("Please enter your share.")
-        } else {
-            validScholarShare = true
-        }
-    }
+    private fun validateShares(managerShare: Int?, scholarShare: Int?){
+        when{
+            managerShare == null ->{
+                view?.showErrorManagerShare("Please enter manager's share.")
+            }
+            scholarShare == null ->{
+                view?.showErrorScholarShare("Please enter your share.")
+            }
+            managerShare == null && scholarShare == null ->{
 
-    private fun validateManagerShare(managerShare: Int?) {
-        if (managerShare == null) {
-            view?.showErrorManagerShare("Please enter manager's share.")
-        } else {
-            validManagerShare = true
+            }
+            managerShare!! + scholarShare!! != 100 -> {
+                view?.showErrorManagerShare("Please total both values to 100.")
+                view?.showErrorScholarShare("Please total both values to 100.")
+            }
+            else -> {
+                validScholarShare=true
+                validManagerShare=true
+            }
         }
     }
 }
