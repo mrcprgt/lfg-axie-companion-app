@@ -9,11 +9,11 @@ interface StatsContract {
     interface View: BaseView {
         fun showSlpCard(dailyAverage: Int, totalSlp: Int, managerShare: Int, scholarShare: Int)
         fun showClaimsCard(lastClaimedAmount: Int, lastClaimedAt: Date, nextClaimDate: Date, nextClaimIn: Int)
-        fun showArenaCard(mmr: Int, wins: Int, draw: Int, lose: Int, winRate: Int, arenaRank: Int)
-
+        fun showArenaCard(mmr: Int, wins: Int, draw: Int, lose: Int, winRate: Double, arenaRank: Int)
     }
 
     interface Presenter: BasePresenter<View>{
+        fun onViewCreated()
         fun onRefreshClicked()
     }
 }

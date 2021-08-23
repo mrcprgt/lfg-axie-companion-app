@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentStatsBinding
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.formatToMMDDYYYY
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
 import java.util.*
 import javax.inject.Inject
@@ -31,6 +32,8 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.onViewReady(this)
+
+        presenter.onViewCreated()
     }
 
     override fun onDestroyView() {
@@ -58,8 +61,8 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         nextClaimIn: Int
     ) {
         binding.tvLastClaimedAmount.text = lastClaimedAmount.toString()
-        binding.tvLastClaimedAt.text = lastClaimedAt.toString()
-        binding.tvNextClaimDate.text = nextClaimDate.toString()
+        binding.tvLastClaimedAt.text = lastClaimedAt.formatToMMDDYYYY()
+        binding.tvNextClaimDate.text = nextClaimDate.formatToMMDDYYYY()
         binding.tvNextClaimInDays.text = "$nextClaimIn day(s)"
     }
 
@@ -68,7 +71,7 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         wins: Int,
         draw: Int,
         lose: Int,
-        winRate: Int,
+        winRate: Double,
         arenaRank: Int
     ) {
         binding.tvMmr.text = mmr.toString()

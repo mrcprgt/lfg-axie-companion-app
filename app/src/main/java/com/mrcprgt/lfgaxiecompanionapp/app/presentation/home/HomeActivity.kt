@@ -59,6 +59,22 @@ class HomeActivity : LFGActivity(), HomeContract.View {
                     tab.text = "Buffs"
                     tab.setIcon(R.drawable.buff_attack_up)
                 }
+                4 -> {
+                    tab.text = "Buffs"
+                    tab.setIcon(R.drawable.buff_attack_up)
+                }
+                5 -> {
+                    tab.text = "Energy"
+                    tab.setIcon(R.drawable.buff_attack_up)
+                }
+                6 -> {
+                    tab.text = "Cards"
+                    tab.setIcon(R.drawable.buff_attack_up)
+                }
+                7 -> {
+                    tab.text = "Calculator"
+                    tab.setIcon(R.drawable.buff_attack_up)
+                }
             }
 
         }

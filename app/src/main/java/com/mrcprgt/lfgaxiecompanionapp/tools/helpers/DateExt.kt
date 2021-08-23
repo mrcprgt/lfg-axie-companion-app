@@ -2,13 +2,43 @@ package com.mrcprgt.lfgaxiecompanionapp.tools.helpers
 
 import android.annotation.SuppressLint
 import android.text.TextUtils
+import android.util.Log
 import org.joda.time.DateTime
+import org.joda.time.Days
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
 import org.joda.time.format.DateTimeFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
+
+fun epochToDate(s: String): Date {
+    return try {
+//        val sdf = SimpleDateFormat("MM/dd/yyyy 'at' hh:mm aaa", Locale.getDefault())
+        val netDate = Date(s.toLong() * 1000)
+
+        Log.e("Epoch to date", netDate.toString())
+        netDate
+    } catch (e: Exception) {
+        throw e
+    }
+}
+
+fun daysDifference(d1: Date, d2: Date): Int {
+    val diff = d2.time - d1.time
+
+//    val difer = Days.daysBetween(d2.time, d1.time)
+
+    Log.e("DATE2", diff.toString())
+//    val diffInDays = diff - (24 * 60 * 60 * 100)
+    val diffInDays = d2.time - d1.time
+    val value = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)
+    Log.e("Diff in days", value.toString())
+    return value.toInt()
+
+
+}
 
 fun formatMinutes(minutes: Int): Int {
     return if (minutes < 30) 0 else 30
@@ -100,7 +130,9 @@ fun Double.toCurrencyFormat(): String {
     val currencyFormat by lazy { DecimalFormat("###,###,###,##0.00") }
 
     return "₱ ${currencyFormat.format(this)}"
-}fun String.capitalizeEachWord(): String {
+}
+
+fun String.capitalizeEachWord(): String {
     return this.split(" ")
         .joinToString(" ") { s ->
             s.toLowerCase().capitalize()

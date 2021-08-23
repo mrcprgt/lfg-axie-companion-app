@@ -1,0 +1,48 @@
+package com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata
+
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonDeserializationContext
+import com.google.gson.JsonDeserializer
+import com.google.gson.JsonElement
+import java.lang.reflect.Type
+
+class ScholarDataDeserializer(
+    private val withParentObject: Boolean = true
+) : JsonDeserializer<RemoteScholarData> {
+    override fun deserialize(json: JsonElement, typeOfT: Type?, context: JsonDeserializationContext?): RemoteScholarData {
+        val jsonObject = json.asJsonObject
+
+        val gson = GsonBuilder()
+            .setPrettyPrinting()
+            .create()
+
+        return gson.fromJson(jsonObject, RemoteScholarData::class.java)
+    }
+}
+class RemoteProfileDeserializer(
+    private val withParentObject: Boolean = true
+) : JsonDeserializer<RemoteProfile> {
+    override fun deserialize(json: JsonElement, typeOfT: Type?, context: JsonDeserializationContext?): RemoteProfile {
+        val jsonObject = json.asJsonObject
+
+        val gson = GsonBuilder()
+            .setPrettyPrinting()
+            .create()
+
+        return gson.fromJson(jsonObject, RemoteProfile::class.java)
+    }
+}
+
+class RemotePvpProfileDeserializer(
+    private val withParentObject: Boolean = true
+) : JsonDeserializer<RemotePvPProfile> {
+    override fun deserialize(json: JsonElement, typeOfT: Type?, context: JsonDeserializationContext?): RemotePvPProfile {
+        val jsonObject = json.asJsonObject
+
+        val gson = GsonBuilder()
+            .setPrettyPrinting()
+            .create()
+
+        return gson.fromJson(jsonObject, RemotePvPProfile::class.java)
+    }
+}

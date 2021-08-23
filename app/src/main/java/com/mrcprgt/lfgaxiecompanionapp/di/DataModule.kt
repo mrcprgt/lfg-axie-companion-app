@@ -2,10 +2,9 @@ package com.mrcprgt.lfgaxiecompanionapp.di
 
 import android.content.Context
 import com.mrcprgt.lfgaxiecompanionapp.app.data.LFGDatabase
-import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.FakeScholarDataRepository
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
+import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataRepository
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.AuthenticationRepository
-import com.mrcprgt.lfgaxiecompanionapp.app.data.user.FakeAuthenticationRepository
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.UserDao
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.AuthenticationGateway
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.ScholarDataGateway
@@ -19,12 +18,12 @@ abstract class DataModule {
 
     @Binds
     abstract fun bindUserGateway(
-        repo: FakeAuthenticationRepository
+        repo: AuthenticationRepository
     ): AuthenticationGateway
 
     @Binds
     abstract fun bindScholarDataGateway(
-        repo: FakeScholarDataRepository
+        repo: ScholarDataRepository
     ): ScholarDataGateway
 
     companion object {

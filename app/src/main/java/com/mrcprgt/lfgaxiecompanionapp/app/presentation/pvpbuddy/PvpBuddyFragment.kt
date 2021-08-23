@@ -1,18 +1,11 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.pvpbuddy
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import androidx.core.widget.addTextChangedListener
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
-import com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord.SlpRecordFragment
-import com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord.SlpRecordPresenter
 import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentPvpBuddyBinding
-import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentSlpTrackerBinding
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
 import javax.inject.Inject
 
@@ -37,45 +30,26 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.onViewReady(this)
+
+        binding.parent.requestDisallowInterceptTouchEvent(true)
         setupListeners()
     }
 
     private fun setupListeners() {
-        binding.inputEnergy.editText?.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+        binding.btnSave.setOnClickWithDelay {
+            presenter.onSavePressed(
+                binding.inputEnergy.editText!!.text.toString().toIntOrNull() ?: 0,
+                binding.inputSlpGain.editText!!.text.toString().toIntOrNull() ?: 0
+            )
+        }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(e: Editable) {
-                binding.inputEnergy.editText?.removeTextChangedListener(this)
-                e.replace(0, e.length, e.toString())
-                binding.inputEnergy.editText?.addTextChangedListener(this)
-                presenter.onEnergyChanged(e.toString().toInt())
-            }
-        })
-        binding.inputSlpGain.editText?.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(e: Editable) {
-                binding.inputSlpGain.editText?.removeTextChangedListener(this)
-                e.replace(0, e.length, e.toString())
-                binding.inputSlpGain.editText?.addTextChangedListener(this)
-                presenter.onSlpGainChanged(e.toString().toInt())
-            }
-        })
-        binding.btnAddWin.setOnClickListener {
+        binding.btnAddWin.setOnClickWithDelay {
             presenter.onWinsPressed()
         }
-        binding.btnAddDraw.setOnClickListener {
+        binding.btnAddDraw.setOnClickWithDelay {
             presenter.onDrawsPressed()
         }
-        binding.btnAddLose.setOnClickListener {
+        binding.btnAddLose.setOnClickWithDelay {
             presenter.onLosesPressed()
         }
     }
@@ -107,10 +81,6 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
 
     override fun updateTotalSlpEarned(totalSlp: Int) {
         binding.tvTotalSlpEarned.text = totalSlp.toString()
-    }
-
-    override fun clearRecord() {
-        TODO("Not yet implemented")
     }
 
     companion object {

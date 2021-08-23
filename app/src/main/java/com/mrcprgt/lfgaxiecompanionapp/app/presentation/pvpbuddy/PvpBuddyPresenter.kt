@@ -33,52 +33,51 @@ class PvpBuddyPresenter @Inject constructor(private val scopeProvider: Coroutine
         this.view = null
     }
 
-    override fun onEnergyChanged(energy: Int) {
+
+    override fun onSavePressed(energy: Int, slpGain: Int) {
         this.energy = energy
         view?.updateEnergy(this.energy)
-    }
-
-    override fun onSlpGainChanged(slpGain: Int) {
         this.slpGain = slpGain
         view?.updateSlpGain(this.slpGain)
+
+        view?.showToast("Values have been saved! :)")
     }
 
     override fun onWinsPressed() {
-        if(this.energy > 0){
+        if (this.energy > 0) {
             this.wins += 1
             this.energy -= 1
             this.totalSlpEarned += this.slpGain
             view?.updateWins(this.wins)
             view?.updateEnergy(this.energy)
             view?.updateTotalSlpEarned(this.totalSlpEarned)
-        }else{
+        } else {
             view?.showToast("You are out of energy!")
         }
 
     }
 
     override fun onDrawsPressed() {
-        if(this.energy > 0){
+        if (this.energy > 0) {
             this.draws += 1
             this.energy -= 1
             this.totalSlpEarned += (this.slpGain / 2)
-            view?.updateDraws(this.wins)
+            view?.updateDraws(this.draws)
             view?.updateEnergy(this.energy)
             view?.updateTotalSlpEarned(this.totalSlpEarned)
-        }else{
+        } else {
             view?.showToast("You are out of energy!")
         }
     }
 
     override fun onLosesPressed() {
-        if(this.energy > 0){
+        if (this.energy > 0) {
             this.loses += 1
             this.energy -= 1
-            view?.updateLoses(this.wins)
+            view?.updateLoses(this.loses)
             view?.updateEnergy(this.energy)
-        }else{
+        } else {
             view?.showToast("You are out of energy!")
         }
     }
-
 }

@@ -14,7 +14,7 @@ import com.mrcprgt.lfgaxiecompanionapp.app.data.user.LocalUser
         LocalUser::class,
         LocalScholarData::class,
     ],
-    version = 2,
+    version = 4,
     exportSchema = false
 )
 

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.mrcprgt.lfgaxiecompanionapp"
-        minSdk 23
+        minSdk 21
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -96,7 +96,9 @@ dependencies {
     implementation('eu.davidea:flexible-adapter-ui:1.0.0')
 
     //Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.4'
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
 
     def nav_version = "2.3.5"
 

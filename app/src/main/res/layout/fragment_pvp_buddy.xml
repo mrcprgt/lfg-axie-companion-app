@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary">
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:focusable="false"
+    android:focusedByDefault="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginBottom="16dp"
         android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorPrimary">
 
         <com.google.android.material.textview.MaterialTextView
@@ -29,7 +31,6 @@
             android:id="@+id/inputEnergy"
             style="@style/LFGTextField"
             android:layout_width="0dp"
-            app:placeholderText="0-2"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginEnd="16dp"
@@ -37,20 +38,20 @@
             app:layout_constraintEnd_toStartOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPvpBuddyLabel"
+            app:placeholderText="0-20"
             app:startIconDrawable="@drawable/ic_baseline_flash_on_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="number"
-                android:maxLength="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputSlpGain"
             style="@style/LFGTextField"
-            app:placeholderText="0-12"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -59,13 +60,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@id/tvPvpBuddyLabel"
+            app:placeholderText="0-12"
             app:startIconDrawable="@drawable/ic_baseline_show_chart_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="number"
-                android:maxLength="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,6 +143,24 @@
             app:layout_constraintStart_toStartOf="@id/tvDrawsLabel"
             app:layout_constraintTop_toBottomOf="@id/tvDrawsLabel" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_baseline_save_24"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvPvpBuddyLabel"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvLoses"
             android:layout_width="wrap_content"
@@ -209,125 +229,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnAddLose" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvEnergyCounterLabel"
-            style="@style/LFGPageHeader"
-            android:textSize="24dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
-            android:text="Match Energy Counter"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTotalSlpEarned" />
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvMyEnergy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginEnd="72dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="0"
-            android:textColor="@color/white"
-            android:textSize="72dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnergyCounterLabel" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvMyEnergyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Me"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="@id/tvMyEnergy"
-            app:layout_constraintStart_toStartOf="@id/tvMyEnergy"
-            app:layout_constraintTop_toBottomOf="@id/tvMyEnergy" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvEnemyEnergy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="0"
-            android:textColor="@color/white"
-            android:textSize="72dp"
-            app:layout_constraintStart_toEndOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tvEnergyCounterLabel" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvEnemyEnergyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Enemy"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            app:layout_constraintEnd_toEndOf="@id/tvEnemyEnergy"
-            app:layout_constraintStart_toStartOf="@id/tvEnemyEnergy"
-            app:layout_constraintTop_toBottomOf="@id/tvEnemyEnergy" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddMyEnergy"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Add"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMyEnergyLabel" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnClearMatchEnergy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Clear"
-            app:layout_constraintStart_toEndOf="@id/tvEnergyCounterLabel"
-            app:layout_constraintTop_toBottomOf="@id/ivSlp"/>
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMinusMyEnergy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Minus"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tvMyEnergyLabel" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddMyOpponentsEnergy"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Add"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnemyEnergyLabel" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMinusOpponentEnergy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Minus"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tvMyEnergyLabel" />
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
@@ -336,8 +237,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintGuide_percent="0.5"
             app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.25"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.75"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.core.widget.NestedScrollView>

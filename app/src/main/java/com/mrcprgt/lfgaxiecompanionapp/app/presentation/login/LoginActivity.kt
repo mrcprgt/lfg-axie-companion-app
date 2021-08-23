@@ -27,6 +27,7 @@ class LoginActivity : LFGActivity(), LoginContract.View {
                 binding.inputRonin.editText!!.text.toString(),
                 binding.inputManagerShare.editText!!.text.toString().toIntOrNull(),
                 binding.inputManagerShare.editText!!.text.toString().toIntOrNull(),
+                binding.inputInventorySLP.editText!!.text.toString().toIntOrNull(),
             )
         }
     }
@@ -54,6 +55,11 @@ class LoginActivity : LFGActivity(), LoginContract.View {
     override fun showErrorScholarShare(message: String) {
         binding.inputScholarShare.isErrorEnabled = true
         binding.inputScholarShare.error = message
+    }
+
+    override fun showErrorInventorySLP(message: String) {
+        binding.inputInventorySLP.isErrorEnabled = true
+        binding.inputInventorySLP.error = message
     }
 
     override fun clearErrors() {

@@ -38,5 +38,5 @@ data class LocalScholarData(
     val winRate: Int,
 
     @ColumnInfo(name = "ign")
-    val ign: Int,
+    val ign: String,
 )

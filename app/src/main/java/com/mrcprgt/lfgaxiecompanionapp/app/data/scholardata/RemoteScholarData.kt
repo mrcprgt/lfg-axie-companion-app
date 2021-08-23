@@ -40,7 +40,7 @@ data class RemoteScholarData(
     val winRate: String,
 
     @SerializedName("ign")
-    val ign: String,
+    val ign: String?,
 
     @SerializedName("game_stats_success")
     val gameStatsSuccess: String,

@@ -15,5 +15,8 @@ data class LocalUser(
     val managerShare: Int,
 
     @ColumnInfo(name = "scholar_share")
-    val scholarShare: Int
+    val scholarShare: Int,
+
+    @ColumnInfo(name = "initial_slp")
+    val initialSlp: Int
 )

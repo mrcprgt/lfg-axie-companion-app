@@ -1,6 +1,5 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.pvpbuddy
 
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.BasePresenter
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.BaseView
 
@@ -15,15 +14,14 @@ interface PvpBuddyContract {
 
         fun updateTotalSlpEarned(totalSlp: Int)
 
-        fun clearRecord()
 
     }
 
     interface Presenter: BasePresenter<View>{
-        fun onEnergyChanged(energy: Int)
-        fun onSlpGainChanged(slpGain: Int)
+        fun onSavePressed(energy: Int, slpGain: Int)
         fun onWinsPressed()
         fun onDrawsPressed()
         fun onLosesPressed()
+
     }
 }

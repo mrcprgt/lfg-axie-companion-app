@@ -1,9 +1,10 @@
 package com.mrcprgt.lfgaxiecompanionapp.tools.interactor
 
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class DefaultInteractorHandler : InteractorHandler {
+class DefaultInteractorHandler @Inject constructor() : InteractorHandler {
     override fun getExceptionHandler(): InteractorHandler.ExceptionHandler {
         return object : InteractorHandler.ExceptionHandler {
             override suspend fun onError(callerName: String, exception: Exception): Exception {

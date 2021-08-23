@@ -14,7 +14,8 @@ class FakeAuthenticationRepository @Inject constructor() : AuthenticationGateway
         return User(
             "0xasdadadasdasdada",
             50,
-            50
+            50,
+            1
         )
     }
 }
