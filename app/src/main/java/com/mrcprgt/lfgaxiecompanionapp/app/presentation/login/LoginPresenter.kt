@@ -95,11 +95,12 @@ class LoginPresenter @Inject constructor(
             scholarShare == null -> {
                 view?.showErrorScholarShare("Please enter your share.")
             }
-            managerShare == null && scholarShare == null -> {
-                view?.showErrorManagerShare("Please enter manager's share.")
-                view?.showErrorScholarShare("Please enter your share.")
-            }
-            managerShare!! + scholarShare!! != 100 -> {
+//            managerShare == null && scholarShare == null -> {
+//                view?.showErrorManagerShare("Please enter manager's share.")
+//                view?.showErrorScholarShare("Please enter your share.")
+//            }
+            managerShare + scholarShare != 100 -> {
+                view?.showToast((managerShare + scholarShare).toString())
                 view?.showErrorManagerShare("Please total both values to 100.")
                 view?.showErrorScholarShare("Please total both values to 100.")
             }

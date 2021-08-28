@@ -62,60 +62,73 @@ class StatsPresenter @Inject constructor(
                 } catch (e: LFGException) {
                     view?.showErrorDialog(
                         "Something went wrong",
-                        e.message ?: "Failed to fetch updated scholar data.",
+                        e.localizedMessage,
                         onOkClicked = {
                             scopeProvider.provide().launch {
                                 fetchScholarData()
                             }
                         },
-                        onDeclineClicked = {})
+                        onDeclineClicked = {
+                            view?.hideProgressDialog()
+                        })
                 }
             }
         }
     }
 
-    private fun showData() {
-        scopeProvider.provide().launch {
-            try {
+    private suspend fun showData() {
+        return suspendCancellableCoroutine {
+            scopeProvider.provide().launch {
+                try {
 
-                val daysDiff = daysDifference(scholarData?.lastClaimTimeStamp!!, Date())
+                    val daysDiff = daysDifference(scholarData?.lastClaimTimeStamp!!, Date())
 
-                val dailyAverage = scholarData?.inGameSlp!! / daysDiff
+                    val dailyAverage = scholarData?.inGameSlp!! / daysDiff
 
-                view?.showSlpCard(
-                    dailyAverage = dailyAverage,
-                    totalSlp = scholarData?.inGameSlp ?: 0,
-                    managerShare = user?.managerShare!!,
-                    scholarShare = user?.scholarShare!!
-                )
+                    view?.showSlpCard(
+                        dailyAverage = dailyAverage,
+                        totalSlp = scholarData?.inGameSlp ?: 0,
+                        managerShare = user?.managerShare!!,
+                        scholarShare = user?.scholarShare!!
+                    )
 
-                view?.showArenaCard(
-                    mmr = scholarData?.mmr ?: 0,
-                    wins = 0,
-                    draw = 0,
-                    lose = 0,
-                    winRate = scholarData?.winRate ?: 0.0,
-                    arenaRank = scholarData?.arenaRank ?: 0
-                )
+                    view?.showArenaCard(
+                        mmr = scholarData?.mmr ?: 0,
+                        wins = 0,
+                        draw = 0,
+                        lose = 0,
+                        winRate = scholarData?.winRate ?: 0.0,
+                        arenaRank = scholarData?.arenaRank ?: 0
+                    )
 
-                val lastClaim = scholarData?.lastClaimTimeStamp!!
-                val calendar = Calendar.getInstance()
-                calendar.time = lastClaim
-                calendar.add(Calendar.DATE, 14)
-                val nextClaimDate = calendar.time
+                    val lastClaim = scholarData?.lastClaimTimeStamp!!
+                    val calendar = Calendar.getInstance()
+                    calendar.time = lastClaim
+                    calendar.add(Calendar.DATE, 14)
+                    val nextClaimDate = calendar.time
 
-                view?.showClaimsCard(
-                    lastClaimedAmount = scholarData?.lastClaimAmount ?: 0,
-                    lastClaimedAt = scholarData?.lastClaimTimeStamp!!,
-                    nextClaimDate = nextClaimDate,
-                    nextClaimIn = daysDifference(nextClaimDate, Date()).absoluteValue
-                )
-            } catch (e: Exception) {
-                view?.showErrorDialog(
-                    "Something went wrong",
-                    e.message ?: "Failed",
-                    onOkClicked = {},
-                    onDeclineClicked = {})
+                    view?.showClaimsCard(
+                        lastClaimedAmount = scholarData?.lastClaimAmount ?: 0,
+                        lastClaimedAt = scholarData?.lastClaimTimeStamp!!,
+                        nextClaimDate = nextClaimDate,
+                        nextClaimIn = daysDifference(nextClaimDate, Date()).absoluteValue
+                    )
+
+                    it.resume(Unit)
+                } catch (e: Exception) {
+                    view?.hideProgressDialog()
+                    view?.showErrorDialog(
+                        "Something went wrong",
+                        e.message ?: "Failed",
+                        onOkClicked = {
+                            scopeProvider.provide().launch {
+                                showData()
+                            }
+                        },
+                        onDeclineClicked = {
+                            view?.hideProgressDialog()
+                        })
+                }
             }
         }
     }

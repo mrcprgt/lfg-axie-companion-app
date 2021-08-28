@@ -6,19 +6,19 @@ import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.BaseView
 
 interface SlpRecordContract {
     interface View : BaseView {
-        fun showSlpRecords(slpRecords : List<SlpRecord>)
+        fun showSlpRecords(slpRecords: List<SlpRecord>)
         fun showDaily(daily: Int)
         fun showWeekly(weekly: Int)
         fun showMonthly(monthly: Int)
 
-        fun appendList(slpRecords: List<SlpRecord>)
+        fun showCurrentCycle(manager: Int, scholar: Int)
+        fun showLifetimeSlp(manager: Int, scholar: Int)
 
+        fun appendList(slpRecords: List<SlpRecord>)
     }
 
-    interface Presenter : BasePresenter<View>{
-        fun onAddRecordMenuClicked()
+    interface Presenter : BasePresenter<View> {
         fun onAddRecordClicked()
-        fun onLoadMore(lastPosition: Int)
         fun onSyncClicked()
     }
 }

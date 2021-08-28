@@ -9,7 +9,7 @@ data class RemoteProfile(
     @SerializedName("total")
     val total: Int,
 
-    @SerializedName("block_chain_related")
+    @SerializedName("blockchain_related")
     val blockChainRelated: RemoteBlockChainRelated,
 
     @SerializedName("last_claimed_item_at")
@@ -17,7 +17,7 @@ data class RemoteProfile(
 
     ){
     data class RemoteBlockChainRelated(
-        @SerializedName("balance")
+        @SerializedName("checkpoint")
         val lifetimeSlp: Int,
     )
 

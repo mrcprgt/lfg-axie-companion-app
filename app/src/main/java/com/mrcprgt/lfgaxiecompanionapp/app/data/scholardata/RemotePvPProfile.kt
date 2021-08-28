@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class RemotePvPProfile(
     @SerializedName("success")
-    val success: Int,
+    val success: Boolean,
 
     @SerializedName("items")
     val items: List<RemotePvPStatsItem>

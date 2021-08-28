@@ -6,15 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.LocalScholarData
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
+import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecord
+import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecordDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.UserDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.LocalUser
 
 @Database(
     entities = [
         LocalUser::class,
+        LocalSlpRecord::class,
         LocalScholarData::class,
     ],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 
@@ -24,6 +27,7 @@ abstract class LFGDatabase : RoomDatabase() {
     // Get Dao
     abstract fun getUserDao(): UserDao
     abstract fun getScholarDataDao(): ScholarDataDao
+    abstract fun getSlpRecordDao(): LocalSlpRecordDao
 
     companion object {
         private const val DATABASE_NAME = "lfg.db"

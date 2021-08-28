@@ -26,7 +26,7 @@ class LoginActivity : LFGActivity(), LoginContract.View {
             presenter.onLoginClicked(
                 binding.inputRonin.editText!!.text.toString(),
                 binding.inputManagerShare.editText!!.text.toString().toIntOrNull(),
-                binding.inputManagerShare.editText!!.text.toString().toIntOrNull(),
+                binding.inputScholarShare.editText!!.text.toString().toIntOrNull(),
                 binding.inputInventorySLP.editText!!.text.toString().toIntOrNull(),
             )
         }
@@ -69,6 +69,8 @@ class LoginActivity : LFGActivity(), LoginContract.View {
         binding.inputRonin.error = ""
         binding.inputManagerShare.isErrorEnabled = false
         binding.inputManagerShare.error = ""
+        binding.inputInventorySLP.isErrorEnabled = false
+        binding.inputInventorySLP.error = ""
 
     }
 }

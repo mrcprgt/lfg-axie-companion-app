@@ -81,7 +81,7 @@
                 style="@style/LFGCardText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total SLP"
+                android:text="Ingame SLP"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDailyAverageLabel" />
 
@@ -98,7 +98,7 @@
                 android:id="@+id/tvManagerShareLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manager Share (50%)"
+                android:text="Manager Share"
                 style="@style/LFGCardText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTotalSlpLabel" />
@@ -116,7 +116,7 @@
                 android:id="@+id/tvScholarShareLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Scholar Share (50%)"
+                android:text="Scholar Share"
                 style="@style/LFGCardText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvManagerShareLabel" />

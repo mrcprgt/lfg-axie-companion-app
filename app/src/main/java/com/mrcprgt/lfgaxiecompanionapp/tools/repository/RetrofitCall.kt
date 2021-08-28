@@ -21,7 +21,7 @@ class RetrofitCall<T>(proxy: Call<T>) : CallDelegate<T, RetrofitResponse<T>>(pro
                 val errorBody = response.errorBody()
                     ?.string() ?: message
                 RetrofitResponse.Failed(
-                    LFGException("Failed request.")
+                    LFGException(errorBody)
                 )
             }
             callback.onResponse(this@RetrofitCall, Response.success(result))
@@ -31,10 +31,10 @@ class RetrofitCall<T>(proxy: Call<T>) : CallDelegate<T, RetrofitResponse<T>>(pro
             val requestMadeFor = call.request().url().toString()
             val result = if (t is IOException) {
                 RetrofitResponse.Failed(
-                    LFGException("Failed request.")
+                    LFGException(t.localizedMessage)
                 )
             } else {
-                RetrofitResponse.Failed(LFGException("Failed request."))
+                RetrofitResponse.Failed(LFGException(t.message ?: t.localizedMessage))
             }
             callback.onResponse(this@RetrofitCall, Response.success(result))
         }
