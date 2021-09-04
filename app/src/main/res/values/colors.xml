@@ -13,4 +13,11 @@
     <color name="textFieldInactive">#555B86</color>
     <color name="tableField1">#343A60</color>
     <color name="tableField2">#53587D</color>
+    <color name="gray_login_label">#66E2E2E2</color>
+    <color name="gray">#E2E2E2</color>
+    <color name="textfill">#E2E2E2</color>
+    <color name="linecolor">#939393</color>
+    <color name="edit_text_bg">#66888EBC</color>
+    <color name="login_btn_color">#BD181C35</color>
+    <color name="login_btn_label">#61D7F5</color>
 </resources>
