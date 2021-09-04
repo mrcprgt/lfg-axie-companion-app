@@ -115,7 +115,7 @@ class StatsPresenter @Inject constructor(
                     )
 
                     it.resume(Unit)
-                } catch (e: Exception) {
+                } catch (e: LFGException) {
                     view?.hideProgressDialog()
                     view?.showErrorDialog(
                         "Something went wrong",

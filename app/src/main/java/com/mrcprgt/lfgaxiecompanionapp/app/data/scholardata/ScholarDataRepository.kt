@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.ScholarDataGateway
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.ScholarData
+import com.mrcprgt.lfgaxiecompanionapp.tools.LFGException
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.epochToDate
 import com.mrcprgt.lfgaxiecompanionapp.tools.repository.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -54,7 +55,7 @@ class ScholarDataRepository @Inject constructor(
                 .addParam("client_id", ronin)
                 .build()
             val pvp = service.fetchPVP(query).process()
-            ScholarData(
+            val data = ScholarData(
                 scholarAddress = ronin,
                 lastClaimAmount = stats.blockChainRelated.lifetimeSlp,
                 lastClaimTimeStamp = epochToDate(stats.lastClaimTimeStamp.toString()),
@@ -65,13 +66,15 @@ class ScholarDataRepository @Inject constructor(
                 winRate = 0.0,
                 ign = pvp.items[1].name
             )
-        } catch (e: Exception) {
-            throw e
+            dao.save(data.toLocal())
+            data
+        } catch (e: LFGException) {
+            dao.get().toDomain()
         }
     }
 
     override suspend fun get(): ScholarData {
-        TODO("Not yet implemented")
+        return dao.get().toDomain()
     }
 
     override suspend fun save(scholarData: ScholarData) {

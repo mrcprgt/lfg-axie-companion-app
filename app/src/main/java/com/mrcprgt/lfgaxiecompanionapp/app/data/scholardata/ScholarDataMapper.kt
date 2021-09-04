@@ -18,15 +18,27 @@ fun RemoteScholarData.toDomain() = ScholarData(
 )
 
 fun ScholarData.toLocal() = LocalScholarData(
-    this.scholarAddress,
-    "",
-    lastClaimAmount,
-    lastClaimTimeStamp.toString(),
-    0,
-    this.inGameSlp,
-    this.arenaRank,
-    this.mmr,
-    this.totalMatches,
-    this.winRate.toInt(),
-    this.ign
+    ronin = this.scholarAddress,
+    updatedAt = "",
+    lastClaimAmount = lastClaimAmount,
+    lastClaimTimeStamp = lastClaimTimeStamp.time.toString(),
+    totalSlp = 0,
+    inGameSlp = this.inGameSlp,
+    arenaRank = this.arenaRank,
+    mmr = this.mmr,
+    totalMatches = this.totalMatches,
+    winRate = this.winRate.toInt(),
+    ign = this.ign
+)
+
+fun LocalScholarData.toDomain() = ScholarData(
+    scholarAddress = this.ronin,
+    lastClaimAmount = lastClaimAmount,
+    lastClaimTimeStamp = epochToDate(this.lastClaimTimeStamp),
+    inGameSlp = this.inGameSlp,
+    arenaRank = this.arenaRank,
+    mmr = this.mmr,
+    totalMatches = 0,
+    winRate = 0.0,
+    ign = this.ign
 )

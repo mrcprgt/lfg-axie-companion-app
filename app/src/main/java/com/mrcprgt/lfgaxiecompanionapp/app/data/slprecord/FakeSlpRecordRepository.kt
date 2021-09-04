@@ -21,6 +21,10 @@ class FakeSlpRecordRepository @Inject constructor() : SlpRecordGateway {
         }.toList()
     }
 
+    override suspend fun syncInGameSlp(slp: Int) {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getDailyTotals(): Int {
         return 500
     }

@@ -1,4 +1,4 @@
-package com.mrcprgt.lfgaxiecompanionapp.app.domain.usecase.slprecord
+package com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord
 
 import android.annotation.SuppressLint
 import android.view.View

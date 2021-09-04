@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.mrcprgt.lfgaxiecompanionapp.app.data.lfgslprecord.LocalLfgRecord
+import com.mrcprgt.lfgaxiecompanionapp.app.data.lfgslprecord.LocalLfgRecordDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.LocalScholarData
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecord
@@ -16,8 +18,9 @@ import com.mrcprgt.lfgaxiecompanionapp.app.data.user.LocalUser
         LocalUser::class,
         LocalSlpRecord::class,
         LocalScholarData::class,
+        LocalLfgRecord::class,
     ],
-    version = 5,
+    version = 7,
     exportSchema = false
 )
 
@@ -28,6 +31,7 @@ abstract class LFGDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
     abstract fun getScholarDataDao(): ScholarDataDao
     abstract fun getSlpRecordDao(): LocalSlpRecordDao
+    abstract fun getLfgRecordDao(): LocalLfgRecordDao
 
     companion object {
         private const val DATABASE_NAME = "lfg.db"

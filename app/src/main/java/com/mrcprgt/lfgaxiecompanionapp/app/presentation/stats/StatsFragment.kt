@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentStatsBinding
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.formatToMMDDYYYY
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
 import java.util.*
 import javax.inject.Inject
@@ -34,6 +35,10 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         presenter.onViewReady(this)
 
         presenter.onViewCreated()
+
+        binding.btnRefresh.setOnClickWithDelay {
+            presenter.onRefreshClicked()
+        }
     }
 
     override fun onDestroyView() {
@@ -82,7 +87,7 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         binding.tvArenaRank.text = arenaRank.toString()
     }
 
-    companion object{
+    companion object {
         fun newInstance(): StatsFragment {
             val args = Bundle()
             val fragment = StatsFragment()

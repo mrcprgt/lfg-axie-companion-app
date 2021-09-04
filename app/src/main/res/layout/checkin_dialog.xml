@@ -22,7 +22,7 @@
         tools:ignore="RtlHardcoded"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="24dp"
-        tools:text="Daily SLP Earned for Today" />
+        android:text="SLP Earned for Today" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMessage"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="@+id/tvTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:ignore="RtlHardcoded"
-        tools:text="Please input your earned slp for today! Please be honest, we know if you lie :)" />
+        android:text="Please input your earned slp for today! Please be honest, we know if you lie :)" />
 
     <View
         android:id="@+id/view"
@@ -65,9 +65,9 @@
         style="@style/LFGCardText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:maxLength="42"
-        android:maxLines="2" />
+        android:inputType="number"
+        android:maxLength="3"
+        android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <View

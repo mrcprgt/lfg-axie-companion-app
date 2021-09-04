@@ -154,3 +154,12 @@ fun String.toPM(): String {
 fun String.toAMPM(): String {
     return this.toAM().toPM()
 }
+
+@SuppressLint("SimpleDateFormat")
+fun dateIsToday(date: Date) : Boolean{
+    val df = SimpleDateFormat("yyyy-MM-dd")
+    val today = df.format(Date())
+    val given = df.format(date)
+
+    return today.equals(given)
+}

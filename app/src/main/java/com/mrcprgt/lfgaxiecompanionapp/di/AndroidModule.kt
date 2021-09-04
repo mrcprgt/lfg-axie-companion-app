@@ -6,6 +6,7 @@ import com.mrcprgt.lfgaxiecompanionapp.app.presentation.gains.GainsFragment
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.login.LoginActivity
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.pvpbuddy.PvpBuddyFragment
+import com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord.AddRecordDialog
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord.SlpRecordFragment
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.stats.StatsFragment
 import com.mrcprgt.lfgaxiecompanionapp.tools.scopes.ActivityScoped
@@ -47,4 +48,8 @@ abstract class AndroidModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract fun contributeSlpRecordFragment(): SlpRecordFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeAddRecordDialog(): AddRecordDialog
 }

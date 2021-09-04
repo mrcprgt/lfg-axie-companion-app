@@ -5,20 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.LFGSlpRecordAndGains
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.usecase.slprecord.SlpRecordFlexiItem
-import com.mrcprgt.lfgaxiecompanionapp.app.presentation.stats.StatsFragment
-import com.mrcprgt.lfgaxiecompanionapp.app.presentation.stats.StatsPresenter
 import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentSlpTrackerBinding
-import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentStatsBinding
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.showAllowingStateLoss
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import javax.inject.Inject
 
-class SlpRecordFragment : LFGFragment(), SlpRecordContract.View {
+class SlpRecordFragment : LFGFragment(), SlpRecordContract.View,
+    AddRecordDialog.OnAddRecordListener {
 
     @Inject
     lateinit var presenter: SlpRecordPresenter
+
+    private val dialog = AddRecordDialog()
 
     private val binding: FragmentSlpTrackerBinding by lazy {
         FragmentSlpTrackerBinding.inflate(layoutInflater)
@@ -41,6 +43,15 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View {
 
         presenter.onViewReady(this)
         setupRecyclerView()
+
+        binding.btnSync.setOnClickWithDelay {
+            showToast("This feature is coming soon!")
+        }
+
+        binding.btnAddRecord.setOnClickWithDelay {
+            dialog.setupListener(this)
+            dialog.showAllowingStateLoss(parentFragmentManager, "add_record")
+        }
     }
 
     override fun onDestroyView() {
@@ -78,12 +89,20 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View {
         binding.tvTotalManagerEarned.text = manager.toString()
     }
 
-    override fun appendList(slpRecords: List<SlpRecord>) {
+    override fun appendList(slpRecords: List<LFGSlpRecordAndGains>) {
         adapter.updateDataSet(slpRecords.map {
-            SlpRecordFlexiItem(
+            LfgSlpRecordFlexiItem(
                 it
             )
         })
+    }
+
+    override fun hideAddDialog() {
+        dialog.dismissAllowingStateLoss()
+    }
+
+    override fun clearSlp() {
+        adapter.clear()
     }
 
     private fun setupRecyclerView() {
@@ -98,5 +117,9 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun onAddClicked(slp: Int) {
+        presenter.onAddRecordClicked(slp)
     }
 }
