@@ -15,24 +15,85 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRefresh"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:text="Refresh"
+            android:background="@color/header"
+            android:elevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvStatsLabel"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStatsIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/stats_icon" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LFGCardText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toEndOf="@id/ivStatsIcon"
+                android:text="Stats"
+                android:textColor="@color/header_label"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LFGCardText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toStartOf="@id/btnRefresh"
+                android:text="refresh"
+                android:textColor="@color/login_btn_label" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnRefresh"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/refresh_icon" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/linecolor" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/drop_shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Stats"
-            style="@style/LFGPageHeader"
+            android:src="@drawable/slp_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,324 +105,573 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/top_box_card"
-            android:padding="16dp"
+            android:background="@drawable/stats_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvStatsLabel">
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvSlpCardLabel"
-                style="@style/LFGCardLabel"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llSlpLabels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SLPs"
+                android:background="@drawable/header_border"
+                android:paddingTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:srcCompat="@drawable/menu_slp_icon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvSlpCardLabel"
+                    style="@style/LFGCardLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="SLPs"
+                    android:textColor="@color/slp_label"
+                    android:textSize="18dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/lineSlp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/slp_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llSlpLabels" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDailyAverageLabel"
-                style="@style/LFGCardText"
-                android:layout_width="wrap_content"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Daily Average"
+                app:layout_constraintEnd_toStartOf="@id/tvDailyAverage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSlpCardLabel" />
+                app:layout_constraintTop_toBottomOf="@id/lineSlp" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDailyAverage"
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSlpCardLabel"
+                app:layout_constraintTop_toBottomOf="@id/lineSlp"
                 tools:text="280" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvTotalSlpLabel"
-                style="@style/LFGCardText"
-                android:layout_width="wrap_content"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Ingame SLP"
+                app:layout_constraintEnd_toStartOf="@id/tvTotalSlp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDailyAverageLabel" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvTotalSlp"
+                style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/LFGCardValue"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDailyAverage"
                 tools:text="280" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvManagerShareLabel"
-                android:layout_width="wrap_content"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Manager Share"
-                style="@style/LFGCardText"
+                app:layout_constraintEnd_toStartOf="@id/tvManagerShare"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTotalSlpLabel" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvManagerShare"
+                style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/LFGCardValue"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTotalSlp"
                 tools:text="140" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvScholarShareLabel"
-                android:layout_width="wrap_content"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Scholar Share"
-                style="@style/LFGCardText"
+                app:layout_constraintEnd_toStartOf="@id/tvScholarShare"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvManagerShareLabel" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvScholarShare"
+                style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/LFGCardValue"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvScholarShareLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvManagerShare"
                 tools:text="140" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvMain"
-                android:elevation="12dp"
-                android:background="@drawable/top_box_card"
-                android:id="@+id/cvClaims"
+                app:layout_constraintTop_toBottomOf="@id/tvScholarShare" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvClaims"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stats_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvMain">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llClaimsLabel"
                 android:layout_width="match_parent"
-                android:padding="16dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp">
+                android:background="@drawable/header_border"
+                android:paddingTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:srcCompat="@drawable/claim_icon" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvClaimsLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Claims"
                     style="@style/LFGCardLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="CLAIMS"
+                    android:textColor="@color/claims_color"
+                    android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvLastClaimedAmountLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Last Claimed Amount"
-                    style="@style/LFGCardText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvClaimsLabel" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvLastClaimedAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvClaimsLabel"
-                    tools:text="280" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvLastClaimedAtLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardText"
-                    android:text="Last Claimed At"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmountLabel" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvLastClaimedAt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmount"
-                    tools:text="July 31, 2021 at 4:03 AM" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvNextClaimDateLabel"
-                    android:layout_width="wrap_content"
-                    style="@style/LFGCardText"
-                    android:layout_height="wrap_content"
-                    android:text="Next Claim Date"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAtLabel" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvNextClaimDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAt"
-                    tools:text="July 31, 2021 at 4:03 AM" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvNextClaimInDaysLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Next Claim In"
-                    style="@style/LFGCardText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNextClaimDateLabel" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvNextClaimInDays"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNextClaimDate"
-                    tools:text="13 days" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:elevation="12dp"
-                android:id="@+id/cvArena"
+            <View
+                android:id="@+id/lineClaims"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/claims_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvClaims"
-                android:padding="16dp"
-                android:background="@drawable/top_box_card"
+                app:layout_constraintTop_toBottomOf="@id/llClaimsLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLastClaimedAmountLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Last Claimed Amount"
+                app:layout_constraintEnd_toStartOf="@id/tvLastClaimedAmount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineClaims" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLastClaimedAmount"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineClaims"
+                tools:text="280" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLastClaimedAtLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Last Claimed At"
+                app:layout_constraintEnd_toStartOf="@id/tvLastClaimedAt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmountLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLastClaimedAt"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmount"
+                tools:text="8-31-2021" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNextClaimDateLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Next Claim Date"
+                app:layout_constraintEnd_toStartOf="@id/tvNextClaimDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAtLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNextClaimDate"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAt"
+                tools:text="8-31-2021" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNextClaimInDaysLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Next Claim In"
+                app:layout_constraintEnd_toStartOf="@id/tvNextClaimInDays"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNextClaimDateLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNextClaimInDays"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNextClaimDate"
+                tools:text="13 days" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNextClaimInDays" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvArena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stats_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvClaims">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llArenaLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp">
+                android:background="@drawable/header_border"
+                android:paddingTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:srcCompat="@drawable/arena_icon" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvArenaCardLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/tvArenaLabel"
                     style="@style/LFGCardLabel"
-                    android:text="Arena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="ARENA"
+                    android:textColor="@color/arena_color"
+                    android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvMmrLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardText"
-                    android:text="MMR"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvArenaCardLabel" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvMmr"
-                    style="@style/LFGCardValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvArenaCardLabel"
-                    tools:text="1700" />
+            <View
+                android:id="@+id/lineArena"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/arena_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llArenaLabel" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvWinsLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wins"
-                    style="@style/LFGCardText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMmrLabel" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMmrLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="MMR"
+                app:layout_constraintEnd_toStartOf="@id/tvMmr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineArena" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvWins"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMmr"
-                    tools:text="100" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMmr"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineArena"
+                tools:text="1700" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvDrawLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Draw"
-                    style="@style/LFGCardText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWinsLabel" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvWinsLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Wins"
+                app:layout_constraintEnd_toStartOf="@id/tvWins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMmrLabel" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvDraw"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWins"
-                    tools:text="23" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvWins"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMmr"
+                tools:text="100" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvLoseLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardText"
-                    android:text="Lose"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDrawLabel" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDrawLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Draw"
+                app:layout_constraintEnd_toStartOf="@id/tvDraw"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWinsLabel" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvLose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDraw"
-                    tools:text="69" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDraw"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWins"
+                tools:text="23" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvWinRateLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Win Rate"
-                    style="@style/LFGCardText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLoseLabel" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLoseLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Lose"
+                app:layout_constraintEnd_toStartOf="@id/tvLose"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDrawLabel" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvWinRate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLose"
-                    tools:text="50%" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLose"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDraw"
+                tools:text="69" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvArenaRankLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Arena Rank"
-                    style="@style/LFGCardText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWinRateLabel" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvWinRateLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_1"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Win Rate"
+                app:layout_constraintEnd_toStartOf="@id/tvWinRate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLoseLabel" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tvArenaRank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/LFGCardValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWinRate"
-                    tools:text="290000" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvWinRate"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_1"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLose"
+                tools:text="50%" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvArenaRankLabel"
+                style="@style/LFGCardValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/left_only_2"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Arena Rank"
+                app:layout_constraintEnd_toStartOf="@id/tvArenaRank"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWinRateLabel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvArenaRank"
+                style="@style/LFGCardValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/right_only_2"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWinRate"
+                tools:text="290000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvArenaRank" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

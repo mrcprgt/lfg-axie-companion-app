@@ -20,4 +20,15 @@
     <color name="edit_text_bg">#66888EBC</color>
     <color name="login_btn_color">#BD181C35</color>
     <color name="login_btn_label">#61D7F5</color>
+
+    <!--Stats-->
+    <color name="header">#272A44</color>
+    <color name="header_label">#80FFFFFF</color>
+    <color name="border_color_stats">#707070</color>
+    <color name="slp_label">#6ACEED</color>
+    <color name="card_bg_1">#54597B</color>
+    <color name="card_bg_2">#3F4262</color>
+
+    <color name="claims_color">#DEB618</color>
+    <color name="arena_color">#0CAD9D</color>
 </resources>
