@@ -31,4 +31,6 @@
 
     <color name="claims_color">#DEB618</color>
     <color name="arena_color">#0CAD9D</color>
+
+    <color name="tab_label">#6ACEED</color>
 </resources>

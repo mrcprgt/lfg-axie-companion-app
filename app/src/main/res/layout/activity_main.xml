@@ -20,51 +20,52 @@
         android:id="@+id/tabBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tableField2"
+        android:background="@color/header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:tabGravity="fill"
-        app:tabIconTint="@color/white"
+        app:tabIconTint="@color/tab_label"
+        app:tabIndicatorColor="@color/tab_label"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="@color/white"
+        app:tabSelectedTextColor="@color/tab_label"
         app:tabTextAppearance="@style/LFGTabText">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/ic_baseline_person_24"
+            android:icon="@drawable/menu_stats_icon"
             android:text="Stats" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/icon_slp___copy"
+            android:icon="@drawable/menu_slp_icon"
             android:text="SLP" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/ic_baseline_construction_24"
+            android:icon="@drawable/menu_pvp_icon"
             android:text="PvP" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/ic_baseline_show_chart_24"
+            android:icon="@drawable/menu_gains_icon"
             android:text="Gains" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/ic_baseline_assessment_24"
+            android:icon="@drawable/menu_info_icon"
             android:text="Info" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/buff_attack_up"
+            android:icon="@drawable/menu_buff_icon"
             android:text="Buffs" />
 
         <com.google.android.material.tabs.TabItem

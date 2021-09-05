@@ -15,6 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/slp_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <RelativeLayout
             android:id="@+id/rlHeader"
             android:layout_width="match_parent"
@@ -104,6 +113,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:alpha="0.9"
             android:layout_marginBottom="16dp"
             android:background="@drawable/stats_bg"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,6 +163,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/llSlpLabels" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineSlp" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDailyAverageLabel"
@@ -276,6 +294,7 @@
             android:id="@+id/cvClaims"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.9"
             android:layout_margin="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
@@ -327,6 +346,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/llClaimsLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineClaims" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastClaimedAmountLabel"
@@ -452,6 +479,7 @@
             android:layout_margin="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
+            android:alpha="0.9"
             android:background="@drawable/stats_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -501,6 +529,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/llArenaLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineArena" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvMmrLabel"

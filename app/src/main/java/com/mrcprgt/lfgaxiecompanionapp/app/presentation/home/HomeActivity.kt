@@ -21,9 +21,9 @@ class HomeActivity : LFGActivity(), HomeContract.View {
         setupViewPager()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//    }
 
     private fun setupViewPager() {
         binding.viewPager.adapter = viewPagerAdapter
@@ -41,38 +41,26 @@ class HomeActivity : LFGActivity(), HomeContract.View {
             when (position) {
                 0 -> {
                     tab.text = "Stats"
-                    tab.setIcon(R.drawable.ic_baseline_person_24)
+                    tab.setIcon(R.drawable.menu_stats_icon)
                 }
                 1 -> {
                     tab.text = "SLP"
-                    tab.setIcon(R.drawable.icon_slp___copy)
+                    tab.setIcon(R.drawable.menu_slp_icon)
                 }
                 2 -> {
                     tab.text = "PvP"
-                    tab.setIcon(R.drawable.ic_baseline_construction_24)
+                    tab.setIcon(R.drawable.menu_pvp_icon)
                 }
                 3 -> {
                     tab.text = "Gains"
-                    tab.setIcon(R.drawable.ic_baseline_show_chart_24)
+                    tab.setIcon(R.drawable.menu_gains_icon)
                 }
                 4 -> {
                     tab.text = "Buffs"
-                    tab.setIcon(R.drawable.buff_attack_up)
-                }
-                4 -> {
-                    tab.text = "Buffs"
-                    tab.setIcon(R.drawable.buff_attack_up)
+                    tab.setIcon(R.drawable.menu_buff_icon)
                 }
                 5 -> {
                     tab.text = "Energy"
-                    tab.setIcon(R.drawable.buff_attack_up)
-                }
-                6 -> {
-                    tab.text = "Cards"
-                    tab.setIcon(R.drawable.buff_attack_up)
-                }
-                7 -> {
-                    tab.text = "Calculator"
                     tab.setIcon(R.drawable.buff_attack_up)
                 }
             }
