@@ -95,6 +95,14 @@ fun Date.formatToMMDDYYYY(): String {
     return utcFormat.format(this)
 }
 
+
+fun Date.formatToMMMMdd(): String {
+    val utcFormat = SimpleDateFormat("MMMM dd", Locale.getDefault())
+    utcFormat.timeZone = TimeZone.getTimeZone("UTC")
+
+    return utcFormat.format(this)
+}
+
 fun String.toLocalJavaDateFromUTC(): Date {
     val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
     return format.parse(this)!!
@@ -156,7 +164,7 @@ fun String.toAMPM(): String {
 }
 
 @SuppressLint("SimpleDateFormat")
-fun dateIsToday(date: Date) : Boolean{
+fun dateIsToday(date: Date): Boolean {
     val df = SimpleDateFormat("yyyy-MM-dd")
     val today = df.format(Date())
     val given = df.format(date)

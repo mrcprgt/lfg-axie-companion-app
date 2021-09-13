@@ -70,4 +70,16 @@ class LfgRecordRepository @Inject constructor(
     override suspend fun get(offset: Int): List<LFGSlpRecordAndGains> {
         return dao.get(offset).map { it.toDomain() }
     }
+
+    override suspend fun getDailyTotals(): Int {
+        return dao.getAverage()
+    }
+
+    override suspend fun getWeeklyTotals(): Int {
+        return dao.getGains() / 7
+    }
+
+    override suspend fun getMonthlyTotals(): Int {
+        return dao.getGains() / 30
+    }
 }

@@ -1,5 +1,6 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,10 +46,10 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View,
         setupRecyclerView()
 
         binding.btnSync.setOnClickWithDelay {
-            showToast("This feature is coming soon!")
+            presenter.onSyncClicked()
         }
 
-        binding.btnAddRecord.setOnClickWithDelay {
+        binding.btnAdd.setOnClickWithDelay {
             dialog.setupListener(this)
             dialog.showAllowingStateLoss(parentFragmentManager, "add_record")
         }
@@ -79,14 +80,16 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View,
         binding.tvMonthlyAverage.text = monthly.toString()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun showCurrentCycle(manager: Int, scholar: Int) {
-        binding.tvScholarShare.text = scholar.toString()
-        binding.tvManagerShare.text = manager.toString()
+        binding.tvScholarShare.text = "Scholar: $scholar"
+        binding.tvManagerShare.text = "Manager: $manager"
     }
 
+    @SuppressLint("SetTextI18n")
     override fun showLifetimeSlp(manager: Int, scholar: Int) {
-        binding.tvTotalScholarEarned.text = scholar.toString()
-        binding.tvTotalManagerEarned.text = manager.toString()
+        binding.tvLifetimeScholarShare.text = "Scholar: $scholar                        "
+        binding.tvLifetimeManagerShare.text = "Manager: $manager"
     }
 
     override fun appendList(slpRecords: List<LFGSlpRecordAndGains>) {

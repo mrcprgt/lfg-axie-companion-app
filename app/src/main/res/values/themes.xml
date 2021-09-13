@@ -75,8 +75,7 @@
 
     <style name="LFGTabText">
         <item name="fontFamily">@font/poppins_semibold</item>
-        <item name="android:textColor">@color/arena_color</item>
-        <item name="tabSelectedTextColor">@color/arena_color</item>
+        <item name="android:textColor">@color/slp_label</item>
         <item name="android:textSize">12dp</item>
     </style>
 </resources>

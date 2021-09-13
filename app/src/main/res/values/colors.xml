@@ -20,6 +20,8 @@
     <color name="edit_text_bg">#66888EBC</color>
     <color name="login_btn_color">#BD181C35</color>
     <color name="login_btn_label">#61D7F5</color>
+    <color name="bottom_nav_bg">#141835</color>
+    <color name="transparent">#ffffff00</color>
 
     <!--Stats-->
     <color name="header">#272A44</color>
@@ -33,4 +35,7 @@
     <color name="arena_color">#0CAD9D</color>
 
     <color name="tab_label">#6ACEED</color>
+    <color name="slp_button_label">#6661D7F5</color>
+    <color name="green">#28EA7A</color>
+    <color name="slp_card_border">#8B8FA8</color>
 </resources>

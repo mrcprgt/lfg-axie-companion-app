@@ -1,6 +1,9 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.home
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mrcprgt.lfgaxiecompanionapp.R
@@ -34,6 +37,8 @@ class HomeActivity : LFGActivity(), HomeContract.View {
             binding.viewPager,
             TabConfiguration()
         ).attach()
+
+        binding.tabBottom.setSelectedTabIndicator(R.color.transparent)
     }
 
     private class TabConfiguration : TabLayoutMediator.TabConfigurationStrategy {
@@ -41,27 +46,23 @@ class HomeActivity : LFGActivity(), HomeContract.View {
             when (position) {
                 0 -> {
                     tab.text = "Stats"
-                    tab.setIcon(R.drawable.menu_stats_icon)
+                    tab.setIcon(R.drawable.stats_icon)
                 }
                 1 -> {
                     tab.text = "SLP"
-                    tab.setIcon(R.drawable.menu_slp_icon)
+                    tab.setIcon(R.drawable.slp_icon)
                 }
                 2 -> {
                     tab.text = "PvP"
-                    tab.setIcon(R.drawable.menu_pvp_icon)
+                    tab.setIcon(R.drawable.pvp_icon)
                 }
                 3 -> {
                     tab.text = "Gains"
-                    tab.setIcon(R.drawable.menu_gains_icon)
+                    tab.setIcon(R.drawable.gains_icon)
                 }
                 4 -> {
                     tab.text = "Buffs"
-                    tab.setIcon(R.drawable.menu_buff_icon)
-                }
-                5 -> {
-                    tab.text = "Energy"
-                    tab.setIcon(R.drawable.buff_attack_up)
+                    tab.setIcon(R.drawable.buffs_icon)
                 }
             }
 

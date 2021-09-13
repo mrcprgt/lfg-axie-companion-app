@@ -1,13 +1,13 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mrcprgt.lfgaxiecompanionapp.R
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
 import com.mrcprgt.lfgaxiecompanionapp.databinding.SlpCountListItemBinding
-import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.BaseFlexibleItem
-import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.formatToMMDDYYYATHHMMAAAA
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.*
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.IFlexible
 
@@ -40,7 +40,8 @@ class SlpRecordFlexiItem(val slpRecord: SlpRecord) : BaseFlexibleItem() {
         payloads: MutableList<Any>?
     ) {
         if (holder is SlpRecordItemViewHolder) {
-            holder.date.text = slpRecord.date.formatToMMDDYYYATHHMMAAAA()
+            holder.date.text = slpRecord.date.formatToMMMMdd()
+            holder.time.text = slpRecord.date.formatToHHMMA()
             holder.slp.text = slpRecord.amount.toString()
         }
     }
@@ -52,6 +53,7 @@ class SlpRecordFlexiItem(val slpRecord: SlpRecord) : BaseFlexibleItem() {
 
         private val binding = SlpCountListItemBinding.bind(view)
         val date = binding.tvDate
+        val time = binding.tvTime
         val slp = binding.tvSlpCount
     }
 }

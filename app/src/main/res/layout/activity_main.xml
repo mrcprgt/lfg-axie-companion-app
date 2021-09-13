@@ -20,85 +20,53 @@
         android:id="@+id/tabBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/header"
+        android:background="@color/bottom_nav_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:tabGravity="fill"
-        app:tabIconTint="@color/tab_label"
+        app:tabIconTint="#ffffff"
+        app:tabIconTintMode="multiply"
         app:tabIndicatorColor="@color/tab_label"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="@color/tab_label"
-        app:tabTextAppearance="@style/LFGTabText">
+        app:tabTextAppearance="@style/LFGTabText"
+        app:tabTextColor="@color/tab_label">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/menu_stats_icon"
+            android:icon="@drawable/stats_icon"
             android:text="Stats" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/menu_slp_icon"
+            android:icon="@drawable/slp_icon"
             android:text="SLP" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/menu_pvp_icon"
+            android:icon="@drawable/pvp_icon"
             android:text="PvP" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/menu_gains_icon"
+            android:icon="@drawable/gains_icon"
             android:text="Gains" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/menu_info_icon"
+            android:icon="@drawable/info_icon"
             android:text="Info" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:icon="@drawable/menu_buff_icon"
+            android:icon="@drawable/buffs_icon"
             android:text="Buffs" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:icon="@drawable/buff_attack_up"
-            android:text="Energy Counter" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:icon="@drawable/buff_attack_up"
-            android:text="Cards" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:icon="@drawable/buff_attack_up"
-            android:text="Calculator" />
-
     </com.google.android.material.tabs.TabLayout>
-
-
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:id="@+id/bottomNav"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:background="@color/colorSecondary"-->
-    <!--        android:elevation="8dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:menu="@menu/bottom_nav"-->
-    <!--        />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

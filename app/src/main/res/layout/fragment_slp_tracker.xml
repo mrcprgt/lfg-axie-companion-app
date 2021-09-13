@@ -15,120 +15,291 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvSlpTrackerLabel"
-            style="@style/LFGPageHeader"
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="SLP Tracker"
+            android:src="@drawable/slp_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSync"
-            android:layout_width="0dp"
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Sync"
-            app:icon="@drawable/ic_baseline_cloud_upload_24"
-            app:layout_constraintEnd_toStartOf="@id/guideline2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/clCurrent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddRecord"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Add"
-            app:icon="@drawable/ic_baseline_add_24"
+            android:background="@color/header"
+            android:elevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/clLifetime" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDailyAverage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="10"
-            android:textColor="@color/white"
-            android:textSize="36dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSlpTrackerLabel"
-            tools:text="123" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDailyAverageLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Daily"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="@id/tvDailyAverage"
-            app:layout_constraintStart_toStartOf="@id/tvDailyAverage"
-            app:layout_constraintTop_toBottomOf="@id/tvDailyAverage" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStatsIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/slp_icon" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvWeeklyAverage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="10"
-            android:textColor="@color/white"
-            android:textSize="36dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvMonthlyAverage"
-            app:layout_constraintStart_toEndOf="@id/tvDailyAverage"
-            app:layout_constraintTop_toBottomOf="@id/tvSlpTrackerLabel"
-            tools:text="390" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvWeeklyAverageLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Weekly"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="@id/tvWeeklyAverage"
-            app:layout_constraintStart_toStartOf="@id/tvWeeklyAverage"
-            app:layout_constraintTop_toBottomOf="@id/tvWeeklyAverage" />
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LFGCardText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toEndOf="@id/ivStatsIcon"
+                android:text="SLPs"
+                android:textColor="@color/header_label"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvMonthlyAverage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="10"
-            android:textColor="@color/white"
-            android:textSize="36dp"
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LFGCardText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnAdd"
+                android:layout_alignStart="@id/btnAdd"
+                android:layout_alignEnd="@id/btnAdd"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Add"
+                android:textColor="@color/slp_button_label"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LFGCardText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnSync"
+                android:layout_alignStart="@id/btnSync"
+                android:layout_alignEnd="@id/btnSync"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Sync"
+                android:textColor="@color/slp_button_label"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnSync"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@id/btnAdd"
+                android:background="@drawable/sunc_icon" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnAdd"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/add_icon" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/linecolor" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/drop_shadow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSlpTrackerLabel"
-            tools:text="450" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvMonthlyAverageLabel"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Monthly"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="@id/tvMonthlyAverage"
-            app:layout_constraintStart_toStartOf="@id/tvMonthlyAverage"
-            app:layout_constraintTop_toBottomOf="@id/tvMonthlyAverage" />
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/slp_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/layer_18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDailyAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="10"
+                android:textColor="@color/white"
+                android:textSize="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="123" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDailyAverageLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bottom_slp_card"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Daily"
+                android:textColor="@color/green"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDailyAverage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/slp_card"
+            app:layout_constraintEnd_toStartOf="@id/clMonthly"
+            app:layout_constraintStart_toEndOf="@id/clDaily"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/layer_18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWeeklyAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="10"
+                android:textColor="@color/white"
+                android:textSize="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="123" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWeeklyAverageLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bottom_slp_card"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Weekly"
+                android:textColor="@color/claims_color"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWeeklyAverage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/slp_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/layer_18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMonthlyAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="10"
+                android:textColor="@color/white"
+                android:textSize="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="123" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMonthlyAverageLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bottom_slp_card"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Monthly"
+                android:textColor="@color/slp_label"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMonthlyAverage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -146,40 +317,54 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/list_item_bg"
-            android:padding="8dp"
+            android:background="@drawable/claim_cycle_shares"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDailyAverageLabel">
+            app:layout_constraintTop_toBottomOf="@id/clDaily">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCurrentClaimCycleLabel"
-                style="@style/LFGCardLabel"
-                android:layout_width="wrap_content"
+                style="@style/LFGCardText"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bottom_border"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="4dp"
                 android:text="Current Cycle"
-                android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textColor="@color/login_btn_label"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvManagerShare"
-                style="@style/LFGTabText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="12dp"
                 android:text="Manager: 500"
                 android:textColor="@color/white"
+                android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCurrentClaimCycleLabel" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvScholarShare"
-                style="@style/LFGTabText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="12dp"
                 android:text="Scholar: 500"
                 android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvManagerShare" />
 
@@ -192,93 +377,58 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/list_item_bg"
-            android:padding="8dp"
+            android:background="@drawable/claim_cycle_shares"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/tvDailyAverageLabel">
+            app:layout_constraintTop_toBottomOf="@id/clMonthly">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLifetimeClaimCycle"
-                style="@style/LFGCardLabel"
-                android:layout_width="wrap_content"
+                style="@style/LFGCardText"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bottom_border"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="4dp"
                 android:text="Lifetime"
-                android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textColor="@color/login_btn_label"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTotalManagerEarned"
-                style="@style/LFGTabText"
+                android:id="@+id/tvLifetimeManagerShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="12dp"
                 android:text="Manager: 500"
                 android:textColor="@color/white"
+                android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLifetimeClaimCycle" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTotalScholarEarned"
-                style="@style/LFGTabText"
+                android:id="@+id/tvLifetimeScholarShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="12dp"
                 android:text="Scholar: 500"
                 android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTotalManagerEarned" />
+                app:layout_constraintTop_toBottomOf="@id/tvLifetimeManagerShare" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--        <androidx.appcompat.widget.AppCompatTextView-->
-        <!--            android:id="@+id/tvTotalManager"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="16dp"-->
-        <!--            android:layout_marginTop="16dp"-->
-        <!--            android:layout_marginEnd="32dp"-->
-        <!--            android:fontFamily="@font/poppins_semibold"-->
-        <!--            android:text="Manager: 500"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="18dp"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/tvDailyAverageLabel" />-->
-
-        <!--        <androidx.appcompat.widget.AppCompatTextView-->
-        <!--            android:id="@+id/tvTotalScholar"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="16dp"-->
-        <!--            android:layout_marginTop="8dp"-->
-        <!--            android:layout_marginEnd="32dp"-->
-        <!--            android:fontFamily="@font/poppins_semibold"-->
-        <!--            android:text="Scholar: 500"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="18dp"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/tvTotalManager" />-->
-
-        <!--        <androidx.appcompat.widget.AppCompatImageView-->
-        <!--            android:id="@+id/ivSlp1"-->
-        <!--            android:layout_width="16dp"-->
-        <!--            android:layout_height="16dp"-->
-        <!--            android:layout_marginStart="16dp"-->
-        <!--            android:src="@drawable/icon_slp___copy"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/tvTotalManager"-->
-        <!--            app:layout_constraintStart_toEndOf="@id/tvTotalManager"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/tvTotalManager" />-->
-
-        <!--        <androidx.appcompat.widget.AppCompatImageView-->
-        <!--            android:id="@+id/ivSlp2"-->
-        <!--            android:layout_width="16dp"-->
-        <!--            android:layout_height="16dp"-->
-        <!--            android:layout_marginStart="16dp"-->
-        <!--            android:src="@drawable/icon_slp___copy"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/tvTotalScholar"-->
-        <!--            app:layout_constraintStart_toEndOf="@id/tvTotalScholar"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/tvTotalScholar" />-->
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSlp"
@@ -286,7 +436,7 @@
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSync"
+            app:layout_constraintTop_toBottomOf="@id/clCurrent"
             tools:listitem="@layout/slp_count_list_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

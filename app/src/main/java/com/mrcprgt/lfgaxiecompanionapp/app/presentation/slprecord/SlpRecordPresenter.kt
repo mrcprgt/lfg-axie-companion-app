@@ -23,6 +23,7 @@ class SlpRecordPresenter @Inject constructor(
     private val getUserUseCase: GetUserUseCase,
     private val getSlpRecordsUseCase: GetSlpRecordsUseCase,
     private val getSlpRecordAveragesUseCase: GetSlpRecordAveragesUseCase,
+    private val getLfgRecordAveragesUseCase: GetLfgRecordAveragesUseCase,
     private val addSlpRecordUseCase: AddSlpRecordUseCase,
     private val settings: Settings,
     private val fetchSlpGainsUseCase: FetchSlpGainsUseCase,
@@ -45,39 +46,23 @@ class SlpRecordPresenter @Inject constructor(
             user = getUserUseCase.execute(Unit).user
             scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
 
-            val currentCycleManagerShare = scholarData.inGameSlp * (user.managerShare * 0.01)
-            val currentCycleScholarShare = scholarData.inGameSlp * (user.scholarShare * 0.01)
+            showCurrentClaim()
+            showLifetime()
+            showAverages()
 
-            view?.showCurrentCycle(
-                currentCycleManagerShare.toInt(),
-                currentCycleScholarShare.toInt()
-            )
-
-            val averages = getSlpRecordAveragesUseCase.execute(Unit)
-
-            view?.showDaily(averages.daily)
-            view?.showWeekly(averages.weekly)
-            view?.showMonthly(averages.monthly)
-
-//            val records = getSlpRecordsUseCase.execute(GetSlpRecordsUseCase.Param(0)).slpRecords
             fetchRecords()
             val records = getLfgSlpRecordUseCase.execute(Unit).records
-            val lifeTimeSlp = scholarData.lastClaimAmount
-
-            val lifetimeManagerShare =
-                lifeTimeSlp * (user.managerShare * 0.01)
-
-            val lifetimeScholarShare =
-                lifeTimeSlp * (user.scholarShare * 0.01)
-
-            view?.showLifetimeSlp(
-                lifetimeManagerShare.toInt(),
-                lifetimeScholarShare.toInt()
-            )
-
             view?.appendList(records)
             view?.hideProgressDialog()
         }
+    }
+
+    private suspend fun showAverages() {
+        val averages = getLfgRecordAveragesUseCase.execute(Unit)
+
+        view?.showDaily(averages.daily)
+        view?.showWeekly(averages.weekly)
+        view?.showMonthly(averages.monthly)
     }
 
     override fun onViewDetach() {
@@ -129,34 +114,9 @@ class SlpRecordPresenter @Inject constructor(
 
                     scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
 
-                    val currentCycleManagerShare =
-                        scholarData.inGameSlp * (user.managerShare * 0.01)
-                    val currentCycleScholarShare =
-                        scholarData.inGameSlp * (user.scholarShare * 0.01)
-
-                    view?.showCurrentCycle(
-                        currentCycleManagerShare.toInt(),
-                        currentCycleScholarShare.toInt()
-                    )
-
-                    val averages = getSlpRecordAveragesUseCase.execute(Unit)
-
-                    val lifeTimeSlp = scholarData.lastClaimAmount
-
-                    val lifetimeManagerShare =
-                        lifeTimeSlp * (user.managerShare * 0.01)
-
-                    val lifetimeScholarShare =
-                        lifeTimeSlp * (user.scholarShare * 0.01)
-
-                    view?.showLifetimeSlp(
-                        lifetimeManagerShare.toInt(),
-                        lifetimeScholarShare.toInt()
-                    )
-
-                    view?.showDaily(averages.daily)
-                    view?.showWeekly(averages.weekly)
-                    view?.showMonthly(averages.monthly)
+                    showCurrentClaim()
+                    showLifetime()
+                    showAverages()
 
                     view?.showSlpRecords(getSlpRecordsUseCase.execute(GetSlpRecordsUseCase.Param(0)).slpRecords)
                 } catch (e: LFGException) {
@@ -175,8 +135,60 @@ class SlpRecordPresenter @Inject constructor(
         }
     }
 
+    private fun showLifetime() {
+        val lifeTimeSlp = scholarData.lastClaimAmount
+
+        val lifetimeManagerShare =
+            lifeTimeSlp * (user.managerShare * 0.01)
+
+        val lifetimeScholarShare =
+            lifeTimeSlp * (user.scholarShare * 0.01)
+
+        view?.showLifetimeSlp(
+            lifetimeManagerShare.toInt(),
+            lifetimeScholarShare.toInt()
+        )
+    }
+
+    private fun showCurrentClaim() {
+        val currentCycleManagerShare = scholarData.inGameSlp * (user.managerShare * 0.01)
+        val currentCycleScholarShare = scholarData.inGameSlp * (user.scholarShare * 0.01)
+
+        view?.showCurrentCycle(
+            currentCycleManagerShare.toInt(),
+            currentCycleScholarShare.toInt()
+        )
+    }
+
     override fun onSyncClicked() {
-        TODO("Not yet implemented")
+        scopeProvider.provide().launch {
+            try {
+                view?.showProgressDialog("Please wait", "Fetching latest data...")
+                scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
+
+                showCurrentClaim()
+                showLifetime()
+                showAverages()
+
+                fetchRecords()
+                val records = getLfgSlpRecordUseCase.execute(Unit).records
+                view?.clearSlp()
+                view?.appendList(records)
+                view?.hideProgressDialog()
+            } catch (e: LFGException) {
+                view?.hideProgressDialog()
+                view?.showErrorDialog(
+                    "Something went wrong",
+                    e.message ?: e.localizedMessage,
+                    onOkClicked = {
+                        onSyncClicked()
+                    },
+                    onDeclineClicked = {
+
+                    }
+                )
+            }
+        }
     }
 
 }

@@ -20,6 +20,9 @@ interface LocalLfgRecordDao {
     @Query("SELECT AVG(gain) FROM lfg_record")
     fun getAverage(): Int
 
+    @Query("SELECT SUM(gain) FROM lfg_record")
+    fun getGains(): Int
+
     @Query("DELETE FROM lfg_record")
     fun clear()
 }
