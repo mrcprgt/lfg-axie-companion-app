@@ -22,6 +22,7 @@
     <color name="login_btn_label">#61D7F5</color>
     <color name="bottom_nav_bg">#141835</color>
     <color name="transparent">#ffffff00</color>
+    <color name="claims_label">#C74368</color>
 
     <!--Stats-->
     <color name="header">#272A44</color>

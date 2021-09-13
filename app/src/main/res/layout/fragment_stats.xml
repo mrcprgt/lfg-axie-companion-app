@@ -16,9 +16,10 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/slp_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/app_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,17 +45,35 @@
                 android:layout_marginBottom="16dp"
                 android:src="@drawable/stats_icon" />
 
-
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/LFGCardText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_toEndOf="@id/ivStatsIcon"
+                android:fontFamily="@font/changa_one"
                 android:text="Stats"
-                android:textColor="@color/header_label"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toEndOf="@id/ivStatsIcon"
+                android:elevation="8dp"
+                android:fontFamily="@font/changa_one"
+                android:shadowColor="@color/black"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="Stats"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
@@ -100,6 +119,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.5"
             android:src="@drawable/slp_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +133,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:alpha="0.9"
             android:layout_marginBottom="16dp"
             android:background="@drawable/stats_bg"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +144,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/header_border"
-                android:paddingTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -136,29 +154,36 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:srcCompat="@drawable/menu_slp_icon" />
+                    app:srcCompat="@drawable/slp_icon" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvSlpCardLabel"
-                    style="@style/LFGCardLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
                     android:text="SLPs"
                     android:textColor="@color/slp_label"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/shape_3" />
+
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:id="@+id/lineSlp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/slp_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +191,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="8dp"
                 android:background="@drawable/drop_shadow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -177,6 +202,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -191,6 +217,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -204,6 +231,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -218,6 +246,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -231,6 +260,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -245,6 +275,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -258,6 +289,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -272,6 +304,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -284,6 +317,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
+                android:alpha="0.75"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvScholarShare" />
@@ -294,7 +328,6 @@
             android:id="@+id/cvClaims"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alpha="0.9"
             android:layout_margin="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
@@ -319,29 +352,37 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:srcCompat="@drawable/claim_icon" />
+                    app:srcCompat="@drawable/layer_33" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvClaimsLabel"
-                    style="@style/LFGCardLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="CLAIMS"
-                    android:textColor="@color/claims_color"
+                    android:layout_weight="1"
+                    android:text="Claims"
+                    android:textColor="@color/claims_label"
                     android:textSize="18dp"
+                    android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/shape_3" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:id="@+id/lineClaims"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/claims_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -349,7 +390,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="8dp"
                 android:background="@drawable/drop_shadow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -360,6 +401,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -374,6 +416,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -387,6 +430,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -401,6 +445,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -414,6 +459,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -428,6 +474,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -441,6 +488,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -455,6 +503,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -466,6 +515,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
+                android:alpha="0.65"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNextClaimInDays" />
@@ -502,29 +552,37 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:srcCompat="@drawable/arena_icon" />
+                    app:srcCompat="@drawable/layer_34" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvArenaLabel"
-                    style="@style/LFGCardLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="ARENA"
-                    android:textColor="@color/arena_color"
+                    android:layout_weight="1"
+                    android:text="Arena"
+                    android:textColor="@color/tab_label"
                     android:textSize="18dp"
+                    android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/shape_3" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:id="@+id/lineArena"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/arena_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -532,7 +590,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="8dp"
                 android:background="@drawable/drop_shadow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -543,6 +601,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -557,6 +616,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -570,6 +630,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -584,6 +645,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -597,6 +659,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -611,6 +674,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -624,6 +688,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -638,6 +703,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -651,6 +717,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_1"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -665,6 +732,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_1"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -678,6 +746,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/left_only_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
@@ -692,6 +761,7 @@
                 style="@style/LFGCardValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.65"
                 android:background="@drawable/right_only_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
@@ -703,6 +773,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
+                android:alpha="0.65"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvArenaRank" />
