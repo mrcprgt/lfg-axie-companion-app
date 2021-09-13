@@ -72,11 +72,11 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
     }
 
     override fun updateDraws(draws: Int) {
-        binding.tvDraws.text = draws.toString()
+        binding.tvDraw.text = draws.toString()
     }
 
     override fun updateLoses(loses: Int) {
-        binding.tvLoses.text = loses.toString()
+        binding.tvLose.text = loses.toString()
     }
 
     override fun updateTotalSlpEarned(totalSlp: Int) {
