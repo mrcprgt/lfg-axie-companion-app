@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/app_background"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -15,149 +15,403 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvBuffsLabel"
-            style="@style/LFGPageHeader"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Info"
+            android:background="@color/header"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cvAdventureSlp"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.4"
+                android:scaleType="fitXY"
+                android:src="@drawable/toolbar_bg" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStatsIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/gains_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/ivStatsIcon"
+                android:layout_alignBottom="@id/ivStatsIcon"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/ivStatsIcon"
+                android:elevation="8dp"
+                android:fontFamily="@font/changa_one"
+                android:gravity="center"
+                android:shadowColor="@color/black"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="Gains"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/linecolor" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/drop_shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stats_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llSlpLabels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/list_item_bg"
-                    android:padding="16dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="64dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/stars"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvBuffsLabel">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#5F69A5" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvSlpCardLabel"
-                        style="@style/LFGCardLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Adventure Mode SLP"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvAdventureSlpLevelsText"
-                        style="@style/LFGCardText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1-4\n5-9\n10-14\n15-16\n17-20\n21-36"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvSlpCardLabel" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvAdventureModeSlpGainsText"
-                        style="@style/LFGCardValue"
-                        android:textAlignment="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvSlpCardLabel"
-                        android:text="1\n2\n\4\n6\n5-10\n10-20" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cvArena"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/list_item_bg"
-                    android:padding="16dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/layer_18"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cvAdventureSlp">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvArenaSlpLabel"
-                        style="@style/LFGCardLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Arena SLP Gain"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvArenaSlpGainMmr"
-                        style="@style/LFGCardText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="800 below\n800-999\n1000-1099\n1100-1299\n1300-1499\n1500-1799\n1800-1999\n2000-2199\n2200 above"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvArenaSlpLabel" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvArenaSlpGain"
-                        style="@style/LFGCardValue"
-                        android:textAlignment="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvArenaSlpLabel"
-                        android:text="0\n1\n3\n7\n8\n9\n10\n11\n12" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cvAdventureExp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAdventureModeSlp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/list_item_bg"
-                    android:padding="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/gains_icon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAdventureSlp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:text="Adventure Mode SLP"
+                    android:textColor="@color/slp_label"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivAdventureModeSlp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivAdventureModeSlp"
+                    app:layout_constraintTop_toTopOf="@+id/ivAdventureModeSlp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/lineSlp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/slp_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llSlpLabels" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineSlp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAdventureModeSlp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llSlpLabels"
+                tools:itemCount="8"
+                tools:listitem="@layout/info_list_item" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:alpha="0.75"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvAdventureModeSlp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvArena"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stats_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvMain">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llArenaLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="64dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/stars"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cvArena">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#5F69A5" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvAdventureExpLabel"
-                        style="@style/LFGCardLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Adventure Mode Exp Gain"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/layer_18"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvAdventureExpRuin"
-                        style="@style/LFGCardText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1\n2\n3\n4\n\5\n6\n7\n\8\n9\n10\n11\n12\n13\n14\n\15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvAdventureExpLabel" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivArenaModeSlp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/gains_icon" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvAdventureExp"
-                        style="@style/LFGCardValue"
-                        android:textAlignment="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvAdventureExpLabel"
-                        android:text="51\n59\n111\n118*\n141\n199\n256*\n237\n282\n300\n344*\n429\n378\n347\n358\n402\n367\n446*\n434\n401\n644\n449\n618\n582\n618\n797\n735*\n759\n800\n1209\n810\n724\n891\n?\n805\n820" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvArenaModeSlpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:text="Arena Mode SLP Gain"
+                    android:textColor="@color/claims_color"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivArenaModeSlp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivArenaModeSlp"
+                    app:layout_constraintTop_toTopOf="@+id/ivArenaModeSlp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <View
+                android:id="@+id/lineArena"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/slp_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llArenaLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineArena" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvArena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llArenaLabel"
+                tools:itemCount="8"
+                tools:listitem="@layout/info_list_item" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:alpha="0.75"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvArena" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvAdventureExp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stats_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvArena">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llAdventureExp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="64dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/stars"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#5F69A5" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/layer_18"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAdventureExp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/gains_icon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAdventureSlpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:text="Adventure Mode Exp Gain"
+                    android:textColor="@color/exp_label"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivAdventureExp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivAdventureExp"
+                    app:layout_constraintTop_toTopOf="@+id/ivAdventureExp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/lineAdventure"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/slp_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llAdventureExp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineAdventure" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvExp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llAdventureExp"
+                tools:itemCount="8"
+                tools:listitem="@layout/info_list_item" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:alpha="0.75"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvExp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

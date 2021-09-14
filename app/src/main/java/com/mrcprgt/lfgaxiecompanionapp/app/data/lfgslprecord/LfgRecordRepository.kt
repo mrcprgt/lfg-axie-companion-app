@@ -47,12 +47,12 @@ class LfgRecordRepository @Inject constructor(
             }
 
             val response = service.fetch(userDao.get()!!.ronin).process().data
-            response!!.forEach {
-                dao.save(
-                    it.toDomain().toLocal()
-                )
-            }
-            response.map {
+//            response!!.forEach {
+//                dao.save(
+//                    it.toDomain().toLocal()
+//                )
+//            }
+            response!!.map {
                 it.toDomain()
             }
         } catch (e: LFGException) {

@@ -182,7 +182,7 @@
                 tools:text="123" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDailyAverageLabel"
+                android:id="@+id/tvInfoLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"

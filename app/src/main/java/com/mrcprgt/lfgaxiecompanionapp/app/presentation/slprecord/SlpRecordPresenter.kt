@@ -46,12 +46,14 @@ class SlpRecordPresenter @Inject constructor(
             user = getUserUseCase.execute(Unit).user
             scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
 
+            fetchRecords()
             showCurrentClaim()
+
+            val records = getLfgSlpRecordUseCase.execute(Unit).records
+
             showLifetime()
             showAverages()
-
-            fetchRecords()
-            val records = getLfgSlpRecordUseCase.execute(Unit).records
+           
             view?.appendList(records)
             view?.hideProgressDialog()
         }

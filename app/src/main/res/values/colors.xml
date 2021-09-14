@@ -23,6 +23,7 @@
     <color name="bottom_nav_bg">#141835</color>
     <color name="transparent">#ffffff00</color>
     <color name="claims_label">#C74368</color>
+    <color name="exp_label">#B864F5</color>
 
     <!--Stats-->
     <color name="header">#272A44</color>
@@ -30,7 +31,7 @@
     <color name="border_color_stats">#707070</color>
     <color name="slp_label">#6ACEED</color>
     <color name="card_bg_1">#54597B</color>
-    <color name="card_bg_2">#3F4262</color>
+    <color name="card_bg_2">#2A2E4D</color>
 
     <color name="claims_color">#DEB618</color>
     <color name="arena_color">#0CAD9D</color>
