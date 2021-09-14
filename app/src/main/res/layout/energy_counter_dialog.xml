@@ -4,106 +4,236 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/app_background"
-    tools:layout_margin="24dp"
-    android:focusableInTouchMode="true"
-    android:focusable="true"
-    >
+    android:background="@drawable/slp_card_bg"
+    tools:layout_margin="24dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/app_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/header"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.4"
+            android:scaleType="fitXY"
+            android:src="@drawable/toolbar_bg" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStatsIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/energy_icon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ivStatsIcon"
+            android:layout_alignBottom="@+id/ivStatsIcon"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="42dp"
+            android:layout_toStartOf="@+id/btnSync"
+            android:layout_toEndOf="@id/ivStatsIcon"
+            android:elevation="8dp"
+            android:fontFamily="@font/changa_one"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="8"
+            android:text="Energy Counter"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/LFGCardText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnAdd"
+            android:layout_alignStart="@id/btnAdd"
+            android:layout_alignEnd="@id/btnAdd"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Add"
+            android:textColor="@color/slp_button_label"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/LFGCardText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSync"
+            android:layout_alignStart="@id/btnSync"
+            android:layout_alignEnd="@id/btnSync"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Clear"
+            android:textColor="@color/slp_button_label"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSync"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@id/btnAdd"
+            android:background="@drawable/sunc_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/add_icon" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/linecolor" />
+    </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvEnergy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:textAppearance="@style/LFGCardLabel"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="3"
+        android:textColor="@color/white"
+        android:textSize="72sp"
+        app:layout_constraintBottom_toTopOf="@id/tvLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="24dp"
-        android:text="SLP Earned for Today" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMessage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
-        android:textAppearance="@style/LFGCardText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:ignore="RtlHardcoded"
-        android:text="Please input your earned slp for today! Please be honest, we know if you lie :)" />
+        app:layout_constraintTop_toBottomOf="@id/rlHeader"
+        tools:ignore="HardcodedText" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/lineLabelTop"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="34dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/border_color_stats"
+        app:layout_constraintBottom_toTopOf="@id/tvLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputDailySlpEarned" />
+        app:layout_constraintTop_toBottomOf="@id/tvEnergy" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputDailySlpEarned"
-        style="@style/LFGTextField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="36dp"
-        android:hint="Daily SLP Earned"
-        app:counterMaxLength="3"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Enemy"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/lineLabelBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage">
-
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/LFGCardText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="3"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@id/lineLabelTop"
+        tools:ignore="HardcodedText" />
 
     <View
         android:id="@+id/view2"
-        android:layout_width="1dp"
+        android:layout_width="2dp"
         android:layout_height="56dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/tvLabel" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <View
+        android:id="@+id/lineLabelBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_color_stats"
+        app:layout_constraintBottom_toTopOf="@id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabel" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPositive"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorSecondary"
-        android:text="Submit"
+        android:alpha="0.7"
+        android:backgroundTint="@color/card_bg_2"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:padding="8dp"
+        android:text="+"
+        android:textAlignment="center"
         android:textAppearance="@style/LFGCardValue"
         android:textColor="@color/white"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/lineLabelBottom"
         tools:ignore="HardcodedText" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNegative"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorSecondary"
-        android:text="Cancel"
+        android:alpha="0.7"
+        android:background="@null"
+        android:backgroundTint="@color/card_bg_2"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:padding="8dp"
+        android:text="-"
+        android:textAlignment="center"
         android:textAppearance="@style/LFGCardValue"
+        android:textColor="@color/white"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toStartOf="@+id/view2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/lineLabelBottom"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

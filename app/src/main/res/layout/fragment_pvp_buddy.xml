@@ -61,7 +61,8 @@
                 android:text="PvP Buddy"
                 android:textColor="@color/white"
                 android:textSize="24dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/LFGCardText"
@@ -76,15 +77,16 @@
                 android:text="Save"
                 android:textColor="@color/slp_button_label"
                 android:textSize="9sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SmallSp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/LFGCardText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btnSync"
-                android:layout_alignStart="@id/btnSync"
-                android:layout_alignEnd="@id/btnSync"
+                android:layout_below="@id/btnEnergy"
+                android:layout_alignStart="@id/btnEnergy"
+                android:layout_alignEnd="@id/btnEnergy"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/poppins_medium"
@@ -92,10 +94,11 @@
                 android:text="Energy"
                 android:textColor="@color/slp_button_label"
                 android:textSize="9sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SmallSp" />
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/btnSync"
+                android:id="@+id/btnEnergy"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_alignParentTop="true"
@@ -145,7 +148,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rlHeader"
             app:placeholderText="0-20"
-            app:startIconDrawable="@drawable/ic_baseline_flash_on_24">
+            app:startIconDrawable="@drawable/ic_baseline_flash_on_24"
+            tools:ignore="HardcodedText">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/LFGCardText"
@@ -170,7 +174,8 @@
             app:layout_constraintStart_toEndOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@id/rlHeader"
             app:placeholderText="0-12"
-            app:startIconDrawable="@drawable/ic_baseline_show_chart_24">
+            app:startIconDrawable="@drawable/ic_baseline_show_chart_24"
+            tools:ignore="HardcodedText">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/LFGCardText"
@@ -218,7 +223,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123" />
+                tools:text="123"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvWinsLabel"
@@ -231,11 +237,12 @@
                 android:gravity="center"
                 android:text="Wins"
                 android:textColor="@color/green"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvWins" />
+                app:layout_constraintTop_toBottomOf="@id/tvWins"
+                tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -272,11 +279,12 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="10"
                 android:textColor="@color/white"
-                android:textSize="36dp"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123" />
+                tools:text="123"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvDrawLabel"
@@ -289,11 +297,12 @@
                 android:gravity="center"
                 android:text="Draw"
                 android:textColor="@color/claims_color"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDraw" />
+                app:layout_constraintTop_toBottomOf="@id/tvDraw"
+                tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -330,11 +339,12 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="10"
                 android:textColor="@color/white"
-                android:textSize="36dp"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123" />
+                tools:text="123"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLosesLabel"
@@ -347,11 +357,12 @@
                 android:gravity="center"
                 android:text="Lose"
                 android:textColor="@color/arena_color"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLose" />
+                app:layout_constraintTop_toBottomOf="@id/tvLose"
+                tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -365,7 +376,8 @@
             android:textColor="@color/login_btn_label"
             app:layout_constraintEnd_toEndOf="@id/clWins"
             app:layout_constraintStart_toStartOf="@id/clWins"
-            app:layout_constraintTop_toBottomOf="@id/clWins" />
+            app:layout_constraintTop_toBottomOf="@id/clWins"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddDraw"
@@ -377,7 +389,8 @@
             android:textColor="@color/login_btn_label"
             app:layout_constraintEnd_toEndOf="@id/clDraw"
             app:layout_constraintStart_toStartOf="@id/clDraw"
-            app:layout_constraintTop_toBottomOf="@id/clDraw" />
+            app:layout_constraintTop_toBottomOf="@id/clDraw"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddLose"
@@ -389,7 +402,8 @@
             android:textColor="@color/login_btn_label"
             app:layout_constraintEnd_toEndOf="@id/clLose"
             app:layout_constraintStart_toStartOf="@id/clLose"
-            app:layout_constraintTop_toBottomOf="@id/clLose" />
+            app:layout_constraintTop_toBottomOf="@id/clLose"
+            tools:ignore="HardcodedText" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -411,10 +425,11 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Total SLP Earned"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvTotalSlpEarned"
@@ -425,7 +440,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/green"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/ivSlp"
                 app:layout_constraintTop_toTopOf="parent"

@@ -1,10 +1,10 @@
 package com.mrcprgt.lfgaxiecompanionapp.di
 
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.buffs.BuffsFragment
-import com.mrcprgt.lfgaxiecompanionapp.app.presentation.energy.EnergyFragment
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.gains.GainsFragment
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.login.LoginActivity
+import com.mrcprgt.lfgaxiecompanionapp.app.presentation.pvpbuddy.EnergyCounterDialog
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.pvpbuddy.PvpBuddyFragment
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord.AddRecordDialog
 import com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord.SlpRecordFragment
@@ -43,13 +43,13 @@ abstract class AndroidModule {
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract fun contributesEnergyFragment(): EnergyFragment
-
-    @FragmentScoped
-    @ContributesAndroidInjector
     abstract fun contributeSlpRecordFragment(): SlpRecordFragment
 
     @FragmentScoped
     @ContributesAndroidInjector
     abstract fun contributeAddRecordDialog(): AddRecordDialog
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeEnergyCounterDialog(): EnergyCounterDialog
 }

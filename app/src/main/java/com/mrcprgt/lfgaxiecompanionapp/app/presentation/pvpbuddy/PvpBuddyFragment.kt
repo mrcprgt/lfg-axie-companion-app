@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.mrcprgt.lfgaxiecompanionapp.databinding.FragmentPvpBuddyBinding
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.showAllowingStateLoss
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
 import javax.inject.Inject
 
@@ -17,6 +18,8 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
     private val binding: FragmentPvpBuddyBinding by lazy {
         FragmentPvpBuddyBinding.inflate(layoutInflater)
     }
+
+    private val dialog = EnergyCounterDialog()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,6 +55,9 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
         binding.btnAddLose.setOnClickWithDelay {
             presenter.onLosesPressed()
         }
+        binding.btnEnergy.setOnClickWithDelay {
+            showEnergyCounter()
+        }
     }
 
     override fun onDestroyView() {
@@ -81,6 +87,14 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
 
     override fun updateTotalSlpEarned(totalSlp: Int) {
         binding.tvTotalSlpEarned.text = totalSlp.toString()
+    }
+
+    private fun showEnergyCounter() {
+        dialog.isCancelable = false
+        dialog.showAllowingStateLoss(
+            parentFragmentManager,
+            "energy"
+        )
     }
 
     companion object {

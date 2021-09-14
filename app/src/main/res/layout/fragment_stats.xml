@@ -27,6 +27,17 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.4"
+                android:scaleType="fitXY"
+                android:src="@drawable/toolbar_bg" />
+
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivStatsIcon"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -52,8 +63,9 @@
                 android:shadowRadius="8"
                 android:text="Stats"
                 android:textColor="@color/white"
-                android:textSize="24dp"
-                android:textStyle="bold" />
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/LFGCardText"
@@ -65,7 +77,8 @@
                 android:layout_marginBottom="16dp"
                 android:layout_toStartOf="@id/btnRefresh"
                 android:text="refresh"
-                android:textColor="@color/login_btn_label" />
+                android:textColor="@color/login_btn_label"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnRefresh"
@@ -147,9 +160,10 @@
                     android:fontFamily="@font/changa_one"
                     android:text="SLPs"
                     android:textColor="@color/slp_label"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="16dp"
@@ -187,10 +201,11 @@
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="Daily Average"
+                android:text="Claim Cycle Daily Average"
                 app:layout_constraintEnd_toStartOf="@id/tvDailyAverage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lineSlp" />
+                app:layout_constraintTop_toBottomOf="@id/lineSlp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDailyAverage"
@@ -204,7 +219,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineSlp"
-                tools:text="280" />
+                tools:text="280"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv5to9SlpLabel"
@@ -212,14 +228,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:alpha="0.65"
-                android:background="@drawable/slps_left_1"
+                android:background="@drawable/slps_left_2"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="Ingame SLP"
+                android:text="In Game SLP"
                 app:layout_constraintEnd_toStartOf="@id/tvTotalSlp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvInfoLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvInfoLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvTotalSlp"
@@ -227,13 +244,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.65"
-                android:background="@drawable/slps_right_1"
+                android:background="@drawable/slps_right_2"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDailyAverage"
-                tools:text="280" />
+                tools:text="280"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvManagerShareLabel"
@@ -248,7 +266,8 @@
                 android:text="Manager Share"
                 app:layout_constraintEnd_toStartOf="@id/tvManagerShare"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv5to9SlpLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tv5to9SlpLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvManagerShare"
@@ -262,7 +281,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTotalSlp"
-                tools:text="140" />
+                tools:text="140"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvScholarShareLabel"
@@ -277,7 +297,8 @@
                 android:text="Scholar Share"
                 app:layout_constraintEnd_toStartOf="@id/tvScholarShare"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvManagerShareLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvManagerShareLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvScholarShare"
@@ -292,7 +313,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvScholarShareLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvManagerShare"
-                tools:text="140" />
+                tools:text="140"
+                tools:ignore="RtlSymmetry" />
 
             <View
                 android:layout_width="match_parent"
@@ -345,9 +367,10 @@
                     android:fontFamily="@font/changa_one"
                     android:text="Claims"
                     android:textColor="@color/claims_label"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="16dp"
@@ -388,7 +411,8 @@
                 android:text="Last Claimed Amount"
                 app:layout_constraintEnd_toStartOf="@id/tvLastClaimedAmount"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lineClaims" />
+                app:layout_constraintTop_toBottomOf="@id/lineClaims"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastClaimedAmount"
@@ -402,7 +426,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineClaims"
-                tools:text="280" />
+                tools:text="280"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastClaimedAtLabel"
@@ -417,7 +442,8 @@
                 android:text="Last Claimed At"
                 app:layout_constraintEnd_toStartOf="@id/tvLastClaimedAt"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmountLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmountLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastClaimedAt"
@@ -431,7 +457,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmount"
-                tools:text="8-31-2021" />
+                tools:text="8-31-2021"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNextClaimDateLabel"
@@ -446,7 +473,8 @@
                 android:text="Next Claim Date"
                 app:layout_constraintEnd_toStartOf="@id/tvNextClaimDate"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAtLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAtLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNextClaimDate"
@@ -460,7 +488,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAt"
-                tools:text="8-31-2021" />
+                tools:text="8-31-2021"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNextClaimInDaysLabel"
@@ -475,7 +504,8 @@
                 android:text="Next Claim In"
                 app:layout_constraintEnd_toStartOf="@id/tvNextClaimInDays"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvNextClaimDateLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvNextClaimDateLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNextClaimInDays"
@@ -489,7 +519,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNextClaimDate"
-                tools:text="13 days" />
+                tools:text="13 days"
+                tools:ignore="RtlSymmetry" />
 
             <View
                 android:layout_width="match_parent"
@@ -544,10 +575,11 @@
                     android:fontFamily="@font/changa_one"
                     android:text="Arena"
                     android:textColor="@color/tab_label"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="16dp"
@@ -588,7 +620,8 @@
                 android:text="MMR"
                 app:layout_constraintEnd_toStartOf="@id/tvMmr"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lineArena" />
+                app:layout_constraintTop_toBottomOf="@id/lineArena"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvMmr"
@@ -602,7 +635,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineArena"
-                tools:text="1700" />
+                tools:text="1700"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWinsLabel"
@@ -617,7 +651,8 @@
                 android:text="Wins"
                 app:layout_constraintEnd_toStartOf="@id/tvWins"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMmrLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvMmrLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWins"
@@ -631,7 +666,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvMmr"
-                tools:text="100" />
+                tools:text="100"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDrawLabel"
@@ -646,7 +682,8 @@
                 android:text="Draw"
                 app:layout_constraintEnd_toStartOf="@id/tvDraw"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvWinsLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvWinsLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDraw"
@@ -660,7 +697,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvWins"
-                tools:text="23" />
+                tools:text="23"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLoseLabel"
@@ -675,7 +713,8 @@
                 android:text="Lose"
                 app:layout_constraintEnd_toStartOf="@id/tvLose"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDrawLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvDrawLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLose"
@@ -689,7 +728,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDraw"
-                tools:text="69" />
+                tools:text="69"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWinRateLabel"
@@ -704,7 +744,8 @@
                 android:text="Win Rate"
                 app:layout_constraintEnd_toStartOf="@id/tvWinRate"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLoseLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvLoseLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWinRate"
@@ -718,7 +759,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLose"
-                tools:text="50%" />
+                tools:text="50%"
+                tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvArenaRankLabel"
@@ -733,7 +775,8 @@
                 android:text="Arena Rank"
                 app:layout_constraintEnd_toStartOf="@id/tvArenaRank"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvWinRateLabel" />
+                app:layout_constraintTop_toBottomOf="@id/tvWinRateLabel"
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvArenaRank"
@@ -747,7 +790,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvWinRate"
-                tools:text="290000" />
+                tools:text="290000"
+                tools:ignore="RtlSymmetry" />
 
             <View
                 android:layout_width="match_parent"

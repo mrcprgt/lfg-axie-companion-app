@@ -30,13 +30,14 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/left_only_1"
         android:gravity="start"
-        android:text="Attack\nDown"
+        android:text="Attack Down"
         android:textColor="@color/login_btn_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline5"
         app:layout_constraintStart_toEndOf="@id/guideline6"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="@drawable/left_only_2" />
+        tools:background="@drawable/left_only_2"
+        tools:ignore="HardcodedText" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvBuffInfo"
@@ -49,12 +50,13 @@
         android:paddingEnd="8dp"
         android:paddingBottom="8dp"
         android:text="Increases Morale by 20% for the next round."
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="@drawable/right_only_2" />
+        tools:background="@drawable/right_only_2"
+        tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
