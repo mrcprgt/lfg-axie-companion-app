@@ -1,7 +1,5 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.login
 
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.AuthenticationGateway
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.User
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.usecase.CheckSessionUseCase
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.usecase.LoginUseCase
 import com.mrcprgt.lfgaxiecompanionapp.tools.CoroutineScopeProvider
@@ -26,6 +24,10 @@ class LoginPresenter @Inject constructor(
     override fun onViewReady(view: LoginContract.View) {
         this.view = view
 
+        setup()
+    }
+
+    private fun setup() {
         scopeProvider.provide().launch {
             try {
                 view?.showProgressDialog("Please wait", "Checking saved data...")
@@ -34,7 +36,7 @@ class LoginPresenter @Inject constructor(
                 view?.hideProgressDialog()
                 view?.navigateToHome()
             } catch (e: LFGException) {
-               view?.hideProgressDialog()
+                view?.hideProgressDialog()
             }
         }
     }
@@ -43,7 +45,12 @@ class LoginPresenter @Inject constructor(
         this.view = null
     }
 
-    override fun onLoginClicked(ronin: String, managerShare: Int?, scholarShare: Int?, inventorySlp: Int?) {
+    override fun onLoginClicked(
+        ronin: String,
+        managerShare: Int?,
+        scholarShare: Int?,
+        inventorySlp: Int?
+    ) {
         scopeProvider.provide().launch {
             view?.clearErrors()
             validateRonin(ronin)
@@ -52,7 +59,14 @@ class LoginPresenter @Inject constructor(
 
             if (validManagerShare && validScholarShare && validRonin) {
                 view?.showProgressDialog("Please wait", "Saving credentials")
-                loginUseCase.execute(LoginUseCase.Param(ronin, managerShare!!, scholarShare!!, inventorySlp!!))
+                loginUseCase.execute(
+                    LoginUseCase.Param(
+                        ronin,
+                        managerShare!!,
+                        scholarShare!!,
+                        inventorySlp!!
+                    )
+                )
                 view?.hideProgressDialog()
                 view?.navigateToHome()
             }
@@ -79,10 +93,10 @@ class LoginPresenter @Inject constructor(
         }
     }
 
-    private fun validateInventorySlp(slp: Int?){
-        if(slp == null){
+    private fun validateInventorySlp(slp: Int?) {
+        if (slp == null) {
             view?.showErrorInventorySLP("Please enter the amount of slp in your inventory.")
-        }else{
+        } else {
             validRonin = true
         }
     }

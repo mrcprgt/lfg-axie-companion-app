@@ -6,7 +6,6 @@ import com.mrcprgt.lfgaxiecompanionapp.app.data.lfgslprecord.LfgRecordRepository
 import com.mrcprgt.lfgaxiecompanionapp.app.data.lfgslprecord.LocalLfgRecordDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataRepository
-import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.FakeSlpRecordRepository
 import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecordDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.SlpRecordRepository
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.AuthenticationRepository

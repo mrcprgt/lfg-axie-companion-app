@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.text.TextUtils
 import android.util.Log
 import org.joda.time.DateTime
-import org.joda.time.Days
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
 import org.joda.time.format.DateTimeFormat
@@ -28,13 +27,7 @@ fun epochToDate(s: String): Date {
 fun daysDifference(d1: Date, d2: Date): Int {
     val diff = d2.time - d1.time
 
-//    val difer = Days.daysBetween(d2.time, d1.time)
-
-    Log.e("DATE2", diff.toString())
-//    val diffInDays = diff - (24 * 60 * 60 * 100)
-    val diffInDays = d2.time - d1.time
     val value = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)
-    Log.e("Diff in days", value.toString())
     return value.toInt()
 
 
@@ -47,7 +40,7 @@ fun formatMinutes(minutes: Int): Int {
 fun DateTime.isToday(): Boolean = LocalDate.now().compareTo(LocalDate(this)) == 0
 
 @SuppressLint("DefaultLocale")
-fun LocalDateTime.getWeekName(): String = this.dayOfWeek().asText.toLowerCase()
+fun LocalDateTime.getWeekName(): String = this.dayOfWeek().asText.lowercase(Locale.getDefault())
 
 fun isToday(timestamp: Long): Boolean {
     val now = Calendar.getInstance()

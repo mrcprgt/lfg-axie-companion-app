@@ -1,6 +1,5 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.stats
 
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.ScholarData
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.BasePresenter
 import com.mrcprgt.lfgaxiecompanionapp.tools.mvp.BaseView
 import java.util.*

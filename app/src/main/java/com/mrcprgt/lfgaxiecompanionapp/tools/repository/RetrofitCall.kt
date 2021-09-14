@@ -4,7 +4,6 @@ import com.mrcprgt.lfgaxiecompanionapp.tools.LFGException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 import java.io.IOException
 
 class RetrofitCall<T>(proxy: Call<T>) : CallDelegate<T, RetrofitResponse<T>>(proxy) {
@@ -34,7 +33,7 @@ class RetrofitCall<T>(proxy: Call<T>) : CallDelegate<T, RetrofitResponse<T>>(pro
                 val requestMadeFor = call.request().url().toString()
                 val result = if (t is IOException) {
                     RetrofitResponse.Failed(
-                        LFGException(t.localizedMessage)
+                        LFGException(t.message ?: t.localizedMessage)
                     )
                 } else {
                     RetrofitResponse.Failed(LFGException(t.message ?: t.localizedMessage))

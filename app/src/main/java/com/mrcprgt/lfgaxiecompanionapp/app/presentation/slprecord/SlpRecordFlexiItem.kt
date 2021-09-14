@@ -1,7 +1,6 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.slprecord
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mrcprgt.lfgaxiecompanionapp.R

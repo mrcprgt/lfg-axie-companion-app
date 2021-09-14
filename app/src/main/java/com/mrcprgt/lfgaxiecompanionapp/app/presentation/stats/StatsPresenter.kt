@@ -9,7 +9,6 @@ import com.mrcprgt.lfgaxiecompanionapp.tools.LFGException
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.daysDifference
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
-import java.lang.Exception
 import java.util.*
 import javax.inject.Inject
 import kotlin.coroutines.resume
@@ -62,7 +61,7 @@ class StatsPresenter @Inject constructor(
                 } catch (e: LFGException) {
                     view?.showErrorDialog(
                         "Something went wrong",
-                        e.localizedMessage,
+                        e.message ?: e.localizedMessage,
                         onOkClicked = {
                             scopeProvider.provide().launch {
                                 fetchScholarData()

@@ -8,7 +8,6 @@ import com.mrcprgt.lfgaxiecompanionapp.tools.LFGException
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.epochToDate
 import com.mrcprgt.lfgaxiecompanionapp.tools.repository.*
 import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.Exception
 import javax.inject.Inject
 
 class ScholarDataRepository @Inject constructor(

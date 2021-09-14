@@ -5,11 +5,9 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mrcprgt.lfgaxiecompanionapp.R
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.LFGSlpRecordAndGains
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
 import com.mrcprgt.lfgaxiecompanionapp.databinding.SlpCountListItemBinding
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.BaseFlexibleItem
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.formatToHHMMA
-import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.formatToMMDDYYYATHHMMAAAA
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.formatToMMMMdd
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.IFlexible

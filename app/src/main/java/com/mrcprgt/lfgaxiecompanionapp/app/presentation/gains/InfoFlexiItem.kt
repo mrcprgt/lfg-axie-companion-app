@@ -1,15 +1,12 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.presentation.gains
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mrcprgt.lfgaxiecompanionapp.R
-import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
 import com.mrcprgt.lfgaxiecompanionapp.databinding.InfoListItemBinding
-import com.mrcprgt.lfgaxiecompanionapp.databinding.SlpCountListItemBinding
-import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.*
+import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.BaseFlexibleItem
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.IFlexible
 

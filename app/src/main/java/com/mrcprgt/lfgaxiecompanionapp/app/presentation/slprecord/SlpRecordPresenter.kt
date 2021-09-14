@@ -10,7 +10,6 @@ import com.mrcprgt.lfgaxiecompanionapp.tools.CoroutineScopeProvider
 import com.mrcprgt.lfgaxiecompanionapp.tools.LFGException
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.Settings
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.dateIsToday
-import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.isToday
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import java.util.*

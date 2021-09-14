@@ -20,6 +20,10 @@ class PvpBuddyPresenter @Inject constructor(private val scopeProvider: Coroutine
     override fun onViewReady(view: PvpBuddyContract.View) {
         this.view = view
 
+        setup()
+    }
+
+    private fun setup() {
         view?.updateEnergy(energy)
         view?.updateSlpGain(slpGain)
 

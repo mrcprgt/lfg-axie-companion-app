@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/app_background"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -15,499 +15,296 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvBuffsLabel"
-            style="@style/LFGPageHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Buffs/Debuffs"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TableLayout
+        <RelativeLayout
+            android:id="@+id/rlHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:background="@color/header"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.4"
+                android:scaleType="fitXY"
+                android:src="@drawable/toolbar_bg" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStatsIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/buffs_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/ivStatsIcon"
+                android:layout_alignBottom="@id/ivStatsIcon"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/ivStatsIcon"
+                android:elevation="8dp"
+                android:fontFamily="@font/changa_one"
+                android:gravity="center"
+                android:shadowColor="@color/black"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="8"
+                android:text="Buffs &amp; Debuffs"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/linecolor" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/drop_shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginBottom="16dp"
-            android:nestedScrollingEnabled="true"
-            android:orientation="vertical"
-            android:scrollbarStyle="insideInset"
-            android:shrinkColumns="2"
+            android:background="@drawable/stats_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llSlpLabels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="64dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/stars"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#5F69A5" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/layer_18"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAdventureModeSlp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/buffs_icon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvAdventureSlp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/changa_one"
+                    android:text="Buffs"
+                    android:textColor="@color/slp_label"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivAdventureModeSlp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivAdventureModeSlp"
+                    app:layout_constraintTop_toTopOf="@+id/ivAdventureModeSlp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/lineSlp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/slp_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llSlpLabels" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineSlp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBuffs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llSlpLabels"
+                tools:itemCount="8"
+                tools:listitem="@layout/buff_list_item" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:alpha="0.75"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvBuffs" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvArena"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/stats_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBuffsLabel">
+            app:layout_constraintTop_toBottomOf="@id/cvMain">
 
-            <TableRow android:background="@color/tableField2">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@color/tableField1"
-                    android:src="@drawable/buff_attack_up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Attack Up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Increases the next Attack by 20%."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llArenaLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/buff_morale_up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Morale Up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Increases Morale by 20% for the next round."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField2">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/buff_speed_up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Speed Up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Increases Speed by 20% for the next round."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_aroma" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Aroma" />
-
-                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Target priority changes to affected Axie for the next round."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField2">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_attack_down" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Attack Down" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Decreases the next Attack by 20% Stackable."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
+                    android:layout_height="0dp"
+                    android:layout_marginStart="64dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/stars"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#5F69A5" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_chill" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Chill" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Affected Axie can't enter last stand."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField2">
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/layer_18"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/ivArenaModeSlp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/debuffs_icon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvArenaModeSlpLabel"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_fear" />
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/changa_one"
+                    android:text="Debuffs"
+                    android:textColor="@color/claims_color"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivArenaModeSlp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivArenaModeSlp"
+                    app:layout_constraintTop_toTopOf="@+id/ivArenaModeSlp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Fear" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Affected Axie can't attack."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
+            <View
+                android:id="@+id/lineArena"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/slp_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llArenaLabel" />
 
-            <TableRow android:background="@color/tableField1">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/drop_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineArena" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_fragile" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDebuffs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llArenaLabel"
+                tools:itemCount="8"
+                tools:listitem="@layout/info_list_item" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Fragile" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Shield takes double the damage for the next incoming attack."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:alpha="0.75"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvDebuffs" />
 
-            <TableRow android:background="@color/tableField2">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_jinx" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Jinx" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Affected Axie can't land critical hits for the next round."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_lethal" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Lethal" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Next hit against affected Axie is critical."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField2">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_morale_down" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Morale Down" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Decreases Morale by 20% for the next round. Stackable."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_poison" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Poison" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Until removal, affected Axie loses 2 HP for every action. Stackable."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField2">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_sleep" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Sleep" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Next incoming attack ignores shields."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_speed_down" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Speed Down" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Decreases speed by 20% for the next round. Stackable."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField2">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_stench" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Stench" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Affected Axie loses target priority for the next round."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow android:background="@color/tableField1">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/debuff_stun" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/LFGCardText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:text="Stun" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Next attack misses or Next incoming attack ignores shields."
-                    android:textColor="@color/white"
-                    android:textSize="12dp" />
-            </TableRow>
-
-        </TableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -4,15 +4,11 @@ import android.util.Log
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.RemoteLFGResponseDeserializer
-import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.RemoteScholarData
-import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDeserializer
-import com.mrcprgt.lfgaxiecompanionapp.app.data.user.LocalUser
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.UserDao
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.SlpRecordGateway
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.SlpRecord
 import com.mrcprgt.lfgaxiecompanionapp.tools.LFGException
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.parseUTCDate
-import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.toJavaDateFromUTC
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.toUTC
 import com.mrcprgt.lfgaxiecompanionapp.tools.repository.*
 import retrofit2.converter.gson.GsonConverterFactory

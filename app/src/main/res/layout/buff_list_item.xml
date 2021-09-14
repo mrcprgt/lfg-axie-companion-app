@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clParent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="0.75"
+    android:background="@color/card_bg_2">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBuffIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/buff_attack_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvBuffName"
+        style="@style/LFGCardValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/left_only_1"
+        android:gravity="start"
+        android:text="Attack\nDown"
+        android:textColor="@color/login_btn_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline5"
+        app:layout_constraintStart_toEndOf="@id/guideline6"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/left_only_2" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvBuffInfo"
+        style="@style/LFGCardValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/right_only_1"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp"
+        android:text="Increases Morale by 20% for the next round."
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline5"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/right_only_2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+</androidx.constraintlayout.widget.ConstraintLayout>
