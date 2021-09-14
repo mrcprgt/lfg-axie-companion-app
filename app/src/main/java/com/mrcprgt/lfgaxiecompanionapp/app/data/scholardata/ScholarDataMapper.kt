@@ -2,20 +2,7 @@ package com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata
 
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.ScholarData
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.epochToDate
-import java.util.*
 
-
-fun RemoteScholarData.toDomain() = ScholarData(
-    this.roninAddress,
-    this.lastClaimAmount.toInt(),
-    epochToDate(this.lastClaimTimeStamp),
-    this.totalSlp,
-    this.inGameSlp,
-    this.rank,
-    this.mmr,
-    this.winRate.toDouble(),
-    this.ign ?: ""
-)
 
 fun ScholarData.toLocal() = LocalScholarData(
     ronin = this.scholarAddress,
@@ -27,8 +14,11 @@ fun ScholarData.toLocal() = LocalScholarData(
     arenaRank = this.arenaRank,
     mmr = this.mmr,
     totalMatches = this.totalMatches,
-    winRate = this.winRate.toInt(),
-    ign = this.ign
+    winRate = this.winRate,
+    ign = this.ign,
+    wins = this.wins,
+    draws = this.draws,
+    loses = this.loses
 )
 
 fun LocalScholarData.toDomain() = ScholarData(
@@ -38,7 +28,10 @@ fun LocalScholarData.toDomain() = ScholarData(
     inGameSlp = this.inGameSlp,
     arenaRank = this.arenaRank,
     mmr = this.mmr,
-    totalMatches = 0,
-    winRate = 0.0,
-    ign = this.ign
+    totalMatches = totalMatches,
+    winRate = this.winRate,
+    ign = this.ign,
+    loses = this.loses,
+    draws = this.draws,
+    wins = this.wins
 )

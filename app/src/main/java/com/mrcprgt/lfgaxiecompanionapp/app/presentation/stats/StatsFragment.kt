@@ -68,9 +68,14 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         binding.tvLastClaimedAmount.text = lastClaimedAmount.toString()
         binding.tvLastClaimedAt.text = lastClaimedAt.formatToMMDDYYYY()
         binding.tvNextClaimDate.text = nextClaimDate.formatToMMDDYYYY()
-        binding.tvNextClaimInDays.text = "$nextClaimIn day(s)"
+        if (nextClaimIn == 0) {
+            binding.tvNextClaimInDays.text = "Today"
+        } else {
+            binding.tvNextClaimInDays.text = "$nextClaimIn day(s)"
+        }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun showArenaCard(
         mmr: Int,
         wins: Int,

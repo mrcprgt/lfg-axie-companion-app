@@ -219,8 +219,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineSlp"
-                tools:text="280"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="280" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv5to9SlpLabel"
@@ -250,8 +250,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDailyAverage"
-                tools:text="280"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="280" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvManagerShareLabel"
@@ -281,8 +281,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTotalSlp"
-                tools:text="140"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="140" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvScholarShareLabel"
@@ -313,8 +313,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvScholarShareLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvManagerShare"
-                tools:text="140"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="140" />
 
             <View
                 android:layout_width="match_parent"
@@ -408,7 +408,7 @@
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="Last Claimed Amount"
+                android:text="Lifetime SLP Claimed"
                 app:layout_constraintEnd_toStartOf="@id/tvLastClaimedAmount"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineClaims"
@@ -426,8 +426,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineClaims"
-                tools:text="280"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="280" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLastClaimedAtLabel"
@@ -457,8 +457,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAmount"
-                tools:text="8-31-2021"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="8-31-2021" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNextClaimDateLabel"
@@ -488,8 +488,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLastClaimedAt"
-                tools:text="8-31-2021"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="8-31-2021" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNextClaimInDaysLabel"
@@ -519,8 +519,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNextClaimDate"
-                tools:text="13 days"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="13 days" />
 
             <View
                 android:layout_width="match_parent"
@@ -635,8 +635,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lineArena"
-                tools:text="1700"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="1700" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWinsLabel"
@@ -666,8 +666,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvMmr"
-                tools:text="100"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="100" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDrawLabel"
@@ -697,8 +697,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvWins"
-                tools:text="23"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="23" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLoseLabel"
@@ -728,8 +728,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDraw"
-                tools:text="69"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="69" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvWinRateLabel"
@@ -759,8 +759,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLose"
-                tools:text="50%"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="50%" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvArenaRankLabel"
@@ -790,8 +790,8 @@
                 android:paddingBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvWinRate"
-                tools:text="290000"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                tools:text="290000" />
 
             <View
                 android:layout_width="match_parent"

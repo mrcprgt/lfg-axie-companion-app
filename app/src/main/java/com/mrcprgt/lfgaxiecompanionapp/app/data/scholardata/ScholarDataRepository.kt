@@ -54,6 +54,12 @@ class ScholarDataRepository @Inject constructor(
                 .addParam("client_id", ronin)
                 .build()
             val pvp = service.fetchPVP(query).process()
+            val matches = (pvp.items[1].wins + pvp.items[1].draw + pvp.items[1].loses)
+            val wins = try {
+                matches / pvp.items[1].wins
+            } catch (e: ArithmeticException) {
+                0
+            }
             val data = ScholarData(
                 scholarAddress = ronin,
                 lastClaimAmount = stats.blockChainRelated.lifetimeSlp,
@@ -61,9 +67,12 @@ class ScholarDataRepository @Inject constructor(
                 inGameSlp = stats.total,
                 arenaRank = pvp.items[1].rank,
                 mmr = pvp.items[1].mmr,
-                totalMatches = 0,
-                winRate = 0.0,
-                ign = pvp.items[1].name
+                totalMatches = matches,
+                winRate = wins.toDouble(),
+                ign = pvp.items[1].name,
+                wins = pvp.items[1].wins,
+                draws = pvp.items[1].draw,
+                loses = pvp.items[1].loses,
             )
             dao.save(data.toLocal())
             data

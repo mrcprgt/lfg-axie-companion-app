@@ -10,8 +10,8 @@ import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.LocalScholarData
 import com.mrcprgt.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecord
 import com.mrcprgt.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecordDao
-import com.mrcprgt.lfgaxiecompanionapp.app.data.user.UserDao
 import com.mrcprgt.lfgaxiecompanionapp.app.data.user.LocalUser
+import com.mrcprgt.lfgaxiecompanionapp.app.data.user.UserDao
 
 @Database(
     entities = [
@@ -20,7 +20,7 @@ import com.mrcprgt.lfgaxiecompanionapp.app.data.user.LocalUser
         LocalScholarData::class,
         LocalLfgRecord::class,
     ],
-    version = 7,
+    version = 8,
     exportSchema = false
 )
 

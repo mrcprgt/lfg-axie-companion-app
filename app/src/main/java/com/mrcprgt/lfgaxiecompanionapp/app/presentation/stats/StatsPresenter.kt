@@ -93,9 +93,9 @@ class StatsPresenter @Inject constructor(
 
                     view?.showArenaCard(
                         mmr = scholarData?.mmr ?: 0,
-                        wins = 0,
-                        draw = 0,
-                        lose = 0,
+                        wins = scholarData?.wins ?: 0,
+                        draw = scholarData?.draws ?: 0,
+                        lose = scholarData?.loses ?: 0,
                         winRate = scholarData?.winRate ?: 0.0,
                         arenaRank = scholarData?.arenaRank ?: 0
                     )

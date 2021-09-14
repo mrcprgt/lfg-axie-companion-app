@@ -35,7 +35,16 @@ data class LocalScholarData(
     val totalMatches: Int,
 
     @ColumnInfo(name = "win_rate")
-    val winRate: Int,
+    val winRate: Double,
+
+    @ColumnInfo(name = "wins")
+    val wins: Int,
+
+    @ColumnInfo(name = "draws")
+    val draws: Int,
+
+    @ColumnInfo(name = "loses")
+    val loses: Int,
 
     @ColumnInfo(name = "ign")
     val ign: String,
