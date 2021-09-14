@@ -46,6 +46,7 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         presenter.onViewDetach()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun showSlpCard(
         dailyAverage: Int,
         totalSlp: Int,
@@ -54,8 +55,8 @@ class StatsFragment : LFGFragment(), StatsContract.View {
     ) {
         binding.tvDailyAverage.text = dailyAverage.toString()
         binding.tvTotalSlp.text = totalSlp.toString()
-        binding.tvManagerShare.text = managerShare.toString()
-        binding.tvScholarShare.text = scholarShare.toString()
+        binding.tvManagerShare.text = "$managerShare %"
+        binding.tvScholarShare.text = "$scholarShare %"
     }
 
     @SuppressLint("SetTextI18n")
@@ -88,7 +89,7 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         binding.tvWins.text = wins.toString()
         binding.tvDraw.text = draw.toString()
         binding.tvLose.text = lose.toString()
-        binding.tvWinRate.text = "$winRate %"
+        binding.tvWinRate.text = "%.2f".format(winRate) + " %"
         binding.tvArenaRank.text = arenaRank.toString()
     }
 
