@@ -26,14 +26,14 @@ class AddSlpRecordUseCase @Inject constructor(
             val currentSlp = scholarDataGateway.fetchScholarData(
                 authenticationGateway.getUser().ronin
             ).inGameSlp
-//            if (initialSlp + params.slpRecord.amount != currentSlp) {
-//                throw LFGException("Your slp count is not true. Please recheck your value and try again.")
-//            } else {
+            if (initialSlp + params.slpRecord.amount != currentSlp) {
+                throw LFGException("Your slp count is not true. Please recheck your value and try again.")
+            } else {
                 slpRecordGateway.saveRecordForToday(params.slpRecord)
                 slpRecordGateway.syncInGameSlp(params.slpRecord.amount)
                 settings.saveDate("DATE", Date().time)
                 settings.save("FIRST_TIME", false)
-//           }
+            }
         } else {
             slpRecordGateway.saveRecordForToday(params.slpRecord)
             slpRecordGateway.syncInGameSlp(params.slpRecord.amount)

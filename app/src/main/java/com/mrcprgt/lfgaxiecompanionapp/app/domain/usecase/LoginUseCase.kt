@@ -1,6 +1,7 @@
 package com.mrcprgt.lfgaxiecompanionapp.app.domain.usecase
 
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.AuthenticationGateway
+import com.mrcprgt.lfgaxiecompanionapp.app.domain.ScholarDataGateway
 import com.mrcprgt.lfgaxiecompanionapp.app.domain.models.User
 import com.mrcprgt.lfgaxiecompanionapp.tools.helpers.Settings
 import com.mrcprgt.lfgaxiecompanionapp.tools.interactor.Interactor
@@ -10,15 +11,17 @@ import javax.inject.Inject
 class LoginUseCase @Inject constructor(
     interactorHandler: InteractorHandler,
     private val authenticationGateway: AuthenticationGateway,
+    private val scholarDataGateway: ScholarDataGateway,
     private val settings: Settings
 ) : Interactor<Unit, LoginUseCase.Param>(interactorHandler) {
     override suspend fun run(params: Param) {
+        val inGameSlp = scholarDataGateway.fetchScholarData(ronin = params.ronin).inGameSlp
         authenticationGateway.login(
             User(
                 params.ronin,
                 params.managerShare,
                 params.scholarShare,
-                params.initialSlp
+                inGameSlp
             )
         )
         settings.save("FIRST_TIME", true)
