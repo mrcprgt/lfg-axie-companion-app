@@ -7,8 +7,7 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="16dp"
-    android:background="@drawable/rounded_rectangle_1_copy_3"
-    tools:background="@color/slp_card_border">
+    android:background="@drawable/slp_data_box">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDate"

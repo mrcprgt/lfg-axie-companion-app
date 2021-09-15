@@ -100,15 +100,15 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="Sync"
+                android:text="@string/sync"
                 android:textColor="@color/slp_button_label"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnSync"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
@@ -118,8 +118,8 @@
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnAdd"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
@@ -144,9 +144,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clDaily"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/slp_card"
             app:layout_constraintStart_toStartOf="parent"
@@ -202,7 +202,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clWeekly"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:background="@drawable/slp_card"
@@ -234,11 +234,11 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="10"
                 android:textColor="@color/white"
-                android:textSize="36dp"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123" />
+                tools:text="259" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvWeeklyAverageLabel"
@@ -251,7 +251,7 @@
                 android:gravity="center"
                 android:text="Weekly"
                 android:textColor="@color/claims_color"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -261,10 +261,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clMonthly"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/slp_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rlHeader">
@@ -330,7 +330,7 @@
             android:id="@+id/clCurrent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/claim_cycle_shares"
@@ -392,7 +392,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/claim_cycle_shares"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline2"

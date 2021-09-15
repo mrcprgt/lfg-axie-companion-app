@@ -99,19 +99,19 @@
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnEnergy"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_toStartOf="@id/btnSave"
-                android:background="@drawable/sunc_icon" />
+                android:background="@drawable/energy_icon_btn" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnSave"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
@@ -139,7 +139,7 @@
             style="@style/LFGTextField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="22dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
             android:hint="Energy"
@@ -149,6 +149,7 @@
             app:layout_constraintTop_toBottomOf="@id/rlHeader"
             app:placeholderText="0-20"
             app:startIconDrawable="@drawable/ic_baseline_flash_on_24"
+            app:startIconTint="#202335"
             tools:ignore="HardcodedText">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -167,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="22dp"
             android:hint="SLP Gain"
             app:boxBackgroundColor="@color/edit_text_bg"
             app:layout_constraintEnd_toEndOf="parent"
@@ -175,6 +176,7 @@
             app:layout_constraintTop_toBottomOf="@id/rlHeader"
             app:placeholderText="0-12"
             app:startIconDrawable="@drawable/ic_baseline_show_chart_24"
+            app:startIconTint="#202335"
             tools:ignore="HardcodedText">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -188,9 +190,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clWins"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="22dp"
             android:layout_marginTop="36dp"
             android:background="@drawable/slp_card"
             app:layout_constraintStart_toStartOf="parent"
@@ -223,8 +225,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123"
-                tools:ignore="HardcodedText,SpUsage" />
+                tools:ignore="HardcodedText,SpUsage"
+                tools:text="123" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvWinsLabel"
@@ -248,7 +250,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clDraw"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:background="@drawable/slp_card"
@@ -283,8 +285,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                tools:text="123" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvDrawLabel"
@@ -308,10 +310,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clLose"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="22dp"
             android:background="@drawable/slp_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputSlpGain">
@@ -343,8 +345,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="123"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                tools:text="123" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLosesLabel"
@@ -368,20 +370,20 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddWin"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/login_btn_color"
             android:text="Add+"
             android:textColor="@color/login_btn_label"
-            app:layout_constraintEnd_toEndOf="@id/clWins"
-            app:layout_constraintStart_toStartOf="@id/clWins"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/clWins"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddDraw"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/login_btn_color"
@@ -394,14 +396,14 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddLose"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="22dp"
             android:backgroundTint="@color/login_btn_color"
             android:text="Add+"
             android:textColor="@color/login_btn_label"
-            app:layout_constraintEnd_toEndOf="@id/clLose"
-            app:layout_constraintStart_toStartOf="@id/clLose"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/clLose"
             tools:ignore="HardcodedText" />
 
@@ -411,7 +413,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_rectangle_1_copy_3"
+            android:background="@drawable/slp_data_box"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnAddDraw">

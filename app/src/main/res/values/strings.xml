@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">LFG Axie Companion App</string>
+    <string name="app_name">SLPCalc</string>
+    <string name="sync">Sync</string>
 </resources>

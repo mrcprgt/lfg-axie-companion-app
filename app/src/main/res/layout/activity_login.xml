@@ -11,13 +11,13 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivIcon"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="8dp"
             android:padding="0dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/slp_calc_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,24 +27,12 @@
             style="@style/LFGCardText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="160dp"
-            android:text="Scholar Tracker"
+            android:text="SLP Calc"
             android:textColor="@color/gray_login_label"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tintMode="src_atop" />
+            app:layout_constraintTop_toBottomOf="@+id/ivIcon" />
 
         <View
             android:id="@+id/line1"
@@ -139,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="3" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,7 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="3" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -208,7 +196,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivFooter"
             android:layout_width="wrap_content"
-            android:layout_height="128dp"
+            android:layout_height="72dp"
             android:src="@drawable/lfg_doggo"
             android:tintMode="add"
             app:layout_constraintBottom_toTopOf="@id/tvFooterText"

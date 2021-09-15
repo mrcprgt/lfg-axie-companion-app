@@ -42,7 +42,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="36dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:src="@drawable/stats_icon" />
@@ -50,8 +50,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/ivStatsIcon"
-                android:layout_alignBottom="@id/ivStatsIcon"
+                android:layout_alignTop="@+id/ivStatsIcon"
+                android:layout_alignBottom="@+id/ivStatsIcon"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/ivStatsIcon"
                 android:elevation="8dp"
@@ -63,33 +63,63 @@
                 android:shadowRadius="8"
                 android:text="Stats"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="24dp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LFGCardText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnRefresh"
+                android:layout_alignStart="@id/btnRefresh"
+                android:layout_alignEnd="@id/btnRefresh"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Refresh"
+                android:textColor="@color/slp_button_label"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SmallSp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/LFGCardText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/btnSettings"
+                android:layout_alignStart="@id/btnSettings"
+                android:layout_alignEnd="@id/btnSettings"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Settings"
+                android:textColor="@color/slp_button_label"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_toStartOf="@id/btnRefresh"
-                android:text="refresh"
-                android:textColor="@color/login_btn_label"
-                tools:ignore="HardcodedText" />
+                android:background="@drawable/settings_icon" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnRefresh"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="36dp"
                 android:background="@drawable/refresh_icon" />
 
             <View

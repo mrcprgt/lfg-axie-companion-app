@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "400826521763",
+    "project_id": "lfg-companion-app",
+    "storage_bucket": "lfg-companion-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400826521763:android:5294c3f9c6e5880e580716",
+        "android_client_info": {
+          "package_name": "com.lfgcompany.lfgaxiecompanionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400826521763-4er0tr32nubrq5c1r0ub7n1l7hmdrao0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBFRGhHGVm_sTHGK9RnLZLabURwPCemkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400826521763-4er0tr32nubrq5c1r0ub7n1l7hmdrao0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
