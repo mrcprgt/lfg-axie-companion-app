@@ -25,4 +25,18 @@ class Settings @Inject constructor(
     fun get(key: String): Boolean {
         return sharedPreferences.getBoolean(key, false)
     }
+
+    fun clear() {
+        sharedPreferences.edit().clear().apply()
+    }
+
+    fun changeTracking(value: Boolean) {
+        val edit = sharedPreferences.edit()
+        edit.putBoolean("TRACKING", value)
+        edit.apply()
+    }
+
+    fun getTracking(): Boolean {
+        return sharedPreferences.getBoolean("TRACKING", true)
+    }
 }

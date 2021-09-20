@@ -19,9 +19,12 @@ interface SlpRecordContract {
         fun hideAddDialog()
 
         fun clearSlp()
+
+        fun showAddDialog()
     }
 
     interface Presenter : BasePresenter<View> {
+        fun onAddButtonClicked()
         fun onAddRecordClicked(slp: Int)
         fun onSyncClicked()
     }

@@ -2,11 +2,15 @@ package com.lfgcompany.lfgaxiecompanionapp.app.presentation.stats
 
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.ScholarData
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.User
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.ChangeTrackingMethodUseCase
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.GetTrackingMethodUseCase
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.GetUserUseCase
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.LogoutUseCase
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.scholardata.FetchScholarDataUseCase
 import com.lfgcompany.lfgaxiecompanionapp.tools.CoroutineScopeProvider
 import com.lfgcompany.lfgaxiecompanionapp.tools.LFGException
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.daysDifference
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import java.util.*
@@ -17,7 +21,10 @@ import kotlin.math.absoluteValue
 class StatsPresenter @Inject constructor(
     private val scopeProvider: CoroutineScopeProvider,
     private val getUserUseCase: GetUserUseCase,
-    private val fetchScholarDataUseCase: FetchScholarDataUseCase
+    private val fetchScholarDataUseCase: FetchScholarDataUseCase,
+    private val logoutUseCase: LogoutUseCase,
+    private val changeTrackingMethodUseCase: ChangeTrackingMethodUseCase,
+    private val getTrackingMethodUseCase: GetTrackingMethodUseCase
 ) : StatsContract.Presenter {
 
     private var view: StatsContract.View? = null
@@ -48,6 +55,43 @@ class StatsPresenter @Inject constructor(
             fetchScholarData()
             showData()
             view?.hideProgressDialog()
+        }
+    }
+
+    override fun onSettingsClicked() {
+        view?.showSettingsBottomSheet()
+    }
+
+    override fun onLogoutClicked() {
+        scopeProvider.provide().launch {
+            view?.showProgressDialog()
+            logoutUseCase.execute(Unit)
+            view?.showToast("Logging out...")
+            view?.hideProgressDialog()
+            view?.navigateToLogin()
+        }
+    }
+
+    override fun onChangeTrackingClicked() {
+        scopeProvider.provide().launch {
+            val isAutomatic = getTrackingMethodUseCase.execute(Unit).value
+            val method = if (isAutomatic) "Automatic to Manual" else "Manual to Automatic"
+            view?.showErrorDialog(
+                "Change tracking method?",
+                "This will change your tracking method from $method.",
+                onOkClicked = {
+                    scopeProvider.provide().launch {
+                        view?.showProgressDialog()
+                        delay(2000)
+                        changeTrackingMethodUseCase.execute(ChangeTrackingMethodUseCase.Param(!isAutomatic))
+                        view?.showToast("Settings have been changed! This will apply on your next launch.")
+                        view?.hideProgressDialog()
+                    }
+                },
+                onDeclineClicked = {
+
+                }
+            )
         }
     }
 
@@ -82,7 +126,12 @@ class StatsPresenter @Inject constructor(
 
                     val daysDiff = daysDifference(scholarData?.lastClaimTimeStamp!!, Date())
 
-                    val dailyAverage = scholarData?.inGameSlp!! / daysDiff
+
+                    val dailyAverage = try {
+                        scholarData?.inGameSlp!! / daysDiff
+                    } catch (e: ArithmeticException) {
+                        scholarData?.inGameSlp!!
+                    }
 
                     view?.showSlpCard(
                         dailyAverage = dailyAverage,

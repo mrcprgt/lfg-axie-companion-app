@@ -9,11 +9,9 @@ import com.lfgcompany.lfgaxiecompanionapp.app.data.scholardata.ScholarDataReposi
 import com.lfgcompany.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecordDao
 import com.lfgcompany.lfgaxiecompanionapp.app.data.slprecord.SlpRecordRepository
 import com.lfgcompany.lfgaxiecompanionapp.app.data.user.AuthenticationRepository
+import com.lfgcompany.lfgaxiecompanionapp.app.data.user.LogoutHandler
 import com.lfgcompany.lfgaxiecompanionapp.app.data.user.UserDao
-import com.lfgcompany.lfgaxiecompanionapp.app.domain.AuthenticationGateway
-import com.lfgcompany.lfgaxiecompanionapp.app.domain.LFGSlpRecordAndGainsGateway
-import com.lfgcompany.lfgaxiecompanionapp.app.domain.ScholarDataGateway
-import com.lfgcompany.lfgaxiecompanionapp.app.domain.SlpRecordGateway
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.*
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -26,6 +24,11 @@ abstract class DataModule {
     abstract fun bindUserGateway(
         repo: AuthenticationRepository
     ): AuthenticationGateway
+
+    @Binds
+    abstract fun bindLogoutGateway(
+        repo: LogoutHandler
+    ): LogoutGateway
 
     @Binds
     abstract fun bindScholarDataGateway(

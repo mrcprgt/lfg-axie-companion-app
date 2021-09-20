@@ -26,9 +26,28 @@ class EnergyCounterDialog : BaseDialogFragment() {
                 binding.tvEnergy.text = "$energy"
             }
         }
+
+        binding.btnNegative2.setOnClickWithDelay {
+            if (energy > 0) {
+                energy -= 2
+                if (energy < 0) energy = 0
+                binding.tvEnergy.text = "$energy"
+            }
+        }
+
+
         binding.btnPositive.setOnClickWithDelay {
             if (energy <= 10) {
                 energy++
+                if (energy > 10) energy = 10
+                binding.tvEnergy.text = "$energy"
+            }
+        }
+
+        binding.btnPositive2.setOnClickWithDelay {
+            if (energy <= 10) {
+                energy += 2
+                if (energy > 10) energy = 10
                 binding.tvEnergy.text = "$energy"
             }
         }

@@ -8,7 +8,7 @@ import com.lfgcompany.lfgaxiecompanionapp.databinding.CheckinDialogBinding
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import com.lfgcompany.lfgaxiecompanionapp.tools.mvp.base.BaseDialogFragment
 
-class AddRecordDialog : BaseDialogFragment(){
+class AddRecordDialog : BaseDialogFragment() {
     private lateinit var onAddRecordLister: OnAddRecordListener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -24,7 +24,7 @@ class AddRecordDialog : BaseDialogFragment(){
         }
         binding.btnPositive.setOnClickWithDelay {
             onAddRecordLister.onAddClicked(
-                binding.inputDailySlpEarned.editText!!.text.toString().toInt()
+                binding.inputDailySlpEarned.editText?.text.toString().toIntOrNull() ?: 0
             )
         }
 
@@ -32,11 +32,11 @@ class AddRecordDialog : BaseDialogFragment(){
         return dialog.create()
     }
 
-    fun setupListener(listener: OnAddRecordListener){
+    fun setupListener(listener: OnAddRecordListener) {
         this.onAddRecordLister = listener
     }
 
-    interface OnAddRecordListener{
+    interface OnAddRecordListener {
         fun onAddClicked(slp: Int)
     }
 }

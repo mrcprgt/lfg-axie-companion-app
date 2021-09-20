@@ -1,18 +1,21 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.presentation.stats
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.lfgcompany.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.lfgcompany.lfgaxiecompanionapp.databinding.FragmentStatsBinding
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.formatToMMDDYYYY
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
+import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.showAllowingStateLoss
 import com.lfgcompany.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
 import java.util.*
 import javax.inject.Inject
 
-class StatsFragment : LFGFragment(), StatsContract.View {
+class StatsFragment : LFGFragment(), StatsContract.View, MenuBottomSheetListener {
 
     @Inject
     lateinit var presenter: StatsPresenter
@@ -38,6 +41,10 @@ class StatsFragment : LFGFragment(), StatsContract.View {
 
         binding.btnRefresh.setOnClickWithDelay {
             presenter.onRefreshClicked()
+        }
+
+        binding.btnSettings.setOnClickWithDelay {
+            presenter.onSettingsClicked()
         }
     }
 
@@ -93,6 +100,15 @@ class StatsFragment : LFGFragment(), StatsContract.View {
         binding.tvArenaRank.text = arenaRank.toString()
     }
 
+    override fun showSettingsBottomSheet() {
+        MenuBottomSheet.newInstance(this)
+            .showAllowingStateLoss(parentFragmentManager, "menubottomsheet")
+    }
+
+    override fun navigateToLogin() {
+        startActivity(Intent(requireContext(), HomeActivity::class.java))
+    }
+
     companion object {
         fun newInstance(): StatsFragment {
             val args = Bundle()
@@ -100,6 +116,14 @@ class StatsFragment : LFGFragment(), StatsContract.View {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun onLogoutClicked() {
+        presenter.onLogoutClicked()
+    }
+
+    override fun onChangeTrackingClick() {
+        presenter.onChangeTrackingClicked()
     }
 
 }

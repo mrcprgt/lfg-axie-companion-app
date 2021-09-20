@@ -3,7 +3,6 @@ package com.lfgcompany.lfgaxiecompanionapp.app.presentation.splash
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.CheckSessionUseCase
 import com.lfgcompany.lfgaxiecompanionapp.tools.CoroutineScopeProvider
 import com.lfgcompany.lfgaxiecompanionapp.tools.LFGException
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,7 +22,6 @@ class SplashPresenter @Inject constructor(
         scopeProvider.provide().launch {
             try {
                 checkSessionUseCase.execute(Unit)
-                delay(2500)
                 view?.navigateToHome()
             } catch (e: LFGException) {
                 view?.navigateToLogin()

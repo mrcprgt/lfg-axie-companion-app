@@ -7,7 +7,7 @@ abstract class LockedOnClickListener : View.OnClickListener {
     private var lastClickTime = System.currentTimeMillis()
 
     companion object {
-        private const val CLICK_TIME_INTERVAL: Long = 500
+        private const val CLICK_TIME_INTERVAL: Long = 250
     }
 
     abstract fun onSingleClicked(view: View)

@@ -3,6 +3,7 @@ package com.lfgcompany.lfgaxiecompanionapp.app.presentation.slprecord
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.ScholarData
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.SlpRecord
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.User
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.GetTrackingMethodUseCase
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.GetUserUseCase
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.scholardata.FetchScholarDataUseCase
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.slprecord.*
@@ -26,13 +27,15 @@ class SlpRecordPresenter @Inject constructor(
     private val addSlpRecordUseCase: AddSlpRecordUseCase,
     private val settings: Settings,
     private val fetchSlpGainsUseCase: FetchSlpGainsUseCase,
-    private val getLfgSlpRecordUseCase: GetLfgSlpRecordUseCase
+    private val getLfgSlpRecordUseCase: GetLfgSlpRecordUseCase,
+    private val getTrackingMethodUseCase: GetTrackingMethodUseCase
 ) : SlpRecordContract.Presenter {
 
     private var view: SlpRecordContract.View? = null
 
     private lateinit var scholarData: ScholarData
     private lateinit var user: User
+    private var isAutomatic: Boolean = true
 
     override fun onViewReady(view: SlpRecordContract.View) {
         this.view = view
@@ -44,26 +47,41 @@ class SlpRecordPresenter @Inject constructor(
             view?.showProgressDialog("Please wait", "Getting your data...")
             user = getUserUseCase.execute(Unit).user
             scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
+            isAutomatic = getTrackingMethodUseCase.execute(Unit).value
 
-            fetchRecords()
-            showCurrentClaim()
+            if (isAutomatic) {
+                fetchRecords()
+                showCurrentClaim()
 
-            val records = getLfgSlpRecordUseCase.execute(Unit).records
+                val records = getLfgSlpRecordUseCase.execute(Unit).records
+
+                view?.appendList(records)
+            } else {
+                val records = getSlpRecordsUseCase.execute(GetSlpRecordsUseCase.Param(0))
+
+                view?.showSlpRecords(records.slpRecords)
+            }
 
             showLifetime()
             showAverages()
-           
-            view?.appendList(records)
             view?.hideProgressDialog()
         }
     }
 
     private suspend fun showAverages() {
-        val averages = getLfgRecordAveragesUseCase.execute(Unit)
+        if (isAutomatic) {
+            val averages = getLfgRecordAveragesUseCase.execute(Unit)
 
-        view?.showDaily(averages.daily)
-        view?.showWeekly(averages.weekly)
-        view?.showMonthly(averages.monthly)
+            view?.showDaily(averages.daily)
+            view?.showWeekly(averages.weekly)
+            view?.showMonthly(averages.monthly)
+        } else {
+            val averages = getSlpRecordAveragesUseCase.execute(Unit)
+
+            view?.showDaily(averages.daily)
+            view?.showWeekly(averages.weekly)
+            view?.showMonthly(averages.monthly)
+        }
     }
 
     override fun onViewDetach() {
@@ -94,7 +112,16 @@ class SlpRecordPresenter @Inject constructor(
         }
     }
 
+    override fun onAddButtonClicked() {
+        if (isAutomatic) {
+            view?.showToast("You're slp record is getting tracked automatically :)")
+        } else {
+            view?.showAddDialog()
+        }
+    }
+
     override fun onAddRecordClicked(slp: Int) {
+
         scopeProvider.provide().launch {
             if (dateIsToday(Date(settings.getDate("DATE")))) {
                 view?.showToast("You already added a record today.")
@@ -119,7 +146,13 @@ class SlpRecordPresenter @Inject constructor(
                     showLifetime()
                     showAverages()
 
-                    view?.showSlpRecords(getSlpRecordsUseCase.execute(GetSlpRecordsUseCase.Param(0)).slpRecords)
+                    view?.showSlpRecords(
+                        getSlpRecordsUseCase.execute(
+                            GetSlpRecordsUseCase.Param(
+                                0
+                            )
+                        ).slpRecords
+                    )
                 } catch (e: LFGException) {
                     view?.hideProgressDialog()
                     view?.showErrorDialog(
@@ -162,34 +195,35 @@ class SlpRecordPresenter @Inject constructor(
     }
 
     override fun onSyncClicked() {
-        scopeProvider.provide().launch {
-            try {
-                view?.showProgressDialog("Please wait", "Fetching latest data...")
-                scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
-
-                showCurrentClaim()
-                showLifetime()
-                showAverages()
-
-                fetchRecords()
-                val records = getLfgSlpRecordUseCase.execute(Unit).records
-                view?.clearSlp()
-                view?.appendList(records)
-                view?.hideProgressDialog()
-            } catch (e: LFGException) {
-                view?.hideProgressDialog()
-                view?.showErrorDialog(
-                    "Something went wrong",
-                    e.message ?: e.localizedMessage,
-                    onOkClicked = {
-                        onSyncClicked()
-                    },
-                    onDeclineClicked = {
-
-                    }
-                )
-            }
-        }
+        view?.showToast("Coming soon!")
+//        scopeProvider.provide().launch {
+//            try {
+//                view?.showProgressDialog("Please wait", "Fetching latest data...")
+//                scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
+//
+//                showCurrentClaim()
+//                showLifetime()
+//                showAverages()
+//
+//                fetchRecords()
+//                val records = getLfgSlpRecordUseCase.execute(Unit).records
+//                view?.clearSlp()
+//                view?.appendList(records)
+//                view?.hideProgressDialog()
+//            } catch (e: LFGException) {
+//                view?.hideProgressDialog()
+//                view?.showErrorDialog(
+//                    "Something went wrong",
+//                    e.message ?: e.localizedMessage,
+//                    onOkClicked = {
+//                        onSyncClicked()
+//                    },
+//                    onDeclineClicked = {
+//
+//                    }
+//                )
+//            }
+//        }
     }
 
 }

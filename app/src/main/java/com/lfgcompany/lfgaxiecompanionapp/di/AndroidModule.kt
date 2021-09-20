@@ -9,6 +9,7 @@ import com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy.PvpBuddyFrag
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.slprecord.AddRecordDialog
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.slprecord.SlpRecordFragment
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.splash.SplashActivity
+import com.lfgcompany.lfgaxiecompanionapp.app.presentation.stats.MenuBottomSheet
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.stats.StatsFragment
 import com.lfgcompany.lfgaxiecompanionapp.tools.scopes.ActivityScoped
 import com.lfgcompany.lfgaxiecompanionapp.tools.scopes.FragmentScoped
@@ -57,4 +58,8 @@ abstract class AndroidModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract fun contributeEnergyCounterDialog(): EnergyCounterDialog
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeMenuBottomSheet(): MenuBottomSheet
 }

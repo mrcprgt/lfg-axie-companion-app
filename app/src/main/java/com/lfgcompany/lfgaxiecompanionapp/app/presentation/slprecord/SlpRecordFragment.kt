@@ -50,14 +50,24 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View,
         }
 
         binding.btnAdd.setOnClickWithDelay {
-            dialog.setupListener(this)
-            dialog.showAllowingStateLoss(parentFragmentManager, "add_record")
+            presenter.onAddButtonClicked()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.onViewDetach()
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+
+        presenter.onViewReady(this)
+    }
+
+    override fun showAddDialog() {
+        dialog.setupListener(this)
+        dialog.showAllowingStateLoss(parentFragmentManager, "add_record")
     }
 
     override fun showSlpRecords(slpRecords: List<SlpRecord>) {
