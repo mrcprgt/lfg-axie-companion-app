@@ -6,12 +6,12 @@
     android:background="@drawable/app_background">
 
 
-    <VideoView
+    <com.alphamovie.lib.AlphaMovieView
         android:id="@+id/ivSplash"
-        android:layout_width="500dp"
-        android:layout_height="400dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        app:accuracy="0.5"
+        app:alphaColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

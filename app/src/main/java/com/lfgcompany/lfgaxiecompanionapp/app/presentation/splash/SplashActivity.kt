@@ -2,8 +2,8 @@ package com.lfgcompany.lfgaxiecompanionapp.app.presentation.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.login.LoginActivity
 import com.lfgcompany.lfgaxiecompanionapp.databinding.ActivitySplashBinding
@@ -23,16 +23,14 @@ class SplashActivity : LFGActivity(), SplashContract.View {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val videoPath = "android.resource://$packageName/raw/slp"
-        binding.ivSplash.setVideoPath(videoPath)
-        binding.ivSplash.setOnCompletionListener {
-            val r = Runnable { presenter.onViewReady(this@SplashActivity) }
-            Handler().postDelayed(r, 500)
+        val videoPath = Uri.parse("android.resource://$packageName/raw/slp2")
+        binding.ivSplash.setVideoFromUri(this, videoPath)
+        binding.ivSplash.setLooping(false)
+        binding.ivSplash.setOnVideoEndedListener {
+            presenter.onViewReady(this)
         }
 
         binding.ivSplash.start()
-
-//        presenter.onViewReady(this)
     }
 
     override fun closeApp() {
