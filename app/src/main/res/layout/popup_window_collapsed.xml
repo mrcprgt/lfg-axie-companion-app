@@ -2,13 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/collapse_view"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/circle_with_shape">
 
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_popup"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:paddingEnd="8dp"
-        android:src="@drawable/slp_icon" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEnergyCollapsed"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:text="10"
+        android:textAppearance="@style/LFGTabText"
+        android:textSize="32dp" />
 </FrameLayout>

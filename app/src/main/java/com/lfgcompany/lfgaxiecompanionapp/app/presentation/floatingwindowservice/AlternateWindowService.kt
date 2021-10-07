@@ -13,14 +13,19 @@ import android.os.Handler
 import android.os.IBinder
 import android.util.DisplayMetrics
 import android.view.*
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.lfgcompany.lfgaxiecompanionapp.R
+import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.cos
 import kotlin.math.exp
 
-class AlternateWindowService : Service(), View.OnClickListener {
+class AlternateWindowService : Service() {
 
     private lateinit var windowManager: WindowManager
     private lateinit var floatingWidgetView: View
@@ -41,6 +46,7 @@ class AlternateWindowService : Service(), View.OnClickListener {
     private var isLeft = true
 
     private var counter = 0
+    private var energy = 3
 
     override fun onBind(intent: Intent): IBinder? {
         return null
@@ -59,6 +65,7 @@ class AlternateWindowService : Service(), View.OnClickListener {
         addFloatingWidgetView(inflater)
         implementClickListeners()
         implementTouchListenerToFloatingWidgetView()
+        setupListeners()
     }
 
     private fun addRemoveView(inflater: LayoutInflater) {
@@ -111,9 +118,58 @@ class AlternateWindowService : Service(), View.OnClickListener {
         windowManager.addView(floatingWidgetView, params)
 
         collapsedView = floatingWidgetView.findViewById(R.id.collapse_view)
+        floatingWidgetView.findViewById<TextView>(R.id.tvEnergyCollapsed).text = energy.toString()
 
         expandedView = floatingWidgetView.findViewById(R.id.expanded_container)
+        expandedView.findViewById<TextView>(R.id.tvEnergyExpanded).text = energy.toString()
         setExpandedSize()
+    }
+
+    private fun addEnergy() {
+        if (energy <= 10) {
+            energy++
+            if (energy > 10) energy = 10
+            floatingWidgetView.findViewById<TextView>(R.id.tvEnergyCollapsed).text =
+                energy.toString()
+            expandedView.findViewById<TextView>(R.id.tvEnergyExpanded).text = energy.toString()
+        }
+    }
+
+    private fun addEnergy2() {
+        if (energy <= 10) {
+            energy += 2
+            if (energy > 10) energy = 10
+            floatingWidgetView.findViewById<TextView>(R.id.tvEnergyCollapsed).text =
+                energy.toString()
+            expandedView.findViewById<TextView>(R.id.tvEnergyExpanded).text = energy.toString()
+        }
+    }
+
+    private fun subtractEnergy() {
+        if (energy > 0) {
+            energy--
+            if (energy < 0) energy = 0
+            floatingWidgetView.findViewById<TextView>(R.id.tvEnergyCollapsed).text =
+                energy.toString()
+            expandedView.findViewById<TextView>(R.id.tvEnergyExpanded).text = energy.toString()
+        }
+    }
+
+    private fun subtractEnergy2() {
+        if (energy > 0) {
+            energy -= 2
+            if (energy < 0) energy = 0
+            floatingWidgetView.findViewById<TextView>(R.id.tvEnergyCollapsed).text =
+                energy.toString()
+            expandedView.findViewById<TextView>(R.id.tvEnergyExpanded).text = energy.toString()
+        }
+    }
+
+    private fun resetEnergy() {
+        energy = 3
+        floatingWidgetView.findViewById<TextView>(R.id.tvEnergyCollapsed).text =
+            energy.toString()
+        expandedView.findViewById<TextView>(R.id.tvEnergyExpanded).text = energy.toString()
     }
 
     private fun getWindowManagerDefaultDisplay() {
@@ -279,7 +335,7 @@ class AlternateWindowService : Service(), View.OnClickListener {
     }
 
     private fun implementClickListeners() {
-        floatingWidgetView.findViewById<Button>(R.id.btn_hit).setOnClickListener(this)
+//        floatingWidgetView.findViewById<MaterialButton>(R.id.btnNegative).setOnClickListener(this)
     }
 
     override fun onDestroy() {
@@ -288,14 +344,43 @@ class AlternateWindowService : Service(), View.OnClickListener {
         windowManager.removeView(removeFloatingWidgetView)
     }
 
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.btn_hit -> {
-                counter++
-                Toast.makeText(applicationContext, "Hit ($counter x)", Toast.LENGTH_SHORT).show()
-            }
+    private fun setupListeners() {
+        expandedView.findViewById<Button>(R.id.btnNegative).setOnClickWithDelay {
+            subtractEnergy()
+        }
+        expandedView.findViewById<Button>(R.id.btnNegative2).setOnClickWithDelay {
+            subtractEnergy2()
+        }
+        expandedView.findViewById<Button>(R.id.btnPositive).setOnClickWithDelay {
+            addEnergy()
+        }
+        expandedView.findViewById<Button>(R.id.btnPositive2).setOnClickWithDelay {
+            addEnergy2()
+        }
+        expandedView.findViewById<Button>(R.id.btnReset).setOnClickWithDelay {
+            resetEnergy()
         }
     }
+
+//    override fun onClick(v: View) {
+//        when (v.id) {
+//            R.id.btnNegative -> {
+//                subtractEnergy()
+//            }
+//            R.id.btnNegative2 -> {
+//                subtractEnergy2()
+//            }
+//            R.id.btnPositive -> {
+//                addEnergy()
+//            }
+//            R.id.btnPositive2 -> {
+//                addEnergy2()
+//            }
+//            R.id.btnReset -> {
+//                resetEnergy()
+//            }
+//        }
+//    }
 
     /*  on Floating Widget Long Click, increase the size of remove view as it look like taking focus */
     private fun onFloatingWidgetLongClick() { //Get remove Floating view params
@@ -312,7 +397,7 @@ class AlternateWindowService : Service(), View.OnClickListener {
 
     /*  Reset position of Floating Widget view on dragging  */
     private fun resetPosition(x_cord_now: Int) {
-        moveToLeft(x_cord_now)
+
 //        if (x_cord_now <= szWindow.x / 2) {
 //            isLeft = true
 //            moveToLeft(x_cord_now)
@@ -335,7 +420,8 @@ class AlternateWindowService : Service(), View.OnClickListener {
                 val step = (500 - t) / 5
                 mParams.x = 0 - (current_x_cord * current_x_cord * step).toInt()
                 //If you want bounce effect uncomment below line and comment above line
-                // mParams.x = 0 - (int) (double) bounceValue(step, x);
+//                mParams.x = 0 - (int)(double) bounceValue (step, x);
+//                mParams.x = 0 - bounceValue(step, x.toLong()).toInt()
                 //Update window manager for Floating Widget
                 windowManager.updateViewLayout(floatingWidgetView, mParams)
             }
@@ -361,6 +447,8 @@ class AlternateWindowService : Service(), View.OnClickListener {
                     (szWindow.x + current_x_cord * current_x_cord * step - floatingWidgetView.width).toInt()
                 //  If you want bounce effect uncomment below line and comment above line
                 //  mParams.x = szWindow.x + (int) (double) bounceValue(step, x_cord_now) - mFloatingWidgetView.getWidth();
+//                mParams.x = 0 - bounceValue(step, x.toLong()).toInt()
+//                mParams.x = (szWindow.x + bounceValue(step, current_x_cord.toLong()) - floatingWidgetView.width).toInt()
                 //  Update window manager for Floating Widget
                 windowManager.updateViewLayout(floatingWidgetView, mParams)
             }
@@ -379,7 +467,7 @@ class AlternateWindowService : Service(), View.OnClickListener {
     }
 
     private fun isViewExpanded(): Boolean {
-        return floatingWidgetView.findViewById<FrameLayout>(R.id.expanded_container).visibility == View.VISIBLE
+        return floatingWidgetView.findViewById<ConstraintLayout>(R.id.expanded_container).visibility == View.VISIBLE
     }
 
 
@@ -404,21 +492,19 @@ class AlternateWindowService : Service(), View.OnClickListener {
             }
             if (layoutParams.x != 0 && layoutParams.x < szWindow.x) {
                 resetPosition(szWindow.x)
+            } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                if (layoutParams.x > szWindow.x) {
+                    resetPosition(szWindow.x)
+                }
             }
 
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            if (layoutParams.x > szWindow.x) {
-                resetPosition(szWindow.x)
-            }
+            setExpandedSize()
         }
-
-        setExpandedSize()
     }
 
     private fun onFloatingWidgetClick() {
         if (isViewExpanded()) {
             expandedView.visibility = View.GONE
-            counter = 0
         } else {
             expandedView.visibility = View.VISIBLE
         }
@@ -430,8 +516,8 @@ class AlternateWindowService : Service(), View.OnClickListener {
         val height = displayMetrics.heightPixels
         val width = displayMetrics.widthPixels
 
-        val widthAfterCircle = width / 2
-        val halfHeight = height / 2
+        val widthAfterCircle = 750
+        val halfHeight = 750
         expandedView.layoutParams = LinearLayout.LayoutParams(widthAfterCircle, halfHeight)
     }
 }

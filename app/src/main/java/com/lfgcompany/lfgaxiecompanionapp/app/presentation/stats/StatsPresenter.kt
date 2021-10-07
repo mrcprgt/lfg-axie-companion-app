@@ -10,6 +10,7 @@ import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.scholardata.FetchSc
 import com.lfgcompany.lfgaxiecompanionapp.tools.CoroutineScopeProvider
 import com.lfgcompany.lfgaxiecompanionapp.tools.LFGException
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.daysDifference
+import com.lfgcompany.lfgaxiecompanionapp.tools.scopes.NoSessionException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -103,17 +104,22 @@ class StatsPresenter @Inject constructor(
                     scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
                     it.resume(Unit)
                 } catch (e: LFGException) {
-                    view?.showErrorDialog(
-                        "Something went wrong",
-                        e.message ?: e.localizedMessage,
-                        onOkClicked = {
-                            scopeProvider.provide().launch {
-                                fetchScholarData()
-                            }
-                        },
-                        onDeclineClicked = {
-                            view?.hideProgressDialog()
-                        })
+                    if (e is NoSessionException) {
+                        logoutUseCase.execute(Unit)
+                        view?.navigateToLogin()
+                    } else {
+                        view?.showErrorDialog(
+                            "Something went wrong",
+                            e.message ?: e.localizedMessage,
+                            onOkClicked = {
+                                scopeProvider.provide().launch {
+                                    fetchScholarData()
+                                }
+                            },
+                            onDeclineClicked = {
+                                view?.hideProgressDialog()
+                            })
+                    }
                 }
             }
         }

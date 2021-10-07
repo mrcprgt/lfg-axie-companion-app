@@ -1,14 +1,17 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.presentation.splash
 
 import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.CheckSessionUseCase
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.LogoutUseCase
 import com.lfgcompany.lfgaxiecompanionapp.tools.CoroutineScopeProvider
 import com.lfgcompany.lfgaxiecompanionapp.tools.LFGException
+import com.lfgcompany.lfgaxiecompanionapp.tools.scopes.NoSessionException
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(
     private val scopeProvider: CoroutineScopeProvider,
-    private val checkSessionUseCase: CheckSessionUseCase
+    private val checkSessionUseCase: CheckSessionUseCase,
+    private val logoutUseCase: LogoutUseCase,
 ) : SplashContract.Presenter {
 
     private var view: SplashContract.View? = null
@@ -24,7 +27,12 @@ class SplashPresenter @Inject constructor(
                 checkSessionUseCase.execute(Unit)
                 view?.navigateToHome()
             } catch (e: LFGException) {
-                view?.navigateToLogin()
+                if (e is NoSessionException) {
+                    logoutUseCase.execute(Unit)
+                    view?.navigateToLogin()
+                } else {
+                    view?.navigateToLogin()
+                }
             }
         }
     }
