@@ -95,6 +95,7 @@ class SlpRecordPresenter @Inject constructor(
                     fetchSlpGainsUseCase.execute(Unit)
                     it.resume(Unit)
                 } catch (e: LFGException) {
+                    view?.hideProgressDialog()
                     view?.showErrorDialog(
                         "Something went wrong",
                         e.message ?: e.localizedMessage,

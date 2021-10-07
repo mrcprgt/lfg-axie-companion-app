@@ -1,9 +1,15 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.lfgcompany.lfgaxiecompanionapp.app.presentation.floatingwindowservice.AlternateWindowService
 import com.lfgcompany.lfgaxiecompanionapp.databinding.FragmentPvpBuddyBinding
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.showAllowingStateLoss
@@ -56,7 +62,34 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
             presenter.onLosesPressed()
         }
         binding.btnEnergy.setOnClickWithDelay {
-            showEnergyCounter()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(
+                    requireContext()
+                )
+            ) {
+                val intent = Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:com.lfgcompany.lfgaxiecompanionapp")
+                )
+                startActivityForResult(intent, 201)
+            } else {
+                requireActivity().startService(
+                    Intent(
+                        context,
+                        AlternateWindowService::class.java
+                    )
+                )
+//                requireActivity().finish()
+            }
+
+//            showEnergyCounter()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            activity?.startService(Intent(requireContext(), MyFloatingWindowService::class.java))
+            activity?.finish()
         }
     }
 

@@ -21,7 +21,7 @@ class LfgRecordRepository @Inject constructor(
     private val userDao: UserDao
 ) : Repository(), LFGSlpRecordAndGainsGateway {
     private fun buildService(): ServiceOption {
-        val host = ServiceHost("https://lfg-api.com")
+        val host = ServiceHost("https://api.lfg4all.com")
         return ServiceOption.Builder(
             host
         ).build()

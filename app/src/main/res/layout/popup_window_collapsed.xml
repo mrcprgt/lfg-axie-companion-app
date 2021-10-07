@@ -1,0 +1,14 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/collapse_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_popup"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:paddingEnd="8dp"
+        android:src="@drawable/slp_icon" />
+</FrameLayout>

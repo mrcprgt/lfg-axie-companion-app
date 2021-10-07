@@ -55,6 +55,7 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/ic_baseline_show_chart_24.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/ic_close_white_24dp.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/info_list_item.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/left_only_1.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/left_only_2.xml" value="0.3802083333333333" />
@@ -74,6 +75,7 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/slps_right_2.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/stats_bg.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/table_field_1.xml" value="0.2203125" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/transparent_circle_shape.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/font/poppins_bold.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_main.xml" value="0.33" />
@@ -82,9 +84,11 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/bottom_sheet_settings.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/buff_list_item.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/card_list_item_layout.xml" value="0.3640625" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/chat_head.xml" value="0.2078125" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/checkin_dialog.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/dual_button_message_dialog.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/energy_counter_dialog.xml" value="0.33" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/floating_widget_layout.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_buffs.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_energy.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_info.xml" value="0.33" />
@@ -94,6 +98,9 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/info_list_item.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/loading_dialog.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/loading_with_message.xml" value="0.3640625" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/popup_window_collapsed.xml" value="0.1" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/popup_window_expanded.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/remove_floating_widget_layout.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/single_button_message_dialog.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/slp_count_list_item.xml" value="0.67" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
