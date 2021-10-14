@@ -96,6 +96,17 @@ fun Date.formatToMMMMdd(): String {
     return utcFormat.format(this)
 }
 
+
+fun Date.formatToMMMMddMinusOne(): String {
+    val utcFormat = SimpleDateFormat("MMMM dd", Locale.getDefault())
+    utcFormat.timeZone = TimeZone.getTimeZone("UTC")
+    val cal = Calendar.getInstance()
+    cal.time = this
+    cal.add(Calendar.DATE, -1)
+
+    return utcFormat.format(cal.time)
+}
+
 fun String.toLocalJavaDateFromUTC(): Date {
     val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
     return format.parse(this)!!

@@ -1,6 +1,7 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.presentation.login
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.lfgcompany.lfgaxiecompanionapp.databinding.ActivityLoginBinding
@@ -21,6 +22,16 @@ class LoginActivity : LFGActivity(), LoginContract.View {
         setContentView(binding.root)
 
         presenter.onViewReady(this)
+
+        binding.tvNeedHelp.setOnClickListener {
+            val uri = Uri.parse("https://tinyurl.com/slpcalcguide")
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    uri
+                )
+            )
+        }
 
         binding.btnLogin.setOnClickListener {
             presenter.onLoginClicked(

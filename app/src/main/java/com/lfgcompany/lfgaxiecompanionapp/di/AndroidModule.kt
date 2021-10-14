@@ -4,6 +4,7 @@ import com.lfgcompany.lfgaxiecompanionapp.app.presentation.buffs.BuffsFragment
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.gains.GainsFragment
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.login.LoginActivity
+import com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy.AddPvpRecordDialog
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy.EnergyCounterDialog
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy.PvpBuddyFragment
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.slprecord.AddRecordDialog
@@ -54,6 +55,10 @@ abstract class AndroidModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract fun contributeAddRecordDialog(): AddRecordDialog
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract fun contributeAddPvpRecordDialog(): AddPvpRecordDialog
 
     @FragmentScoped
     @ContributesAndroidInjector

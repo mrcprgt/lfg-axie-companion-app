@@ -8,6 +8,7 @@ import com.lfgcompany.lfgaxiecompanionapp.tools.mvp.BaseView
 interface SlpRecordContract {
     interface View : BaseView {
         fun showSlpRecords(slpRecords: List<SlpRecord>)
+        fun showToday(today: Int)
         fun showDaily(daily: Int)
         fun showWeekly(weekly: Int)
         fun showMonthly(monthly: Int)

@@ -27,6 +27,7 @@
         <entry key="..\:/Users/Marc/AndroidStudioProjects/LFGAxieCompanionApp/app/src/main/res/layout/slp_count_list_item.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/Marc/AndroidStudioProjects/LFGAxieCompanionApp/app/src/main/res/menu/bottom_nav.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/Marc/AndroidStudioProjects/LFGAxieCompanionApp/app/src/main/res/menu/slp_tracker_menu.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Marc/AppData/Local/Android/Sdk/platforms/android-31/data/res/drawable/action_bar_background.xml" value="0.1798611111111111" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/arena_card_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/arena_header.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/arena_left_1.xml" value="0.3802083333333333" />
@@ -44,6 +45,7 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/claims_right1.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/claims_right_1.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/claims_right_2.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/dialog_button_color.xml" value="0.24013157894736842" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/drop_shadow.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/energy_counter_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/header_border.xml" value="0.3802083333333333" />
@@ -67,6 +69,7 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/right_only_2.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/round_bg.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/rounded_edit_text.xml" value="0.3802083333333333" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/selectable_databox.xml" value="0.24013157894736842" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/slp_card.xml" value="0.3802083333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/slp_card_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/slps_header.xml" value="0.3802083333333333" />
@@ -78,11 +81,12 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/table_field_1.xml" value="0.2203125" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/drawable/transparent_circle_shape.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/font/poppins_bold.xml" value="0.26197916666666665" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout-v23/slp_earned_dialog.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_settings.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/activity_splash.xml" value="0.22" />
-        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/bottom_sheet_settings.xml" value="0.3640625" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/bottom_sheet_settings.xml" value="0.25" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/buff_list_item.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/card_list_item_layout.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/chat_head.xml" value="0.2078125" />
@@ -94,17 +98,19 @@
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_buffs.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_energy.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_info.xml" value="0.33" />
-        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_pvp_buddy.xml" value="0.4139387539598733" />
-        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_slp_tracker.xml" value="0.67" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_pvp_buddy.xml" value="0.2" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_slp_tracker.xml" value="0.2871212121212121" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/fragment_stats.xml" value="0.5" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/info_list_item.xml" value="0.33" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/loading_dialog.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/loading_with_message.xml" value="0.3640625" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/popup_window_collapsed.xml" value="0.67" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/popup_window_expanded.xml" value="0.6377672209026128" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/pvp_record_list_item.xml" value="0.25" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/remove_floating_widget_layout.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/single_button_message_dialog.xml" value="0.3640625" />
-        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/slp_count_list_item.xml" value="0.67" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/slp_count_list_item.xml" value="0.33" />
+        <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/layout/slp_earned_dialog.xml" value="0.25" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
         <entry key="..\:/Users/Marc/StudioProjects/lfg-axie-companion-app/app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>

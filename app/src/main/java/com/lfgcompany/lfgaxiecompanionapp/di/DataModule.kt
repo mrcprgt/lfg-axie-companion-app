@@ -4,6 +4,8 @@ import android.content.Context
 import com.lfgcompany.lfgaxiecompanionapp.app.data.LFGDatabase
 import com.lfgcompany.lfgaxiecompanionapp.app.data.lfgslprecord.LfgRecordRepository
 import com.lfgcompany.lfgaxiecompanionapp.app.data.lfgslprecord.LocalLfgRecordDao
+import com.lfgcompany.lfgaxiecompanionapp.app.data.pvprecord.LocalPvpRecordDao
+import com.lfgcompany.lfgaxiecompanionapp.app.data.pvprecord.PvpRecordRepository
 import com.lfgcompany.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
 import com.lfgcompany.lfgaxiecompanionapp.app.data.scholardata.ScholarDataRepository
 import com.lfgcompany.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecordDao
@@ -24,6 +26,11 @@ abstract class DataModule {
     abstract fun bindUserGateway(
         repo: AuthenticationRepository
     ): AuthenticationGateway
+
+    @Binds
+    abstract fun bindPvpRecordGateway(
+        repo: PvpRecordRepository
+    ): PvpRecordGateway
 
     @Binds
     abstract fun bindLogoutGateway(
@@ -50,6 +57,10 @@ abstract class DataModule {
         fun provideDatabase(context: Context): LFGDatabase {
             return LFGDatabase.getInstance(context)
         }
+
+        @Provides
+        fun providePvpRecordDao(database: LFGDatabase): LocalPvpRecordDao =
+            database.getPvpRecordDao()
 
         @Provides
         fun provideUserDao(database: LFGDatabase): UserDao = database.getUserDao()

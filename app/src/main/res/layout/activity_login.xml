@@ -181,6 +181,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputInventorySLP" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvNeedHelp"
+            android:text="Need help?"
+            android:textAppearance="@style/LFGTabText"
+            android:textColor="@color/arena_color"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="@id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivFooter"
             android:layout_width="wrap_content"

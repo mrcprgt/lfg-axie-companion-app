@@ -2,10 +2,13 @@ package com.lfgcompany.lfgaxiecompanionapp.app.presentation.stats
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.home.HomeActivity
 import com.lfgcompany.lfgaxiecompanionapp.databinding.FragmentStatsBinding
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.formatToMMDDYYYY
@@ -19,6 +22,8 @@ class StatsFragment : LFGFragment(), StatsContract.View, MenuBottomSheetListener
 
     @Inject
     lateinit var presenter: StatsPresenter
+
+    lateinit var manager: ReviewManager
 
     private val binding: FragmentStatsBinding by lazy {
         FragmentStatsBinding.inflate(layoutInflater)
@@ -34,6 +39,8 @@ class StatsFragment : LFGFragment(), StatsContract.View, MenuBottomSheetListener
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        manager = ReviewManagerFactory.create(requireContext())
 
         presenter.onViewReady(this)
 
@@ -116,6 +123,31 @@ class StatsFragment : LFGFragment(), StatsContract.View, MenuBottomSheetListener
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun onFeedBackClicked() {
+        val request = manager.requestReviewFlow()
+        request.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // We got the ReviewInfo object
+                val reviewInfo = task.result
+                val flow = manager.launchReviewFlow(requireActivity(), reviewInfo)
+                flow.addOnCompleteListener { _ ->
+                }
+            } else {
+                showToast("Something went wrong with play store review API")
+            }
+        }
+    }
+
+    override fun onNeedHelpClicked() {
+        val uri = Uri.parse("https://tinyurl.com/slpcalcguide")
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                uri
+            )
+        )
     }
 
     override fun onLogoutClicked() {

@@ -8,7 +8,8 @@ import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.LFGSlpRecordAndGains
 import com.lfgcompany.lfgaxiecompanionapp.databinding.SlpCountListItemBinding
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.BaseFlexibleItem
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.formatToHHMMA
-import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.formatToMMMMdd
+import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.formatToMMMMddMinusOne
+import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.IFlexible
 
@@ -41,9 +42,21 @@ class LfgSlpRecordFlexiItem(val slpRecord: LFGSlpRecordAndGains) : BaseFlexibleI
         payloads: MutableList<Any>?
     ) {
         if (holder is LFGSlpRecordVH) {
-            holder.date.text = slpRecord.date.formatToMMMMdd()
+            holder.date.text = slpRecord.date.formatToMMMMddMinusOne()
             holder.time.text = "at ${slpRecord.date.formatToHHMMA()}"
             holder.slp.text = slpRecord.gains.toString()
+
+            var isTotal = false
+            holder.slp.setOnClickWithDelay {
+                if (isTotal) {
+                    holder.slp.text = slpRecord.gains.toString()
+                    isTotal = true
+                } else {
+                    holder.slp.text = slpRecord.total.toString()
+                    isTotal = false
+                }
+
+            }
         }
     }
 

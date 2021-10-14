@@ -37,6 +37,8 @@ class SlpRecordPresenter @Inject constructor(
     private lateinit var user: User
     private var isAutomatic: Boolean = true
 
+    var inGameSlp: Int = 0
+
     override fun onViewReady(view: SlpRecordContract.View) {
         this.view = view
         setup()
@@ -47,6 +49,7 @@ class SlpRecordPresenter @Inject constructor(
             view?.showProgressDialog("Please wait", "Getting your data...")
             user = getUserUseCase.execute(Unit).user
             scholarData = fetchScholarDataUseCase.execute(Unit).scholarData
+            inGameSlp = scholarData.inGameSlp
             isAutomatic = getTrackingMethodUseCase.execute(Unit).value
 
             if (isAutomatic) {
@@ -55,6 +58,9 @@ class SlpRecordPresenter @Inject constructor(
 
                 val records = getLfgSlpRecordUseCase.execute(Unit).records
 
+                val todaySlp = inGameSlp - records.first().total
+
+                view?.showToday(todaySlp)
                 view?.appendList(records)
             } else {
                 val records = getSlpRecordsUseCase.execute(GetSlpRecordsUseCase.Param(0))

@@ -13,7 +13,7 @@ interface LocalLfgRecordDao {
     @Query("SELECT * FROM lfg_record ORDER BY date DESC")
     fun get(): List<LocalLfgRecord>
 
-    @Query("Select * From lfg_record ORDER BY date DESC LIMIT 10 OFFSET :offset")
+    @Query("Select * From lfg_record ORDER BY date DESC LIMIT 50 OFFSET :offset")
     fun get(offset: Int): List<LocalLfgRecord>
 
     @Query("SELECT AVG(gain) FROM lfg_record")

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="16dp">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/rlHeader"
@@ -68,13 +66,13 @@
                 style="@style/LFGCardText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btnSave"
-                android:layout_alignStart="@id/btnSave"
-                android:layout_alignEnd="@id/btnSave"
+                android:layout_below="@id/btnClear"
+                android:layout_alignStart="@id/btnClear"
+                android:layout_alignEnd="@id/btnClear"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:text="Save"
+                android:text="Clear"
                 android:textColor="@color/slp_button_label"
                 android:textSize="9sp"
                 android:textStyle="bold"
@@ -105,11 +103,11 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_toStartOf="@id/btnSave"
+                android:layout_toStartOf="@id/btnClear"
                 android:background="@drawable/energy_icon_btn" />
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/btnSave"
+                android:id="@+id/btnClear"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_alignParentTop="true"
@@ -117,7 +115,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="36dp"
-                android:background="@drawable/shape_13" />
+                android:background="@drawable/refresh_icon" />
 
             <View
                 android:layout_width="match_parent"
@@ -134,69 +132,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rlHeader" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputEnergy"
-            style="@style/LFGTextField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="16dp"
-            android:hint="Energy"
-            app:boxBackgroundColor="@color/edit_text_bg"
-            app:layout_constraintEnd_toStartOf="@id/guideline2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rlHeader"
-            app:placeholderText="0-20"
-            app:startIconDrawable="@drawable/ic_baseline_flash_on_24"
-            app:startIconTint="#202335"
-            tools:ignore="HardcodedText">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/LFGCardText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="2" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputSlpGain"
-            style="@style/LFGTextField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="22dp"
-            android:hint="SLP Gain"
-            app:boxBackgroundColor="@color/edit_text_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline2"
-            app:layout_constraintTop_toBottomOf="@id/rlHeader"
-            app:placeholderText="0-12"
-            app:startIconDrawable="@drawable/ic_baseline_show_chart_24"
-            app:startIconTint="#202335"
-            tools:ignore="HardcodedText">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/LFGCardText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="2" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clWins"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/slp_card"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputEnergy">
+            app:layout_constraintTop_toBottomOf="@id/clStats">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
@@ -226,7 +170,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText,SpUsage"
-                tools:text="123" />
+                tools:text="1230" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvWinsLabel"
@@ -252,11 +196,11 @@
             android:id="@+id/clDraw"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/slp_card"
             app:layout_constraintEnd_toStartOf="@+id/clLose"
             app:layout_constraintStart_toEndOf="@id/clWins"
-            app:layout_constraintTop_toBottomOf="@id/inputEnergy">
+            app:layout_constraintTop_toBottomOf="@id/clStats">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
@@ -312,11 +256,11 @@
             android:id="@+id/clLose"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="22dp"
             android:background="@drawable/slp_card"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputSlpGain">
+            app:layout_constraintTop_toBottomOf="@id/clStats">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
@@ -408,6 +352,7 @@
             tools:ignore="HardcodedText" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clStats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -416,48 +361,139 @@
             android:background="@drawable/slp_data_box"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAddDraw">
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTotalSlpEarnedLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Total SLP Earned"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTotalMatchesPlayedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Total Matches Played"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalSlpEarnedLabel"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@id/tvWinRateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Win Rate"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalMatchesPlayedLabel"
+                app:layout_goneMarginBottom="16dp"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWinRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivWinRate"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalMatchesPlayed"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="200" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMatchesPlayed"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/pvp_icon"
+                app:layout_constraintBottom_toTopOf="@+id/tvWinRate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTotalMatchesPlayed"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTotalMatchesPlayed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/ivMatchesPlayed"
+                app:layout_constraintTop_toBottomOf="@+id/tvTotalSlpEarned"
+                tools:text="200" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivWinRate"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/stats_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/tvWinRate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvWinRate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvTotalSlpEarned"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/green"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@id/ivSlp"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="200" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivSlp"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginEnd="36dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
                 android:src="@drawable/icon_slp___copy"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTotalSlpEarned"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/tvTotalSlpEarned" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPvpRecords"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAddDraw"
+            tools:itemCount="50"
+            tools:listitem="@layout/pvp_record_list_item" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

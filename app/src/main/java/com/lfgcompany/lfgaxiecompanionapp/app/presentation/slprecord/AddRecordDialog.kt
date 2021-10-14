@@ -22,12 +22,19 @@ class AddRecordDialog : BaseDialogFragment() {
         binding.btnNegative.setOnClickWithDelay {
             this.dismissAllowingStateLoss()
         }
-        binding.btnPositive.setOnClickWithDelay {
-            onAddRecordLister.onAddClicked(
-                binding.inputDailySlpEarned.editText?.text.toString().toIntOrNull() ?: 0
-            )
-        }
 
+        binding.btnPositive.setOnClickWithDelay {
+            if (binding.inputDailySlpEarned.editText?.text!!.isBlank()) {
+                binding.inputDailySlpEarned.isErrorEnabled = true
+                binding.inputDailySlpEarned.error = "0 is not allowed!"
+            } else {
+                binding.inputDailySlpEarned.isErrorEnabled = false
+                binding.inputDailySlpEarned.error = ""
+                onAddRecordLister.onAddClicked(
+                    binding.inputDailySlpEarned.editText?.text.toString().toInt()
+                )
+            }
+        }
 
         return dialog.create()
     }

@@ -1,5 +1,6 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -9,23 +10,35 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.PvpRecord
 import com.lfgcompany.lfgaxiecompanionapp.app.presentation.floatingwindowservice.AlternateWindowService
 import com.lfgcompany.lfgaxiecompanionapp.databinding.FragmentPvpBuddyBinding
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.setOnClickWithDelay
 import com.lfgcompany.lfgaxiecompanionapp.tools.helpers.showAllowingStateLoss
+import com.lfgcompany.lfgaxiecompanionapp.tools.mvp.MessageDialog
 import com.lfgcompany.lfgaxiecompanionapp.tools.mvp.base.LFGFragment
+import eu.davidea.flexibleadapter.FlexibleAdapter
 import javax.inject.Inject
 
-class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
+class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View,
+    AddPvpRecordDialog.OnAddPvpRecordClickListener {
 
     @Inject
     lateinit var presenter: PvpBuddyPresenter
+
+    private val adapter by lazy {
+        FlexibleAdapter(emptyList())
+    }
 
     private val binding: FragmentPvpBuddyBinding by lazy {
         FragmentPvpBuddyBinding.inflate(layoutInflater)
     }
 
     private val dialog = EnergyCounterDialog()
+    private val winDialog = AddPvpRecordDialog(PvpRecord.PvpResult.WIN)
+    private val drawDialog = AddPvpRecordDialog(PvpRecord.PvpResult.DRAW)
+    private val loseDialog = AddPvpRecordDialog(PvpRecord.PvpResult.LOSE)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,25 +55,40 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
 
         binding.parent.requestDisallowInterceptTouchEvent(true)
         setupListeners()
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvPvpRecords.adapter = adapter
+        binding.rvPvpRecords.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun setupListeners() {
-        binding.btnSave.setOnClickWithDelay {
-            presenter.onSavePressed(
-                binding.inputEnergy.editText!!.text.toString().toIntOrNull() ?: 0,
-                binding.inputSlpGain.editText!!.text.toString().toIntOrNull() ?: 0
-            )
+        binding.btnAddWin.setOnClickWithDelay {
+            winDialog.setupListener(this)
+            winDialog.showAllowingStateLoss(parentFragmentManager, "add_win")
         }
 
-        binding.btnAddWin.setOnClickWithDelay {
-            presenter.onWinsPressed()
-        }
         binding.btnAddDraw.setOnClickWithDelay {
-            presenter.onDrawsPressed()
+            drawDialog.setupListener(this)
+            drawDialog.showAllowingStateLoss(parentFragmentManager, "add_draw")
         }
+
         binding.btnAddLose.setOnClickWithDelay {
-            presenter.onLosesPressed()
+            loseDialog.setupListener(this)
+            loseDialog.showAllowingStateLoss(parentFragmentManager, "add_lose")
         }
+
+        binding.btnClear.setOnClickWithDelay {
+            MessageDialog()
+                .title("Are you sure you want to clear?")
+                .message("This will clear all your local pvp data on the app.")
+                .positiveButton("Yes", onClick = {
+                    presenter.onClearClicked()
+                })
+                .negativeButton("No", onClick = {})
+        }
+
         binding.btnEnergy.setOnClickWithDelay {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(
                     requireContext()
@@ -78,7 +106,7 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
                         AlternateWindowService::class.java
                     )
                 )
-//                requireActivity().finish()
+                requireActivity().finish()
             }
 
 //            showEnergyCounter()
@@ -88,7 +116,7 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            activity?.startService(Intent(requireContext(), MyFloatingWindowService::class.java))
+            activity?.startService(Intent(requireContext(), AlternateWindowService::class.java))
             activity?.finish()
         }
     }
@@ -96,14 +124,6 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.onViewDetach()
-    }
-
-    override fun updateEnergy(energy: Int) {
-        binding.inputEnergy.editText?.setText(energy.toString())
-    }
-
-    override fun updateSlpGain(slpGain: Int) {
-        binding.inputSlpGain.editText?.setText(slpGain.toString())
     }
 
     override fun updateWins(wins: Int) {
@@ -118,8 +138,48 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
         binding.tvLose.text = loses.toString()
     }
 
+    override fun updateTotalMatchesPlayed(matchesPlayed: Int) {
+        binding.tvTotalMatchesPlayed.text = matchesPlayed.toString()
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun updateWinRate(winRate: Double) {
+        if (winRate == 0.0) {
+            binding.tvWinRate.text = "--"
+        } else {
+            binding.tvWinRate.text = "${winRate * 100} %"
+        }
+    }
+
     override fun updateTotalSlpEarned(totalSlp: Int) {
         binding.tvTotalSlpEarned.text = totalSlp.toString()
+    }
+
+    override fun updateList(list: List<PvpRecord>) {
+        adapter.updateDataSet(list.map {
+            PvpRecordFlexiItem(
+                it
+            )
+        })
+    }
+
+    override fun clearList() {
+        adapter.clear()
+    }
+
+    override fun dismissDialogs() {
+        when {
+            winDialog.isVisible -> {
+                winDialog.dismissAllowingStateLoss()
+            }
+            drawDialog.isVisible -> {
+                drawDialog.dismissAllowingStateLoss()
+            }
+            loseDialog.isVisible -> {
+                loseDialog.dismissAllowingStateLoss()
+            }
+
+        }
     }
 
     private fun showEnergyCounter() {
@@ -137,5 +197,9 @@ class PvpBuddyFragment : LFGFragment(), PvpBuddyContract.View {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun onAddRecordClicked(pvpResult: PvpRecord.PvpResult, slp: Int) {
+        presenter.onAddPressed(pvpResult, slp)
     }
 }

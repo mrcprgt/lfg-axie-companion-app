@@ -6,6 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.lfgcompany.lfgaxiecompanionapp.app.data.lfgslprecord.LocalLfgRecord
 import com.lfgcompany.lfgaxiecompanionapp.app.data.lfgslprecord.LocalLfgRecordDao
+import com.lfgcompany.lfgaxiecompanionapp.app.data.pvprecord.LocalPvpRecord
+import com.lfgcompany.lfgaxiecompanionapp.app.data.pvprecord.LocalPvpRecordDao
 import com.lfgcompany.lfgaxiecompanionapp.app.data.scholardata.LocalScholarData
 import com.lfgcompany.lfgaxiecompanionapp.app.data.scholardata.ScholarDataDao
 import com.lfgcompany.lfgaxiecompanionapp.app.data.slprecord.LocalSlpRecord
@@ -19,8 +21,9 @@ import com.lfgcompany.lfgaxiecompanionapp.app.data.user.UserDao
         LocalSlpRecord::class,
         LocalScholarData::class,
         LocalLfgRecord::class,
+        LocalPvpRecord::class
     ],
-    version = 8,
+    version = 9,
     exportSchema = false
 )
 
@@ -28,6 +31,7 @@ import com.lfgcompany.lfgaxiecompanionapp.app.data.user.UserDao
 
 abstract class LFGDatabase : RoomDatabase() {
     // Get Dao
+    abstract fun getPvpRecordDao(): LocalPvpRecordDao
     abstract fun getUserDao(): UserDao
     abstract fun getScholarDataDao(): ScholarDataDao
     abstract fun getSlpRecordDao(): LocalSlpRecordDao

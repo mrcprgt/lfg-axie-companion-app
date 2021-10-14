@@ -22,7 +22,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -122,4 +123,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-perf-ktx'
 
     implementation 'com.alphamovie.library:alpha-movie:1.2.1'
+
+    //Play core
+    implementation 'com.google.android.play:core:1.10.2'
+    implementation 'com.google.android.play:core-ktx:1.8.1'
 }

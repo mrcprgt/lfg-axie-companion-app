@@ -1,21 +1,23 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.presentation.pvpbuddy
 
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.models.PvpRecord
+import com.lfgcompany.lfgaxiecompanionapp.app.domain.usecase.pvprecord.*
 import com.lfgcompany.lfgaxiecompanionapp.tools.CoroutineScopeProvider
+import com.lfgcompany.lfgaxiecompanionapp.tools.LFGException
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
-class PvpBuddyPresenter @Inject constructor(private val scopeProvider: CoroutineScopeProvider) :
-    PvpBuddyContract.Presenter {
-
+class PvpBuddyPresenter @Inject constructor(
+    private val scopeProvider: CoroutineScopeProvider,
+    private val addPvpRecordUseCase: AddPvpRecordUseCase,
+    private val getPvpRecordsUseCase: GetPvpRecordsUseCase,
+    private val getPvpRecordStatsUseCase: GetPvpRecordStatsUseCase,
+    private val calculateWinRateUseCase: CalculateWinRateUseCase,
+    private val clearPvpRecordsUseCase: ClearPvpRecordsUseCase
+) : PvpBuddyContract.Presenter {
     private var view: PvpBuddyContract.View? = null
-
-    var energy: Int = 0
-    var slpGain: Int = 0
-
-    var totalSlpEarned = 0
-
-    var wins: Int = 0
-    var draws: Int = 0
-    var loses: Int = 0
 
     override fun onViewReady(view: PvpBuddyContract.View) {
         this.view = view
@@ -24,64 +26,102 @@ class PvpBuddyPresenter @Inject constructor(private val scopeProvider: Coroutine
     }
 
     private fun setup() {
-        view?.updateEnergy(energy)
-        view?.updateSlpGain(slpGain)
-
-        view?.updateWins(wins)
-        view?.updateDraws(draws)
-        view?.updateLoses(loses)
-        view?.updateTotalSlpEarned(totalSlpEarned)
+        scopeProvider.provide().launch {
+            view?.showProgressDialog()
+            updateViews()
+            updateList()
+            view?.hideProgressDialog()
+        }
     }
 
     override fun onViewDetach() {
         this.view = null
     }
 
-
-    override fun onSavePressed(energy: Int, slpGain: Int) {
-        this.energy = energy
-        view?.updateEnergy(this.energy)
-        this.slpGain = slpGain
-        view?.updateSlpGain(this.slpGain)
-
-        view?.showToast("Values have been saved! :)")
-    }
-
-    override fun onWinsPressed() {
-        if (this.energy > 0) {
-            this.wins += 1
-            this.energy -= 1
-            this.totalSlpEarned += this.slpGain
-            view?.updateWins(this.wins)
-            view?.updateEnergy(this.energy)
-            view?.updateTotalSlpEarned(this.totalSlpEarned)
-        } else {
-            view?.showToast("You are out of energy!")
+    private suspend fun updateList() {
+        val list = getPvpRecordsUseCase.execute(Unit).pvpRecords
+        var slpEarned = 0
+        list.forEach {
+            slpEarned += it.slpEarned
         }
-
+        view?.updateTotalSlpEarned(slpEarned)
+        view?.updateList(list)
     }
 
-    override fun onDrawsPressed() {
-        if (this.energy > 0) {
-            this.draws += 1
-            this.energy -= 1
-            this.totalSlpEarned += (this.slpGain / 2)
-            view?.updateDraws(this.draws)
-            view?.updateEnergy(this.energy)
-            view?.updateTotalSlpEarned(this.totalSlpEarned)
-        } else {
-            view?.showToast("You are out of energy!")
+    override fun onClearClicked() {
+        scopeProvider.provide().launch {
+            try {
+                view?.showProgressDialog()
+                clearPvpRecordsUseCase.execute(Unit)
+                delay(1000)
+                updateViews()
+                updateList()
+                view?.hideProgressDialog()
+            } catch (e: LFGException) {
+                view?.hideProgressDialog()
+                view?.showErrorDialog(
+                    "Something wrong",
+                    e.message ?: e.localizedMessage,
+                    onOkClicked = {
+                        onClearClicked()
+                    },
+                    onDeclineClicked = {
+
+                    }
+                )
+            }
         }
     }
 
-    override fun onLosesPressed() {
-        if (this.energy > 0) {
-            this.loses += 1
-            this.energy -= 1
-            view?.updateLoses(this.loses)
-            view?.updateEnergy(this.energy)
-        } else {
-            view?.showToast("You are out of energy!")
+    private suspend fun updateViews() {
+        view?.showProgressDialog()
+        val response = getPvpRecordStatsUseCase.execute(Unit)
+        val wins = response.wins
+        val draws = response.draws
+        val lose = response.loses
+
+        val winRate = calculateWinRateUseCase.execute(Unit).winRate
+
+        view?.updateTotalMatchesPlayed(wins + draws + lose)
+        view?.updateWinRate(winRate)
+        view?.updateWins(wins)
+        view?.updateDraws(draws)
+        view?.updateLoses(lose)
+        view?.hideProgressDialog()
+    }
+
+    override fun onAddPressed(pvpResult: PvpRecord.PvpResult, slp: Int) {
+        scopeProvider.provide().launch {
+            try {
+                view?.showProgressDialog()
+                addPvpRecordUseCase.execute(
+                    AddPvpRecordUseCase.Param(
+                        PvpRecord(
+                            0,
+                            pvpResult,
+                            Date(),
+                            slp
+                        )
+                    )
+                )
+                updateList()
+                updateViews()
+                view?.dismissDialogs()
+            } catch (e: LFGException) {
+                view?.hideProgressDialog()
+                view?.showErrorDialog(
+                    "Something went wrong",
+                    e.message ?: e.localizedMessage,
+                    onOkClicked = {
+                        onAddPressed(pvpResult, slp)
+                    },
+                    onDeclineClicked = {
+
+                    }
+                )
+            }
         }
     }
+
+
 }

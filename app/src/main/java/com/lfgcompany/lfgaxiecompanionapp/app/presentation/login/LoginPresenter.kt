@@ -47,24 +47,35 @@ class LoginPresenter @Inject constructor(
         inventorySlp: Int?
     ) {
         scopeProvider.provide().launch {
-            hasError = false
-            view?.clearErrors()
-            validateRonin(ronin)
-            validateInventorySlp(inventorySlp)
-            validateShares(managerShare, scholarShare)
+            try {
+                hasError = false
+                view?.clearErrors()
+                validateRonin(ronin)
+                validateInventorySlp(inventorySlp)
+                validateShares(managerShare, scholarShare)
 
-            if (!hasError) {
-                view?.showProgressDialog("Please wait", "Saving credentials...")
-                loginUseCase.execute(
-                    LoginUseCase.Param(
-                        ronin,
-                        managerShare!!,
-                        scholarShare!!,
-                        inventorySlp!!
+                if (!hasError) {
+                    view?.showProgressDialog("Please wait", "Saving credentials...")
+                    loginUseCase.execute(
+                        LoginUseCase.Param(
+                            ronin,
+                            managerShare!!,
+                            scholarShare!!,
+                            inventorySlp!!
+                        )
                     )
-                )
+                    view?.hideProgressDialog()
+                    view?.navigateToHome()
+                }
+            } catch (e: NullPointerException) {
                 view?.hideProgressDialog()
-                view?.navigateToHome()
+                view?.showMessageDialog(
+                    "Invalid Ronin Address!",
+                    "This ronin address does not have any axies on it.\nPlease double check your input. If you're a scholar, be sure to provide your SCHOLAR ronin address not your personal address.",
+                    onOkClicked = {
+
+                    }
+                )
             }
         }
     }

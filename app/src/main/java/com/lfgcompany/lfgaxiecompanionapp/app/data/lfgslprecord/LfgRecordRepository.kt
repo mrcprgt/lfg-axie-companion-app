@@ -1,5 +1,6 @@
 package com.lfgcompany.lfgaxiecompanionapp.app.data.lfgslprecord
 
+import android.util.Log
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.lfgcompany.lfgaxiecompanionapp.app.data.lfgslprecord.LfgRecordMapper.toDomain
@@ -45,7 +46,14 @@ class LfgRecordRepository @Inject constructor(
                 )
             }
 
-            val response = service.fetch(userDao.get()!!.ronin).process().data
+            val data = HashMap<String, String>()
+            data["data"] = "10"
+            val response =
+                service.fetch(
+                    ronin = userDao.get()!!.ronin,
+                ).process().data
+
+            Log.e("asdaa", "${response?.size}")
 
             response?.map {
                 it.toDomain()
@@ -58,7 +66,6 @@ class LfgRecordRepository @Inject constructor(
     override suspend fun save(list: List<LFGSlpRecordAndGains>) {
         list.forEach {
             dao.save(it.toLocal())
-
         }
     }
 

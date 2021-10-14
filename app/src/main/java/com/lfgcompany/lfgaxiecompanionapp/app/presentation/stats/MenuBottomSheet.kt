@@ -35,6 +35,14 @@ class MenuBottomSheet : BottomSheetDialogFragment() {
         binding.btnChangeSetting.setOnClickWithDelay {
             listener?.onChangeTrackingClick()
         }
+
+        binding.btnFeedback.setOnClickWithDelay {
+            listener?.onFeedBackClicked()
+        }
+
+        binding.tvNeedHelp.setOnClickWithDelay {
+            listener?.onNeedHelpClicked()
+        }
     }
 
     private fun setListener(listener: MenuBottomSheetListener) {
@@ -51,6 +59,8 @@ class MenuBottomSheet : BottomSheetDialogFragment() {
 }
 
 interface MenuBottomSheetListener {
+    fun onFeedBackClicked()
+    fun onNeedHelpClicked()
     fun onLogoutClicked()
     fun onChangeTrackingClick()
 }

@@ -2,6 +2,7 @@ package com.lfgcompany.lfgaxiecompanionapp.app.presentation.slprecord
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -78,6 +79,10 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View,
         })
     }
 
+    override fun showToday(today: Int) {
+        binding.tvTodaySlp.text = "$today"
+    }
+
     override fun showDaily(daily: Int) {
         binding.tvDailyAverage.text = daily.toString()
     }
@@ -103,6 +108,7 @@ class SlpRecordFragment : LFGFragment(), SlpRecordContract.View,
     }
 
     override fun appendList(slpRecords: List<LFGSlpRecordAndGains>) {
+        Log.e("slp", slpRecords.toString())
         adapter.updateDataSet(slpRecords.map {
             LfgSlpRecordFlexiItem(
                 it
