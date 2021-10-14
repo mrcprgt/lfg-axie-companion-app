@@ -50,10 +50,10 @@ class LfgSlpRecordFlexiItem(val slpRecord: LFGSlpRecordAndGains) : BaseFlexibleI
             holder.slp.setOnClickWithDelay {
                 if (isTotal) {
                     holder.slp.text = slpRecord.gains.toString()
-                    isTotal = true
+                    isTotal = false
                 } else {
                     holder.slp.text = slpRecord.total.toString()
-                    isTotal = false
+                    isTotal = true
                 }
 
             }
